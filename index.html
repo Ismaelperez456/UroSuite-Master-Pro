@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>UroSuite Master Pro | EAU • AUA • SAU • Campbell & Quirófano</title>
 
-  <!-- META-TAGS PARA PANTALLA COMPLETA NATIVA EN CELULAR (PWA) -->
   <meta name="theme-color" content="#0284c7">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -37,6 +36,7 @@
       --badge-gold-t: #92400e;
       --tag-drive: #107c41;
       --tag-ppt: #d24726;
+      --tag-img: #0284c7;
       
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
       --radius: 14px;
@@ -70,7 +70,6 @@
     }
     .live-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
 
-    /* Botón de Pantalla Completa */
     .btn-fullscreen {
       background: rgba(255, 255, 255, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -312,6 +311,7 @@
     .btn-primary { background: #eff6ff; color: var(--brand); border-color: #bfdbfe; }
     .btn-drive { background: #f0fdf4; color: var(--tag-drive); border-color: #bbf7d0; font-weight: 700; }
     .btn-ppt { background: #fff5f2; color: var(--tag-ppt); border-color: #fed7cc; font-weight: 700; }
+    .btn-img { background: #f0fdf4; color: var(--tag-img); border-color: #bbf7d0; font-weight: 700; }
     .btn-purple { background: var(--badge-proj); color: var(--badge-proj-t); border-color: #ddd6fe; }
 
     .note-input, .note-area {
@@ -439,7 +439,7 @@
         </button>
       </div>
     </div>
-    <p style="font-size:0.8rem; opacity:0.85;">Póster a Case Report • Desglose PowerPoint • Síntesis Drive • Cirugías</p>
+    <p style="font-size:0.8rem; opacity:0.85;">Póster a Case Report • Desglose PowerPoint • Síntesis Drive • Imágenes Médicas</p>
   </header>
 
   <div class="container">
@@ -463,7 +463,7 @@
       </a>
     </div>
 
-    <!-- TAB 1: BUSCADOR -->
+    <!-- TAB 1: BUSCADOR CON IMÁGENES INTEGRADAS -->
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
@@ -491,9 +491,9 @@
       <div id="resultadosContainer">
         <div class="card" style="text-align:center; padding: 34px 20px;">
           <p style="font-size: 1.8rem; margin-bottom: 8px;">📑</p>
-          <h3 style="font-size: 0.95rem; margin-bottom: 4px;">Buscador y Sintetizador de Papers</h3>
+          <h3 style="font-size: 0.95rem; margin-bottom: 4px;">Buscador, Sintetizador & Imágenes Médicas</h3>
           <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 440px; margin: 0 auto;">
-            Buscá cualquier patología o insumo. Podés generar la síntesis en español, el desglose para diapositivas o copiarlo directo a tus apuntes de Google Drive.
+            Cada búsqueda incluye acceso instantáneo a tomografías, ecografías y esquemas visuales para armar tus presentaciones y ateneos.
           </p>
         </div>
       </div>
@@ -513,7 +513,7 @@
           <li><strong>Introducción:</strong> Marco teórico y estado del arte citando EAU/AUA/Campbell.</li>
           <li><strong>Presentación del Caso (Guía CARE):</strong> Cuadro clínico, laboratorio, Uro-TC, intervención (catéter Fr/cm) y evolución.</li>
           <li><strong>Discusión:</strong> Comparación con los casos reportados en los últimos 5 a 10 años.</li>
-          <li><strong>Aspectos Éticos:</strong> Aprobación de Comité de Bioética y Consentimiento Informado firmado.</li>
+          <li><strong>Aspectos Éticos:</strong> Aprobación de Comité de Ética y Consentimiento Informado firmado.</li>
         </ol>
         <div class="btn-row">
           <button class="btn-act btn-purple" onclick="copiarPlantillaCaseReport()">📋 Copiar Estructura para Publicar</button>
@@ -604,7 +604,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Endourología</span>
           <h3>RTU de Vejiga (RTUV)</h3>
-          <p>Obtención de detrusor muscular, manejo del nervio obturador y hemostasia.</p>
+          <p>Obtención de detrusor muscular, manejo del nervio obturador y prevención de perforación.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -711,7 +711,6 @@
   </nav>
 
   <script>
-    // FUNCIÓN DE PANTALLA COMPLETA (PC Y MÓVIL)
     function alternarPantallaCompleta() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(() => {
@@ -1092,6 +1091,7 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
           const year = p.pubYear || "";
           const authors = p.authorString || "Autores internacionales";
           const journalUrl = `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
+          const queryImagen = encodeURIComponent(`${p.title} urology ct scan ultrasound`);
 
           html += `
             <div class="card">
@@ -1107,8 +1107,9 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
               <div class="btn-row">
                 <button class="btn-act btn-primary" onclick="traducirSintetizado('abs-${i}')">⚡ Sintetizar en Español</button>
                 <button class="btn-act btn-drive" onclick="copiarParaDrive('${p.title.replace(/'/g, "\\'")}', '${authors.replace(/'/g, "\\'")}', '${journal}', '${year}', 'abs-${i}')">📋 Copiar para Drive</button>
-                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', 'abs-${i}')">📊 Guión Diapositivas PPT</button>
-                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Paper Oficial ↗</a>
+                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', 'abs-${i}')">📊 Guión PPT</button>
+                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & TC</a>
+                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Paper ↗</a>
               </div>
             </div>
           `;
