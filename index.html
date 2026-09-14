@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | EAU • AUA • SAU • Campbell & Quirófano</title>
+  <title>UroSuite Master Pro | EAU • AUA • Campbell • Quirófano & Calculadoras</title>
 
   <meta name="theme-color" content="#0284c7">
   <meta name="mobile-web-app-capable" content="yes">
@@ -314,7 +314,7 @@
     .btn-img { background: #f0fdf4; color: var(--tag-img); border-color: #bbf7d0; font-weight: 700; }
     .btn-purple { background: var(--badge-proj); color: var(--badge-proj-t); border-color: #ddd6fe; }
 
-    .note-input, .note-area {
+    .note-input, .note-area, .calc-select {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid var(--border);
@@ -412,6 +412,7 @@
 
   <div id="toast">Copiado para Google Drive</div>
 
+  <!-- MODAL QUIRÚRGICO -->
   <div id="modalSurg" class="modal-overlay" onclick="cerrarModal(event)">
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <div class="modal-header">
@@ -439,7 +440,7 @@
         </button>
       </div>
     </div>
-    <p style="font-size:0.8rem; opacity:0.85;">Póster a Case Report • Desglose PowerPoint • Síntesis Drive • Imágenes Médicas</p>
+    <p style="font-size:0.8rem; opacity:0.85;">Póster a Case Report • Calculadoras Clínicas • Síntesis Drive • Imágenes</p>
   </header>
 
   <div class="container">
@@ -463,7 +464,7 @@
       </a>
     </div>
 
-    <!-- TAB 1: BUSCADOR CON IMÁGENES INTEGRADAS -->
+    <!-- TAB 1: BUSCADOR MUNDIAL -->
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
@@ -499,21 +500,21 @@
       </div>
     </div>
 
-    <!-- TAB 2: PROYECTOS -->
+    <!-- TAB 2: PROYECTOS & PÓSTER A PAPER -->
     <div id="tab-cuaderno" class="tab-content">
       <div class="card">
         <span class="badge badge-proj">Publicación Científica</span>
         <h3>Conversor de Póster de Congreso a "Case Report" Publicable</h3>
         <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">
-          Estructura requerida por comités de ética y revistas indexadas (Urology Case Reports / BMC Urology) para someter a publicación un caso o experiencia de catéter ureteral:
+          Estructura requerida por comités de ética y revistas indexadas (Urology Case Reports / BMC Urology):
         </p>
         <ol>
-          <li><strong>Título Informativo:</strong> Debe incluir el término "Case Report" y la entidad urológica exacta.</li>
-          <li><strong>Resumen Estructurado (Abstract):</strong> Introducción, Presentación del Caso y Mensaje Clave (&lt; 250 palabras).</li>
+          <li><strong>Título Informativo:</strong> Incluir "Case Report" y la entidad urológica exacta.</li>
+          <li><strong>Resumen Estructurado (Abstract):</strong> Introducción, Presentación del Caso y Conclusión (&lt; 250 palabras).</li>
           <li><strong>Introducción:</strong> Marco teórico y estado del arte citando EAU/AUA/Campbell.</li>
           <li><strong>Presentación del Caso (Guía CARE):</strong> Cuadro clínico, laboratorio, Uro-TC, intervención (catéter Fr/cm) y evolución.</li>
           <li><strong>Discusión:</strong> Comparación con los casos reportados en los últimos 5 a 10 años.</li>
-          <li><strong>Aspectos Éticos:</strong> Aprobación de Comité de Ética y Consentimiento Informado firmado.</li>
+          <li><strong>Aspectos Éticos:</strong> Aprobación de Comité de Ética y Consentimiento Informado.</li>
         </ol>
         <div class="btn-row">
           <button class="btn-act btn-purple" onclick="copiarPlantillaCaseReport()">📋 Copiar Estructura para Publicar</button>
@@ -524,12 +525,12 @@
         <span class="badge badge-gold">Herramienta para Presentaciones</span>
         <h3>Desglose Estructurado para Diapositivas (PowerPoint)</h3>
         <ul>
-          <li><strong>Diapositiva 1 (Carátula):</strong> Título, Residente expositor, Servicio de Urología, Hospital.</li>
-          <li><strong>Diapositiva 2 (Caso Clínico / Problema):</strong> Motivo de consulta, antecedentes y examen físico.</li>
-          <li><strong>Diapositiva 3 (Imágenes & TC):</strong> Tomografía / Radioscopía con flechas y mediciones precisas.</li>
-          <li><strong>Diapositiva 4 (Resolución Quirúrgica):</strong> Técnica empleada, calibre del catéter, tiempo operatorio.</li>
-          <li><strong>Diapositiva 5 (Revisión de Guías):</strong> Recomendación de las Guías EAU, AUA y Sociedad Argentina.</li>
-          <li><strong>Diapositiva 6 (Conclusión & Perla Clínica):</strong> Conducta práctica para recordar en guardia y quirófano.</li>
+          <li><strong>Diapositiva 1 (Carátula):</strong> Título, Residente expositor, Servicio de Urología.</li>
+          <li><strong>Diapositiva 2 (Caso Clínico / Problema):</strong> Motivo de consulta y antecedentes.</li>
+          <li><strong>Diapositiva 3 (Imágenes & TC):</strong> Tomografía / Radioscopía con flechas explicativas.</li>
+          <li><strong>Diapositiva 4 (Resolución Quirúrgica):</strong> Técnica empleada y calibre del catéter.</li>
+          <li><strong>Diapositiva 5 (Revisión de Guías):</strong> Recomendación EAU, AUA y Sociedad Argentina.</li>
+          <li><strong>Diapositiva 6 (Conclusión & Perla Clínica):</strong> Take-Home Message para guardia.</li>
         </ul>
         <div class="btn-row">
           <button class="btn-act btn-ppt" onclick="copiarPlantillaPowerPoint()">📑 Copiar Guión para Diapositivas</button>
@@ -539,8 +540,8 @@
       <div class="card">
         <span class="badge badge-proj">Mi Cuaderno Privado (Memoria Local)</span>
         <h3>Anotaciones de Proyectos y Ateneos</h3>
-        <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Modificación de Póster Catéter Ureteral a Paper)">
-        <textarea id="notaCuerpo" class="note-area" placeholder="Anotaciones teóricas, dudas con médicos de planta o referencias bibliográficas..."></textarea>
+        <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Modificación de Póster a Paper)">
+        <textarea id="notaCuerpo" class="note-area" placeholder="Anotaciones teóricas, dudas con médicos de planta..."></textarea>
         <button class="btn-act btn-purple" onclick="guardarNota()">💾 Guardar en este Teléfono</button>
       </div>
 
@@ -550,15 +551,15 @@
       </div>
     </div>
 
-    <!-- TAB 3: TRATADOS -->
+    <!-- TAB 3: TRATADOS & CAMPBELL -->
     <div id="tab-tratados" class="tab-content">
       <div class="card">
         <span class="badge badge-gold">Tratados de Referencia Mundial</span>
         <h3>Los Grandes Libros de la Especialidad</h3>
         <ul>
-          <li><strong>Campbell-Walsh-Wein Urology:</strong> El tratado canónico universal. Provee la base teórica y fisiopatológica requerida para fundamentar proyectos, ateneos y conductas quirúrgicas.</li>
-          <li><strong>Smith & Tanagho's General Urology:</strong> Texto fundamental para correlato clínico rápido, semiología y diagnóstico diferencial.</li>
-          <li><strong>Hinman's Atlas of Urologic Surgery:</strong> El manual ilustrado por excelencia para tiempos operatorios, ángulos de abordaje y anatomía quirúrgica.</li>
+          <li><strong>Campbell-Walsh-Wein Urology:</strong> El tratado canónico universal. Provee la base teórica y fisiopatológica para fundamentar proyectos y ateneos.</li>
+          <li><strong>Smith & Tanagho's General Urology:</strong> Texto fundamental para correlato clínico rápido y semiología.</li>
+          <li><strong>Hinman's Atlas of Urologic Surgery:</strong> Manual ilustrado para tiempos operatorios y anatomía quirúrgica.</li>
         </ul>
       </div>
 
@@ -570,12 +571,11 @@
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines" target="_blank" class="journal-link" style="padding:8px 12px;">📘 AUA Guidelines (Estados Unidos) ↗</a>
           <a href="https://www.sau-net.org/" target="_blank" class="journal-link" style="padding:8px 12px;">📘 Sociedad Argentina de Urología (SAU) ↗</a>
           <a href="https://www.aeu.es/" target="_blank" class="journal-link" style="padding:8px 12px;">📘 Asociación Española de Urología (AEU) ↗</a>
-          <a href="https://urologiachile.cl/" target="_blank" class="journal-link" style="padding:8px 12px;">📘 Sociedad Chilena de Urología (SCHU) ↗</a>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: CIRUGÍAS -->
+    <!-- TAB 4: ATLAS QUIRÚRGICO -->
     <div id="tab-cirugias" class="tab-content">
       <div style="margin-bottom: 14px;">
         <h3 style="font-size:1.1rem; color:var(--text); font-weight:800;">Atlas Quirúrgico Escalonado</h3>
@@ -586,7 +586,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R1 • Guardia Escrotal</span>
           <h3>Exploración & Orquidopexia por Torsión</h3>
-          <p>Tiempos de isquemia, técnica de fijación en 3 puntos y orquidopexia contralateral.</p>
+          <p>Tiempos de isquemia, fijación en 3 puntos y orquidopexia contralateral.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -595,7 +595,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R1 • Cirugía Menor</span>
           <h3>Circuncisión & Plastia de Frenillo</h3>
-          <p>Técnica de manga (sleeve) vs. dorsal slit, hemostasia y puntos de sutura.</p>
+          <p>Técnica de manga (sleeve) vs. dorsal slit y puntos de sutura.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -604,7 +604,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Endourología</span>
           <h3>RTU de Vejiga (RTUV)</h3>
-          <p>Obtención de detrusor muscular, manejo del nervio obturador y prevención de perforación.</p>
+          <p>Obtención de detrusor muscular y manejo del nervio obturador.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -613,7 +613,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Endourología</span>
           <h3>RTU de Próstata (RTUP)</h3>
-          <p>Reparo del veru montanum, canal a hora 12 y preservación del esfínter.</p>
+          <p>Reparo del veru montanum y canal a hora 12.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -622,7 +622,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Litiasis</span>
           <h3>Ureteroscopía Semirrígida & Flexible (URS)</h3>
-          <p>Acceso ureteral, dusting vs. fragmentación láser y canastilla Dormia.</p>
+          <p>Acceso ureteral, dusting láser y canastilla Dormia.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -631,7 +631,7 @@
         <div class="surg-info">
           <span class="badge badge-onco">Nivel R3 • Laparoscopía</span>
           <h3>Nefrectomía Radical Laparoscópica</h3>
-          <p>Trócares, línea de Toldt y ligadura precoz de arteria renal antes de la vena.</p>
+          <p>Trócares, línea de Toldt y ligadura precoz de arteria renal.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -646,12 +646,14 @@
       </div>
     </div>
 
-    <!-- TAB 5: ESCALAS -->
+    <!-- TAB 5: CALCULADORAS & ESCALAS CLÍNICAS -->
     <div id="tab-escalas" class="tab-content">
+      
+      <!-- Calculadora Doble J -->
       <div class="card">
         <span class="badge badge-surg">Insumos Quirúrgicos</span>
         <h3>Calculadora de Catéter Doble J</h3>
-        <select id="selectAltura" class="note-input" style="margin-top:6px;" onchange="calcularStent()">
+        <select id="selectAltura" class="calc-select" onchange="calcularStent()">
           <option value="">Seleccionar talla del paciente...</option>
           <option value="baja">&lt; 1.55 m (Baja estatura)</option>
           <option value="media">1.55 m a 1.75 m (Estatura media)</option>
@@ -660,9 +662,38 @@
         <div id="resStent" style="display:none; background:#eff6ff; border-left:4px solid var(--brand); padding:10px; border-radius:6px; font-size:0.85rem; color:var(--brand-dark); margin-top:8px;"></div>
       </div>
 
+      <!-- Escala Clavien-Dindo -->
+      <div class="card">
+        <span class="badge badge-proj">Complicaciones Postoperatorias</span>
+        <h3>Escala de Clavien-Dindo</h3>
+        <div class="table-box">
+          <table>
+            <tr><th>Grado</th><th>Definición Clínica</th></tr>
+            <tr><td><strong>Grado I</strong></td><td>Cualquier desviación del curso normal sin tratamiento farmacológico o quirúrgico (se permiten antieméticos, antipiréticos, analgésicos, diuréticos, fisioterapia).</td></tr>
+            <tr><td><strong>Grado II</strong></td><td>Requiere tratamiento farmacológico con drogas distintas a las permitidas para Grado I (incluye transfusiones y nutrición parenteral).</td></tr>
+            <tr><td><strong>Grado III</strong></td><td>Requiere intervención quirúrgica, endoscópica o radiológica (IIIa: sin anestesia general; IIIb: con anestesia general).</td></tr>
+            <tr><td><strong>Grado IV</strong></td><td>Complicación que pone en riesgo la vida del paciente (incluye falla de órgano única o multiorgánica). Requiere UTI.</td></tr>
+            <tr><td><strong>Grado V</strong></td><td>Muerte del paciente.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Score IPSS (Próstata) -->
+      <div class="card">
+        <span class="badge badge-onco">Urología Funcional & HPB</span>
+        <h3>Score IPSS (International Prostate Symptom Score)</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">Evaluación rápida de síntomas urinarios obstructivos e irritativos (Escala de 0 a 35):</p>
+        <ul style="font-size:0.84rem; line-height:1.6;">
+          <li><strong>Leve (1 a 7 puntos):</strong> Conducta expectante y control clínico periódico.</li>
+          <li><strong>Moderado (8 a 19 puntos):</strong> Considerar tratamiento médico (Alfa-bloqueantes / Inhibidores de 5-alfa reductasa).</li>
+          <li><strong>Severo (20 a 35 puntos):</strong> Evaluación para tratamiento quirúrgico (RTUP / Láser / enucleación).</li>
+        </ul>
+      </div>
+
+      <!-- Clasificación Bosniak -->
       <div class="card">
         <span class="badge badge-onco">Oncología Renal</span>
-        <h3>Clasificación Bosniak (Quistes por TC)</h3>
+        <h3>Clasificación Bosniak (Quistes Renales por TC)</h3>
         <div class="table-box">
           <table>
             <tr><th>Grado</th><th>Criterio Tomográfico</th><th>Conducta</th></tr>
@@ -674,6 +705,7 @@
           </table>
         </div>
       </div>
+
     </div>
 
     <footer class="disclaimer-footer">
@@ -682,7 +714,7 @@
         <span class="legal-badge">Open Access & Ciencia Abierta</span>
         <span class="legal-badge">NCBI / Europe PMC Certified API</span>
       </div>
-      <p><strong>Aviso Legal y de Consulta Médica:</strong> Esta plataforma es una herramienta de asistencia formativa, soporte bibliográfico y docencia para la residencia de urología. Los datos bibliográficos y resúmenes son provistos en tiempo real mediante las APIs públicas de <em>Europe PMC</em> y la <em>National Library of Medicine (NCBI/PubMed)</em> bajo políticas internacionales de Ciencia Abierta. La aplicación no vulnera barreras de pago de publicaciones científicas ni almacena propiedad intelectual de terceros. Las decisiones diagnósticas, indicaciones farmacológicas y conductas quirúrgicas corresponden siempre y de manera exclusiva al juicio clínico del médico tratante y a las normativas del servicio hospitalario correspondiente.</p>
+      <p><strong>Aviso Legal y de Consulta Médica:</strong> Esta plataforma es una herramienta de asistencia formativa, soporte bibliográfico y docencia para la residencia de urología[cite: 1]. Los datos bibliográficos y resúmenes son provistos en tiempo real mediante las APIs públicas de <em>Europe PMC</em> y la <em>National Library of Medicine (NCBI/PubMed)</em> bajo políticas internacionales de Ciencia Abierta[cite: 1]. La aplicación no vulnera barreras de pago de publicaciones científicas ni almacena propiedad intelectual de terceros[cite: 1]. Las decisiones diagnósticas, indicaciones farmacológicas y conductas quirúrgicas corresponden siempre y de manera exclusiva al juicio clínico del médico tratante y a las normativas del servicio hospitalario correspondiente[cite: 1].</p>
     </footer>
 
   </div>
@@ -1107,7 +1139,7 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
               <div class="btn-row">
                 <button class="btn-act btn-primary" onclick="traducirSintetizado('abs-${i}')">⚡ Sintetizar en Español</button>
                 <button class="btn-act btn-drive" onclick="copiarParaDrive('${p.title.replace(/'/g, "\\'")}', '${authors.replace(/'/g, "\\'")}', '${journal}', '${year}', 'abs-${i}')">📋 Copiar para Drive</button>
-                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', 'abs-${i}')">📊 Guión PPT</button>
+                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', '${abs.replace(/'/g, "\\'")}')">📊 Guión PPT</button>
                 <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & TC</a>
                 <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Paper ↗</a>
               </div>
