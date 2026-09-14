@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | Investigación, Guías & Quirófano</title>
+  <title>UroSuite Master Pro | Suite Integral de Urología</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,7 @@
       --badge-gold-t: #92400e;
       --tag-drive: #107c41;
       --tag-ppt: #d24726;
+      --tag-word: #2b579a;
       
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
       --radius: 14px;
@@ -82,9 +83,7 @@
       gap: 5px;
       transition: background 0.2s;
     }
-    .btn-fullscreen:hover {
-      background: rgba(255, 255, 255, 0.28);
-    }
+    .btn-fullscreen:hover { background: rgba(255, 255, 255, 0.28); }
 
     .live-status {
       display: inline-flex;
@@ -209,12 +208,8 @@
       gap: 16px;
     }
     @media (min-width: 900px) {
-      .results-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .grid-full-col {
-        grid-column: 1 / -1;
-      }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-full-col { grid-column: 1 / -1; }
     }
 
     .card {
@@ -345,6 +340,7 @@
     .btn-primary { background: #eff6ff; color: var(--brand); border-color: #bfdbfe; }
     .btn-drive { background: #f0fdf4; color: var(--tag-drive); border-color: #bbf7d0; font-weight: 700; }
     .btn-ppt { background: #fff5f2; color: var(--tag-ppt); border-color: #fed7cc; font-weight: 700; }
+    .btn-word { background: #eff6ff; color: var(--tag-word); border-color: #bfdbfe; font-weight: 700; }
     .btn-purple { background: var(--badge-proj); color: var(--badge-proj-t); border-color: #ddd6fe; }
 
     .note-input, .note-area {
@@ -423,7 +419,7 @@
     .dock-btn span.icon { font-size: 1.25rem; }
     .dock-btn.active { color: white; background: rgba(255, 255, 255, 0.16); }
 
-    /* AVISO TOAST CORREGIDO: Visible en el centro inferior sobre el dock */
+    /* AVISO TOAST: Ubicación inferior para no tapar nada */
     #toast {
       position: fixed;
       bottom: 85px;
@@ -479,7 +475,7 @@
         </div>
       </div>
     </div>
-    <p class="header-subtitle">Póster a Case Report • Desglose PowerPoint • Síntesis Drive • Cirugías</p>
+    <p class="header-subtitle">Póster a Case Report • Desglose PowerPoint • TNM • Clavien-Dindo • Quirófano</p>
   </header>
 
   <div class="container">
@@ -508,7 +504,7 @@
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
-          <input type="text" id="termInput" placeholder="Buscá catéter ureteral, litiasis, técnica o caso..." onkeydown="if(event.key==='Enter') ejecutarBusqueda()">
+          <input type="text" id="termInput" placeholder="Buscá catéter ureteral, litiasis, técnica, TNM o caso..." onkeydown="if(event.key==='Enter') ejecutarBusqueda()">
           <button class="btn-search" onclick="ejecutarBusqueda()">Buscar</button>
         </div>
 
@@ -540,7 +536,7 @@
       </div>
     </div>
 
-    <!-- TAB 2: PROYECTOS, PÓSTER A PAPER & ATENEOS -->
+    <!-- TAB 2: PROYECTOS, PÓSTER A PAPER, EXPORTADOR WORD & ATENEOS -->
     <div id="tab-cuaderno" class="tab-content">
       <div class="results-grid">
         
@@ -584,11 +580,17 @@
           </div>
         </div>
 
-        <!-- Cuaderno Privado LocalStorage -->
+        <!-- Cuaderno Privado con Exportador Word / Docs -->
         <div class="card grid-full-col">
-          <span class="badge badge-proj">Mi Cuaderno Privado (Memoria Local)</span>
-          <h3>Anotaciones de Proyectos y Ateneos</h3>
-          <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Modificación de Póster Catéter Ureteral a Paper)">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div>
+              <span class="badge badge-proj">Mi Cuaderno Privado</span>
+              <h3 style="margin-bottom:2px;">Anotaciones de Proyectos y Ateneos</h3>
+            </div>
+            <button class="btn-act btn-word" onclick="exportarNotasWord()">📄 Exportar a Word / Docs (.doc)</button>
+          </div>
+          
+          <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Modificación de Póster Catéter Ureteral a Paper)" style="margin-top:14px;">
           <textarea id="notaCuerpo" class="note-area" placeholder="Anotaciones teóricas, dudas con médicos de planta o referencias bibliográficas..."></textarea>
           <button class="btn-act btn-purple" onclick="guardarNota()">💾 Guardar en este Teléfono</button>
           
@@ -699,9 +701,11 @@
       </div>
     </div>
 
-    <!-- TAB 5: CALCULADORAS Y ESCALAS -->
+    <!-- TAB 5: CALCULADORAS, CLAVIEN-DINDO & TNM ONCOLÓGICO -->
     <div id="tab-escalas" class="tab-content">
       <div class="results-grid">
+        
+        <!-- Catéter Doble J -->
         <div class="card">
           <span class="badge badge-surg">Insumos Quirúrgicos</span>
           <h3>Calculadora de Catéter Doble J</h3>
@@ -714,6 +718,40 @@
           <div id="resStent" style="display:none; background:#eff6ff; border-left:4px solid var(--brand); padding:12px; border-radius:6px; font-size:0.88rem; color:var(--brand-dark); margin-top:10px;"></div>
         </div>
 
+        <!-- Clasificación Clavien-Dindo -->
+        <div class="card">
+          <span class="badge badge-proj">Ateneos de Morbimortalidad</span>
+          <h3>Score de Complicaciones Quirúrgicas (Clavien-Dindo)</h3>
+          <select id="selectClavien" class="note-input" style="margin-top:8px;" onchange="calcularClavien()">
+            <option value="">Seleccionar evento postoperatorio...</option>
+            <option value="1">Grado I: Desviación leve sin necesidad de fármacos (ej. antieméticos, analgésicos menores)</option>
+            <option value="2">Grado II: Tratamiento farmacológico (ej. antibióticos para ITU, transfusión de sangre)</option>
+            <option value="3a">Grado IIIa: Intervención quirúrgica/endoscópica sin anestesia general</option>
+            <option value="3b">Grado IIIb: Reintervención bajo anestesia general (ej. lavado por hematoma post RTU)</option>
+            <option value="4">Grado IV: Complicación con riesgo de vida / Ingreso a UTI por falla orgánica</option>
+            <option value="5">Grado V: Muerte del paciente</option>
+          </select>
+          <div id="resClavien" style="display:none; background:#f8fafc; border-left:4px solid #7c3aed; padding:12px; border-radius:6px; font-size:0.86rem; color:#334155; margin-top:10px;"></div>
+        </div>
+
+        <!-- Estadificador Rápido TNM Oncológico -->
+        <div class="card">
+          <span class="badge badge-onco">Uro-Oncología</span>
+          <h3>Estadificador Rápido TNM (Cáncer Renal & Vejiga)</h3>
+          <select id="selectTNM" class="note-input" style="margin-top:8px;" onchange="calcularTNM()">
+            <option value="">Seleccionar tumor y estadio...</option>
+            <option value="t1a">Renal T1a: Tumor ≤ 4 cm limitado al riñón (Candidato a Nefrectomía Parcial)</option>
+            <option value="t1b">Renal T1b: Tumor > 4 cm pero ≤ 7 cm limitado al riñón</option>
+            <option value="t2">Renal T2: Tumor > 7 cm limitado al riñón</option>
+            <option value="t3a">Renal T3a: Invasión de vena renal o grasa perirrenal (dentro de Gerota)</option>
+            <option value="ta">Vejiga Ta: Carcinoma papilar no invasivo (Mucosa respetada)</option>
+            <option value="t1_vejiga">Vejiga T1: Tumor que invade lámina propia / submucosa</option>
+            <option value="t2_vejiga">Vejiga T2: Tumor que invade la capa muscular propia (Detrusor) -> Requiere Cistectomía</option>
+          </select>
+          <div id="resTNM" style="display:none; background:#fdf2f8; border-left:4px solid #db2777; padding:12px; border-radius:6px; font-size:0.86rem; color:#9d174d; margin-top:10px;"></div>
+        </div>
+
+        <!-- Bosniak -->
         <div class="card">
           <span class="badge badge-onco">Oncología Renal</span>
           <h3>Clasificación Bosniak (Quistes por TC)</h3>
@@ -728,6 +766,7 @@
             </table>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -1066,6 +1105,7 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
       });
     }
 
+    // Cuaderno LocalStorage
     function guardarNota() {
       const tit = document.getElementById('notaTitulo').value.trim();
       const cue = document.getElementById('notaCuerpo').value.trim();
@@ -1107,8 +1147,51 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
       `).join('');
     }
 
+    // Exportador directo a Word (.doc)
+    function exportarNotasWord() {
+      const notas = JSON.parse(localStorage.getItem('uro_notas') || '[]');
+      if (notas.length === 0) {
+        mostrarToast("No hay notas guardadas para exportar");
+        return;
+      }
+
+      let contenidoHtml = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head><meta charset='utf-8'><title>Notas Urología</title></head>
+        <body style="font-family: Calibri, sans-serif; line-height: 1.6;">
+          <h1 style="color: #0284c7; border-bottom: 2px solid #0284c7;">UroSuite Master Pro - Apuntes y Proyectos</h1>
+          <p><strong>Fecha de exportación:</strong> ${new Date().toLocaleDateString()}</p>
+          <hr/>
+      `;
+
+      notas.forEach(n => {
+        contenidoHtml += `
+          <div style="margin-bottom: 24px;">
+            <h2 style="color: #0f172a; margin-bottom: 4px;">${n.titulo}</h2>
+            <p style="color: #64748b; font-size: 11pt;"><em>Fecha de registro: ${n.fecha}</em></p>
+            <p style="white-space: pre-wrap; font-size: 11pt;">${n.cuerpo}</p>
+            <hr style="border: 0; border-top: 1px dashed #cbd5e1;"/>
+          </div>
+        `;
+      });
+
+      contenidoHtml += `</body></html>`;
+
+      const blob = new Blob(['\ufeff' + contenidoHtml], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Apuntes_Urologia_${new Date().toISOString().slice(0, 10)}.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      mostrarToast("Documento de Word generado");
+    }
+
     cargarNotas();
 
+    // Buscador en Vivo con Filtro Temporal
     async function ejecutarBusqueda() {
       const input = document.getElementById('termInput').value.trim();
       const cont = document.getElementById('resultadosContainer');
@@ -1204,6 +1287,7 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
       }
     }
 
+    // Calculadoras y Escalas
     function calcularStent() {
       const v = document.getElementById('selectAltura').value;
       const r = document.getElementById('resStent');
@@ -1212,6 +1296,41 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
       if (v === 'baja') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>24 cm</strong> (4.7 a 6 Fr). Previene irritación vesical.";
       else if (v === 'media') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>26 cm</strong> (6 Fr estándar).";
       else r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>28 cm</strong> (6 Fr). Evita migración proximal.";
+    }
+
+    function calcularClavien() {
+      const v = document.getElementById('selectClavien').value;
+      const r = document.getElementById('resClavien');
+      if (!v) { r.style.display = 'none'; return; }
+      r.style.display = 'block';
+      
+      const desc = {
+        "1": "<strong>Conducta sugerida:</strong> Control evolutivo, balance hidroelectrolítico y analgesia reglada. No requiere reporte como evento adverso mayor.",
+        "2": "<strong>Conducta sugerida:</strong> Registrar en historia clínica el esquema antimicrobiano o hemocomponentes. Evaluar cultivo de orina y hemograma de control.",
+        "3a": "<strong>Conducta sugerida:</strong> Requiere informe de procedimiento menor (ej. recolocación de catéter Doble J o drenaje percutáneo guiado por ecografía).",
+        "3b": "<strong>Conducta sugerida:</strong> Ateneo de morbimortalidad mandatorio. Auditoría de técnica de hemostasia o sellado vascular.",
+        "4": "<strong>Conducta sugerida:</strong> Pase y seguimiento conjunto con Terapia Intensiva. Soporte hemodinámico o ventilatorio invasivo.",
+        "5": "<strong>Conducta sugerida:</strong> Auditoría de mortalidad institucional y análisis de causa de óbito."
+      };
+      r.innerHTML = desc[v] || '';
+    }
+
+    function calcularTNM() {
+      const v = document.getElementById('selectTNM').value;
+      const r = document.getElementById('resTNM');
+      if (!v) { r.style.display = 'none'; return; }
+      r.style.display = 'block';
+
+      const conductas = {
+        "t1a": "<strong>Guías EAU/AUA:</strong> Tratamiento de elección: <em>Nefrectomía Parcial</em> (laparoscópica o robótica) para preservación de parénquima y función renal a largo plazo.",
+        "t1b": "<strong>Guías EAU/AUA:</strong> Nefrectomía parcial factible según complejidad anatómica (Score R.E.N.A.L.) o Nefrectomía Radical.",
+        "t2": "<strong>Guías EAU/AUA:</strong> Nefrectomía Radical (laparoscópica como gold standard si no hay invasión vascular masiva).",
+        "t3a": "<strong>Guías EAU/AUA:</strong> Nefrectomía radical con trombectomía de vena renal/cava según nivel de trombo. Evaluación oncológica estricta.",
+        "ta": "<strong>Guías EAU:</strong> Resección Transuretral de Vejiga (RTUV) completa + instilación postoperatoria inmediata de quimioterapia intravesical (Mitomicina C).",
+        "t1_vejiga": "<strong>Guías EAU:</strong> RTUV completa con detrusor obligatorio + Segunda resección (Re-RTU a las 4-6 semanas) + Inmunoterapia con BCG intravesical.",
+        "t2_vejiga": "<strong>Guías EAU/AUA:</strong> Cáncer de vejiga músculo-infiltrante. Conducta: Quimioterapia neoadyuvante basada en Cisplatino + Cistectomía Radical con linfadenectomía pelviana bilateral extendida."
+      };
+      r.innerHTML = conductas[v] || '';
     }
   </script>
 </body>
