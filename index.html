@@ -38,7 +38,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 110px; line-height: 1.5; min-height: 100vh; }
 
-    /* Header adaptable */
     header {
       background: var(--brand-gradient);
       color: white;
@@ -100,7 +99,6 @@
     }
     .live-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
 
-    /* Contenedor Full-Width para PC y Celular */
     .container { 
       width: 100%; 
       max-width: 1400px; 
@@ -112,7 +110,6 @@
     .tab-content.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Barra Superior de Sociedades Médicas */
     .soc-bar {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -138,7 +135,6 @@
     .soc-item:hover { border-color: var(--brand); background: #f0f9ff; transform: translateY(-1px); }
     .soc-item span { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
 
-    /* Panel de Búsqueda */
     .search-panel {
       background: var(--surface);
       border-radius: var(--radius);
@@ -207,7 +203,6 @@
     .pill.active { background: var(--text); color: white; border-color: var(--text); }
     .pill-year.active { background: var(--brand); border-color: var(--brand); color: white; }
 
-    /* Grilla de Resultados en PC / Lista en Móvil */
     .results-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -222,7 +217,6 @@
       }
     }
 
-    /* Tarjetas de Contenido */
     .card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -250,7 +244,6 @@
     .card p, .card li { font-size: 0.88rem; color: #334155; line-height: 1.6; }
     .card ul, .card ol { padding-left: 20px; margin-top: 6px; }
 
-    /* Tarjetas Quirúrgicas Clickeables */
     .card-surg-item {
       background: var(--surface);
       border-radius: var(--radius);
@@ -273,7 +266,6 @@
     .surg-info p { font-size: 0.84rem; color: var(--text-muted); }
     .surg-arrow { font-size: 1.3rem; color: var(--brand); font-weight: 800; }
 
-    /* Modal */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -304,7 +296,6 @@
     .modal-section p, .modal-section li { font-size: 0.9rem; color: #334155; line-height: 1.65; }
     .modal-section ol, .modal-section ul { padding-left: 20px; }
 
-    /* Abstracts y Botones de Acción */
     .abstract-box {
       background: #f8fafc;
       border-left: 3.5px solid var(--brand);
@@ -356,7 +347,6 @@
     .btn-ppt { background: #fff5f2; color: var(--tag-ppt); border-color: #fed7cc; font-weight: 700; }
     .btn-purple { background: var(--badge-proj); color: var(--badge-proj-t); border-color: #ddd6fe; }
 
-    /* Formularios y Tablas */
     .note-input, .note-area {
       width: 100%;
       padding: 12px 14px;
@@ -376,7 +366,6 @@
     td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; }
     tr:last-child td { border-bottom: none; }
 
-    /* Footer Legal */
     .disclaimer-footer {
       background: #ffffff;
       border: 1px solid var(--border);
@@ -399,7 +388,6 @@
       border: 1px solid var(--border);
     }
 
-    /* Barra Inferior Flotante */
     .dock-nav {
       position: fixed;
       bottom: 20px;
@@ -435,23 +423,29 @@
     .dock-btn span.icon { font-size: 1.25rem; }
     .dock-btn.active { color: white; background: rgba(255, 255, 255, 0.16); }
 
-    /* Toast */
+    /* AVISO TOAST CORREGIDO: Visible en el centro inferior sobre el dock */
     #toast {
       position: fixed;
-      top: 24px;
+      bottom: 85px;
       left: 50%;
-      transform: translateX(-50%) translateY(-60px);
+      transform: translateX(-50%) translateY(30px);
+      opacity: 0;
+      pointer-events: none;
       background: #0f172a;
       color: white;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       font-weight: 600;
       padding: 12px 24px;
       border-radius: 30px;
-      box-shadow: var(--shadow);
-      z-index: 4000;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 5000;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    #toast.show { transform: translateX(-50%) translateY(0); }
+    #toast.show { 
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -797,8 +791,6 @@
       }
     });
 
-    // PANTALLA COMPLETA AUTOMÁTICA EN LA PRIMERA INTERACCIÓN
-    // (Los navegadores modernos de PC y Android exigen un primer clic/toque del usuario por políticas de seguridad)
     let yaActivoFullscreen = false;
     document.addEventListener('click', () => {
       if (!yaActivoFullscreen && !document.fullscreenElement) {
@@ -1013,7 +1005,6 @@
       setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    // Copiar para Google Drive
     function copiarParaDrive(titulo, autores, revista, anio, elemId) {
       const primerAutor = autores ? autores.split(',')[0].trim() : 'Autor';
       const cita = `${primerAutor} et al. ${titulo}. ${revista}. ${anio}.`;
@@ -1022,11 +1013,10 @@
       const textoCompleto = `📌 APUNTE / CASO DE UROLOGÍA (PARA DRIVE)\nCITA (Vancouver): ${cita}\n\nSÍNTESIS ESTRUCTURADA:\n${resumenTexto}\n`;
       
       navigator.clipboard.writeText(textoCompleto).then(() => {
-        mostrarToast("Copiado en formato limpio para Google Drive");
+        mostrarToast("Copiado para Google Drive");
       });
     }
 
-    // Generar Guión Diapositiva para PowerPoint
     function generarGuionPPT(titulo, elemId) {
       const resumenTexto = document.getElementById(elemId).innerText;
       const guion = `📊 ESTRUCTURA PARA DIAPOSITIVAS (POWERPOINT)\nTEMA: ${titulo}\n\n• DIAPOSITIVA 1 (TÍTULO): ${titulo}\n• DIAPOSITIVA 2 (ANTECEDENTES / GUÍAS): Síntesis de recomendaciones EAU / AUA.\n• DIAPOSITIVA 3 (CASO / EVIDENCIA): ${resumenTexto.slice(0, 250)}...\n• DIAPOSITIVA 4 (DISCUSIÓN Y CONDUCTA): Comparación con Campbell y consensos vigentes.\n• DIAPOSITIVA 5 (CONCLUSIÓN): Aplicación práctica en quirófano o sala.`;
@@ -1076,7 +1066,6 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
       });
     }
 
-    // Cuaderno LocalStorage
     function guardarNota() {
       const tit = document.getElementById('notaTitulo').value.trim();
       const cue = document.getElementById('notaCuerpo').value.trim();
@@ -1120,7 +1109,6 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
 
     cargarNotas();
 
-    // Buscador en Vivo con Filtro Temporal
     async function ejecutarBusqueda() {
       const input = document.getElementById('termInput').value.trim();
       const cont = document.getElementById('resultadosContainer');
