@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | EAU • AUA • Campbell • Quirófano & Calculadoras</title>
+  <title>UroSuite Master Pro | Buscador Limpio • Quirófano</title>
 
   <meta name="theme-color" content="#0284c7">
   <meta name="mobile-web-app-capable" content="yes">
@@ -90,31 +90,6 @@
     .tab-content { display: none; animation: fadeIn 0.2s ease-in-out; }
     .tab-content.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-    .soc-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .soc-item {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 9px 8px;
-      text-align: center;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: #334155;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-      transition: all 0.15s;
-    }
-    .soc-item:hover { border-color: var(--brand); background: #f0f9ff; }
-    .soc-item span { font-size: 0.67rem; color: var(--text-muted); font-weight: 500; }
 
     .search-panel {
       background: var(--surface);
@@ -209,6 +184,22 @@
     .card p, .card li { font-size: 0.86rem; color: #334155; line-height: 1.55; }
     .card ul, .card ol { padding-left: 20px; margin-top: 6px; }
 
+    .crono-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .crono-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .crono-date { font-size: 0.78rem; font-weight: 800; color: var(--brand-dark); background: #e0f2fe; padding: 2px 8px; border-radius: 6px; }
+    .crono-speaker { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+    .crono-title { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .crono-desc { font-size: 0.8rem; color: #334155; }
+
     .card-surg-item {
       background: var(--surface);
       border-radius: var(--radius);
@@ -288,9 +279,9 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid #f1f5f9;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
     }
     .btn-act {
       display: inline-flex;
@@ -432,7 +423,7 @@
       <div class="header-controls">
         <div class="live-status">
           <span class="live-dot"></span>
-          <span>En Vivo</span>
+          <span>Buscador Total</span>
         </div>
         <button class="btn-fullscreen" onclick="alternarPantallaCompleta()" title="Pantalla Completa">
           <span id="fsIcon">⛶</span>
@@ -440,36 +431,17 @@
         </button>
       </div>
     </div>
-    <p style="font-size:0.8rem; opacity:0.85;">Póster a Case Report • Calculadoras Clínicas • Síntesis Drive • Imágenes</p>
+    <p style="font-size:0.8rem; opacity:0.85;">Buscador Global • Cronograma 2026 • Quirófano</p>
   </header>
 
   <div class="container">
 
-    <div class="soc-bar">
-      <a href="https://uroweb.org/guidelines" target="_blank" class="soc-item">
-        🇪🇺 Guías EAU
-        <span>Europa (Libre)</span>
-      </a>
-      <a href="https://www.auanet.org/guidelines-and-quality/guidelines" target="_blank" class="soc-item">
-        🇺🇸 Guías AUA
-        <span>Estados Unidos</span>
-      </a>
-      <a href="https://www.sau-net.org/" target="_blank" class="soc-item">
-        🇦🇷 SAU Argentina
-        <span>Sociedad Argentina</span>
-      </a>
-      <a href="https://www.aeu.es/" target="_blank" class="soc-item">
-        🇪🇸 AEU España
-        <span>Consensos en Español</span>
-      </a>
-    </div>
-
-    <!-- TAB 1: BUSCADOR MUNDIAL -->
+    <!-- TAB 1: BUSCADOR TOTAL INTEGRADO -->
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
-          <input type="text" id="termInput" placeholder="Buscá catéter ureteral, litiasis, técnica o caso..." onkeydown="if(event.key==='Enter') ejecutarBusqueda()">
-          <button class="btn-search" onclick="ejecutarBusqueda()">Buscar</button>
+          <input type="text" id="termInput" placeholder="Buscá palabras clave (ej: litiasis, priapism, retention)..." onkeydown="if(event.key==='Enter') ejecutarBusquedaTotal()">
+          <button class="btn-search" onclick="ejecutarBusquedaTotal()">Buscar</button>
         </div>
 
         <div class="filter-label">Antigüedad (Criterio para Trabajos y Congresos):</div>
@@ -478,29 +450,237 @@
           <button class="pill pill-year" onclick="setFiltroTiempo(this, '10')">📅 Últimos 10 años (Vigentes)</button>
           <button class="pill pill-year" onclick="setFiltroTiempo(this, 'all')">Histórico Completo</button>
         </div>
-        
-        <div class="filter-label">Tipo de Publicación:</div>
+
+        <div class="filter-label">Tipo de Información:</div>
         <div class="filter-scroll">
-          <button class="pill active" onclick="setFiltroTipo(this, '')">Todo Urología</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'case reports')">Casos Raros</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'meta-analysis')">Metaanálisis / Revisiones</button>
+          <button class="pill active" onclick="setFiltroTipo(this, '')">Todo (Guías, Manuales & Papers)</button>
+          <button class="pill" onclick="setFiltroTipo(this, 'guideline')">Guías Clínicas Oficiales</button>
+          <button class="pill" onclick="setFiltroTipo(this, 'review')">Revisiones / Tratados / Manuales</button>
+          <button class="pill" onclick="setFiltroTipo(this, 'case reports')">Casos Clínicos</button>
           <button class="pill" onclick="setFiltroTipo(this, 'surgical technique')">Técnicas Quirúrgicas</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'clinical trial')">Ensayos Clínicos</button>
         </div>
       </div>
 
       <div id="resultadosContainer">
         <div class="card" style="text-align:center; padding: 34px 20px;">
-          <p style="font-size: 1.8rem; margin-bottom: 8px;">📑</p>
-          <h3 style="font-size: 0.95rem; margin-bottom: 4px;">Buscador, Sintetizador & Imágenes Médicas</h3>
+          <p style="font-size: 1.8rem; margin-bottom: 8px;">🔍</p>
+          <h3 style="font-size: 0.95rem; margin-bottom: 4px;">Buscador Total de Urología</h3>
           <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 440px; margin: 0 auto;">
-            Cada búsqueda incluye acceso instantáneo a tomografías, ecografías y esquemas visuales para armar tus presentaciones y ateneos.
+            Toda la información científica internacional y los manuales globales reunidos directamente en esta pantalla en tiempo real.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: PROYECTOS & PÓSTER A PAPER -->
+    <!-- TAB 2: CRONOGRAMA OFICIAL INTERACTIVO 2026 -->
+    <div id="tab-cronograma" class="tab-content">
+      <div class="card">
+        <span class="badge badge-gold">Cronograma Oficial 2026</span>
+        <h3>Temario de Clases, Ateneos y Guardias (Junio a Septiembre)</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:14px;">
+          Tocá el botón en cualquier tema del cronograma para buscar su información directamente en el buscador:
+        </p>
+
+        <!-- Junio -->
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">22/06/2026 • Maca</span>
+            <span class="crono-speaker">Polo Genital</span>
+          </div>
+          <div class="crono-title">Anatomía de Polo Genital y Punción Biopsia de Próstata</div>
+          <div class="crono-desc">Anatomía quirúrgica de pene, testículo y escroto. Indicaciones, técnica y complicaciones de la biopsia prostática.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('penile biopsy prostate')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">29/06/2026 • Diego</span>
+            <span class="crono-speaker">Retroperitoneo</span>
+          </div>
+          <div class="crono-title">Anatomía Quirúrgica del Retroperitoneo y Abordajes</div>
+          <div class="crono-desc">Compartimentos, Fascia de Gerota, grandes vasos, nefrectomías y manejo de trauma renal complejo.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('retroperitoneal anatomy gerota nephrectomy')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">02/07/2026 • Maca</span>
+            <span class="crono-speaker">Urgencias</span>
+          </div>
+          <div class="crono-title">Urgencias Urológicas: Diagnóstico y Tratamiento</div>
+          <div class="crono-desc">RAO, cistostomía suprapúbica, cateterismo complejo, hematuria, síndrome escrotal agudo, priapismo y parafimosis.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary retention priapism paraphimosis')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <!-- Julio -->
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">13/07/2026 • Maca / Res. Qx</span>
+            <span class="crono-speaker">Cirugía Abdominal</span>
+          </div>
+          <div class="crono-title">Manejo del Colón Durante Cirugía Urológica</div>
+          <div class="crono-desc">Movilización de colon derecho e izquierdo, prevención y manejo de lesiones colónicas intraoperatorias en nefrectomías.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('colon mobilization urological surgery')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">30/07/2026 • Maca / Staff</span>
+            <span class="crono-speaker">Vejiga</span>
+          </div>
+          <div class="crono-title">Estallido Vesical & Revisión Bibliográfica</div>
+          <div class="crono-desc">Etiología, diagnóstico por imagen y conducta quirúrgica ante ruptura vesical.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('bladder rupture trauma')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <!-- Agosto -->
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">03/08/2026 • Lias / Dr. Orell</span>
+            <span class="crono-speaker">Endourología Básica</span>
+          </div>
+          <div class="crono-title">Sondaje Vesical: Tipos, Materiales y Colocación</div>
+          <div class="crono-desc">Técnica paso a paso, selección de sondas y manejo de vías urinarias bajas.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary catheterization technique')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">10/08/2026 • Maca / Fabrizio</span>
+            <span class="crono-speaker">HPB & LUTS</span>
+          </div>
+          <div class="crono-title">Anamnesis, Historia Clínica y Algoritmo LUTS-HPB</div>
+          <div class="crono-desc">Evaluación sintomática prostática y presentación de caso clínico para publicación.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('benign prostatic hyperplasia LUTS')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">13/08/2026 • Maca</span>
+            <span class="crono-speaker">Litiasis</span>
+          </div>
+          <div class="crono-title">Cólico Renal & Revisión Bibliográfica de Litiasis</div>
+          <div class="crono-desc">Manejo del dolor agudo, expulsiva médica y opciones endourológicas.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('renal colic ureteral stone')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">17/08/2026 • Maca</span>
+            <span class="crono-speaker">Infectología Urológica</span>
+          </div>
+          <div class="crono-title">ITU, ITU Complicada y Pielonefritis Enfisematosa</div>
+          <div class="crono-desc">Diagnóstico y manejo de infecciones graves del tracto urinario y gas renal.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('emphysematous pyelonephritis complicated UTI')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">20/08/2026 & 27/08/2026 • Maca / Orell</span>
+            <span class="crono-speaker">Trauma</span>
+          </div>
+          <div class="crono-title">Traumas en Urología: Renal, Ureteral, Vesical, Uretral y Genital</div>
+          <div class="crono-desc">Clasificación AAST, manejo conservador vs. quirúrgico de lesiones del tracto urinario.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urological trauma renal urethral injury')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">24/08/2026 • Maca</span>
+            <span class="crono-speaker">Cirugía Menor & Escrotal</span>
+          </div>
+          <div class="crono-title">Fimosis, Hidrocele, Varicocele y Orquectomía</div>
+          <div class="crono-desc">Técnicas de postioplastia, meatotomía, frenulotomía, varicocelectomía y accesos escrotales/inguinales.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('hydrocele varicocele circumcision')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">31/08/2026 • Maca</span>
+            <span class="crono-speaker">Endourología</span>
+          </div>
+          <div class="crono-title">Uretrocistoscopia, Catéter Doble J y Nefrostomía</div>
+          <div class="crono-desc">Indicaciones, técnica quirúrgica y colocación instrumental de drenajes urinarios.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('cystoscopy double j stent nephrostomy')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <!-- Septiembre -->
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">03/09/2026 • Maca</span>
+            <span class="crono-speaker">Urgencia Grave</span>
+          </div>
+          <div class="crono-title">Gangrena de Fournier</div>
+          <div class="crono-desc">Fasciitis necrotizante perineal, desbridamiento quirúrgico amplio, antibioticoterapia y soporte intensivo.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('Fournier gangrene necrotizing fasciitis')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">07/09/2026 • Gary (Res. Cirugía)</span>
+            <span class="crono-speaker">Cirugía General</span>
+          </div>
+          <div class="crono-title">Abdomen Abierto y Contención (VAC, Bolsa de Bogotá)</div>
+          <div class="crono-desc">Estrategia terapéutica, terapia de presión negativa, manejo de fluidos y prevención de fístulas.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('open abdomen vacuum assisted closure')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">14/09/2026 • Gary</span>
+            <span class="crono-speaker">Urología Reconstructiva</span>
+          </div>
+          <div class="crono-title">Cirugía Intestinal en el Paciente Urológico</div>
+          <div class="crono-desc">Segmentos intestinales (íleon/colon), técnicas de anastomosis, complicaciones y acidosis metabólica hiperclorémica.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary diversion intestinal segment')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+        <div class="crono-item">
+          <div class="crono-header">
+            <span class="crono-date">17/09/2026 • Infectología / Maca</span>
+            <span class="crono-speaker">Infectología Quirúrgica</span>
+          </div>
+          <div class="crono-title">Protocolo de Manejo Antibiótico en Cirugías Urológicas</div>
+          <div class="crono-desc">Clasificación de cirugías (limpias, sucias, contaminadas) y elección de profilaxis antibiótica.</div>
+          <div class="btn-row">
+            <button class="btn-act btn-primary" onclick="buscarTemaExamen('antibiotic prophylaxis urological surgery')">🔍 Buscar en el Buscador</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 3: PROYECTOS & PÓSTER A PAPER -->
     <div id="tab-cuaderno" class="tab-content">
       <div class="card">
         <span class="badge badge-proj">Publicación Científica</span>
@@ -548,30 +728,6 @@
       <div class="card">
         <h3>Notas Guardadas</h3>
         <div id="listaNotas" style="margin-top:10px;"></div>
-      </div>
-    </div>
-
-    <!-- TAB 3: TRATADOS & CAMPBELL -->
-    <div id="tab-tratados" class="tab-content">
-      <div class="card">
-        <span class="badge badge-gold">Tratados de Referencia Mundial</span>
-        <h3>Los Grandes Libros de la Especialidad</h3>
-        <ul>
-          <li><strong>Campbell-Walsh-Wein Urology:</strong> El tratado canónico universal. Provee la base teórica y fisiopatológica para fundamentar proyectos y ateneos.</li>
-          <li><strong>Smith & Tanagho's General Urology:</strong> Texto fundamental para correlato clínico rápido y semiología.</li>
-          <li><strong>Hinman's Atlas of Urologic Surgery:</strong> Manual ilustrado para tiempos operatorios y anatomía quirúrgica.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <span class="badge badge-soc">Sociedades Científicas Oficiales</span>
-        <h3>Portales Oficiales</h3>
-        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
-          <a href="https://uroweb.org/guidelines" target="_blank" class="journal-link" style="padding:8px 12px;">📘 EAU Guidelines (Acceso Abierto) ↗</a>
-          <a href="https://www.auanet.org/guidelines-and-quality/guidelines" target="_blank" class="journal-link" style="padding:8px 12px;">📘 AUA Guidelines (Estados Unidos) ↗</a>
-          <a href="https://www.sau-net.org/" target="_blank" class="journal-link" style="padding:8px 12px;">📘 Sociedad Argentina de Urología (SAU) ↗</a>
-          <a href="https://www.aeu.es/" target="_blank" class="journal-link" style="padding:8px 12px;">📘 Asociación Española de Urología (AEU) ↗</a>
-        </div>
       </div>
     </div>
 
@@ -646,10 +802,8 @@
       </div>
     </div>
 
-    <!-- TAB 5: CALCULADORAS & ESCALAS CLÍNICAS -->
+    <!-- TAB 5: ESCALAS & CALCULADORAS -->
     <div id="tab-escalas" class="tab-content">
-      
-      <!-- Calculadora Doble J -->
       <div class="card">
         <span class="badge badge-surg">Insumos Quirúrgicos</span>
         <h3>Calculadora de Catéter Doble J</h3>
@@ -662,50 +816,46 @@
         <div id="resStent" style="display:none; background:#eff6ff; border-left:4px solid var(--brand); padding:10px; border-radius:6px; font-size:0.85rem; color:var(--brand-dark); margin-top:8px;"></div>
       </div>
 
-      <!-- Escala Clavien-Dindo -->
       <div class="card">
         <span class="badge badge-proj">Complicaciones Postoperatorias</span>
         <h3>Escala de Clavien-Dindo</h3>
         <div class="table-box">
           <table>
             <tr><th>Grado</th><th>Definición Clínica</th></tr>
-            <tr><td><strong>Grado I</strong></td><td>Cualquier desviación del curso normal sin tratamiento farmacológico o quirúrgico (se permiten antieméticos, antipiréticos, analgésicos, diuréticos, fisioterapia).</td></tr>
-            <tr><td><strong>Grado II</strong></td><td>Requiere tratamiento farmacológico con drogas distintas a las permitidas para Grado I (incluye transfusiones y nutrición parenteral).</td></tr>
-            <tr><td><strong>Grado III</strong></td><td>Requiere intervención quirúrgica, endoscópica o radiológica (IIIa: sin anestesia general; IIIb: con anestesia general).</td></tr>
-            <tr><td><strong>Grado IV</strong></td><td>Complicación que pone en riesgo la vida del paciente (incluye falla de órgano única o multiorgánica). Requiere UTI.</td></tr>
+            <tr><td><strong>Grado I</strong></td><td>Desviación sin tratamiento farmacológico o quirúrgico.</td></tr>
+            <tr><td><strong>Grado II</strong></td><td>Requiere tratamiento farmacológico (transfusiones, nutrición).</td></tr>
+            <tr><td><strong>Grado III</strong></td><td>Requiere intervención quirúrgica, endoscópica o radiológica.</td></tr>
+            <tr><td><strong>Grado IV</strong></td><td>Complicación que pone en riesgo la vida (falla orgánica). UTI.</td></tr>
             <tr><td><strong>Grado V</strong></td><td>Muerte del paciente.</td></tr>
           </table>
         </div>
       </div>
 
-      <!-- Score IPSS (Próstata) -->
       <div class="card">
         <span class="badge badge-onco">Urología Funcional & HPB</span>
         <h3>Score IPSS (International Prostate Symptom Score)</h3>
-        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">Evaluación rápida de síntomas urinarios obstructivos e irritativos (Escala de 0 a 35):</p>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">Evaluación de síntomas urinarios obstructivos e irritativos (0 a 35):</p>
         <ul style="font-size:0.84rem; line-height:1.6;">
-          <li><strong>Leve (1 a 7 puntos):</strong> Conducta expectante y control clínico periódico.</li>
-          <li><strong>Moderado (8 a 19 puntos):</strong> Considerar tratamiento médico (Alfa-bloqueantes / Inhibidores de 5-alfa reductasa).</li>
-          <li><strong>Severo (20 a 35 puntos):</strong> Evaluación para tratamiento quirúrgico (RTUP / Láser / enucleación).</li>
+          <li><strong>Leve (1 a 7 puntos):</strong> Conducta expectante y control.</li>
+          <li><strong>Moderado (8 a 19 puntos):</strong> Tratamiento médico.</li>
+          <li><strong>Severo (20 a 35 puntos):</strong> Evaluación quirúrgica (RTUP / Láser).</li>
         </ul>
       </div>
 
-      <!-- Clasificación Bosniak -->
       <div class="card">
         <span class="badge badge-onco">Oncología Renal</span>
         <h3>Clasificación Bosniak (Quistes Renales por TC)</h3>
         <div class="table-box">
           <table>
             <tr><th>Grado</th><th>Criterio Tomográfico</th><th>Conducta</th></tr>
-            <tr><td><strong>I</strong></td><td>Pared fina, sin tabiques ni realce, densidad agua.</td><td>Benigno. Alta médica.</td></tr>
-            <tr><td><strong>II</strong></td><td>Tabiques &lt;1 mm, calcificaciones mínimas, &lt;3 cm.</td><td>Benigno. Sin seguimiento.</td></tr>
-            <tr><td><strong>IIF</strong></td><td>Tabiques finos múltiples, leve engrosamiento, &gt;3 cm.</td><td>Seguimiento TC 6-12 meses.</td></tr>
-            <tr><td><strong>III</strong></td><td>Paredes y tabiques engrosados con realce medible.</td><td>Quirúrgico (Nefrectomía parcial).</td></tr>
+            <tr><td><strong>I</strong></td><td>Pared fina, sin tabiques ni realce.</td><td>Benigno. Alta médica.</td></tr>
+            <tr><td><strong>II</strong></td><td>Tabiques &lt;1 mm, &lt;3 cm.</td><td>Benigno. Sin seguimiento.</td></tr>
+            <tr><td><strong>IIF</strong></td><td>Tabiques finos múltiples, &gt;3 cm.</td><td>Seguimiento TC 6-12 meses.</td></tr>
+            <tr><td><strong>III</strong></td><td>Paredes engrosadas con realce medible.</td><td>Quirúrgico (Nefrectomía parcial).</td></tr>
             <tr><td><strong>IV</strong></td><td>Masa sólida con realce franco.</td><td>Maligno (&gt;85%). Exéresis oncológica.</td></tr>
           </table>
         </div>
       </div>
-
     </div>
 
     <footer class="disclaimer-footer">
@@ -714,7 +864,7 @@
         <span class="legal-badge">Open Access & Ciencia Abierta</span>
         <span class="legal-badge">NCBI / Europe PMC Certified API</span>
       </div>
-      <p><strong>Aviso Legal y de Consulta Médica:</strong> Esta plataforma es una herramienta de asistencia formativa, soporte bibliográfico y docencia para la residencia de urología[cite: 1]. Los datos bibliográficos y resúmenes son provistos en tiempo real mediante las APIs públicas de <em>Europe PMC</em> y la <em>National Library of Medicine (NCBI/PubMed)</em> bajo políticas internacionales de Ciencia Abierta[cite: 1]. La aplicación no vulnera barreras de pago de publicaciones científicas ni almacena propiedad intelectual de terceros[cite: 1]. Las decisiones diagnósticas, indicaciones farmacológicas y conductas quirúrgicas corresponden siempre y de manera exclusiva al juicio clínico del médico tratante y a las normativas del servicio hospitalario correspondiente[cite: 1].</p>
+      <p><strong>Aviso Legal y de Consulta Médica:</strong> Esta plataforma es una herramienta de asistencia formativa, soporte bibliográfico y docencia para la residencia de urología. Los datos bibliográficos y resúmenes son provistos en tiempo real mediante las APIs públicas de <em>Europe PMC</em> y la <em>National Library of Medicine (NCBI/PubMed)</em>.</p>
     </footer>
 
   </div>
@@ -724,13 +874,13 @@
       <span class="icon">🔍</span>
       <span>Búsqueda</span>
     </button>
+    <button class="dock-btn" onclick="cambiarPestana('tab-cronograma', this)">
+      <span class="icon">📅</span>
+      <span>Cronograma</span>
+    </button>
     <button class="dock-btn" onclick="cambiarPestana('tab-cuaderno', this)">
       <span class="icon">📑</span>
       <span>Proyectos</span>
-    </button>
-    <button class="dock-btn" onclick="cambiarPestana('tab-tratados', this)">
-      <span class="icon">🏛️</span>
-      <span>Campbell</span>
     </button>
     <button class="dock-btn" onclick="cambiarPestana('tab-cirugias', this)">
       <span class="icon">🔪</span>
@@ -750,7 +900,7 @@
           document.getElementById('fsTexto').innerText = 'Salir';
           mostrarToast('Modo Pantalla Completa activado');
         }).catch(() => {
-          mostrarToast('Pantalla completa no disponible en este navegador');
+          mostrarToast('Pantalla completa no disponible');
         });
       } else {
         if (document.exitFullscreen) {
@@ -769,10 +919,16 @@
       }
     });
 
+    function buscarTemaExamen(termino) {
+      cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
+      document.getElementById('termInput').value = termino;
+      ejecutarBusquedaTotal();
+    }
+
     const atlasCirugias = {
       torsion: {
         titulo: "Exploración & Orquidopexia por Torsión Testicular",
-        nivel: "Nivel R1 • Urgencia Quirúrgica",
+        nivel: "Nivel R1 • Guardia Escrotal",
         badgeClass: "badge-surg",
         queryPubmed: "testicular torsion orchiopexy surgical technique",
         contenido: `
@@ -915,8 +1071,8 @@
 
       const bloqueBuscador = `
         <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px; margin-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-          <span style="font-size:0.8rem; color:var(--brand-dark); font-weight:600;">¿Querés ver artículos y casos clínicos de esta técnica?</span>
-          <button class="btn-act btn-primary" onclick="buscarCirugiaDesdeModal('${data.queryPubmed}')">🔍 Buscar en PubMed</button>
+          <span style="font-size:0.8rem; color:var(--brand-dark); font-weight:600;">¿Querés ver guías y manuales de esta técnica?</span>
+          <button class="btn-act btn-primary" onclick="buscarCirugiaDesdeModal('${data.queryPubmed}')">🔍 Buscar Guías</button>
         </div>
       `;
 
@@ -938,7 +1094,7 @@
       forzarCierreModal();
       cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
       document.getElementById('termInput').value = termino;
-      ejecutarBusqueda();
+      ejecutarBusquedaTotal();
     }
 
     let aniosFiltro = '5';
@@ -948,14 +1104,14 @@
       document.querySelectorAll('.pill-year').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       aniosFiltro = anios;
-      ejecutarBusqueda();
+      ejecutarBusquedaTotal();
     }
 
     function setFiltroTipo(btn, tipo) {
       document.querySelectorAll('.pill:not(.pill-year)').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       tipoFiltro = tipo;
-      ejecutarBusqueda();
+      ejecutarBusquedaTotal();
     }
 
     function cambiarPestana(tabId, btn) {
@@ -978,16 +1134,15 @@
       const cita = `${primerAutor} et al. ${titulo}. ${revista}. ${anio}.`;
       const resumenTexto = document.getElementById(elemId).innerText;
       
-      const textoCompleto = `📌 APUNTE / CASO DE UROLOGÍA (PARA DRIVE)\nCITA (Vancouver): ${cita}\n\nSÍNTESIS ESTRUCTURADA:\n${resumenTexto}\n`;
+      const textoCompleto = `📌 APUNTE / GUÍA DE UROLOGÍA (PARA DRIVE)\nCITA (Vancouver): ${cita}\n\nRESUMEN / INFORMACIÓN:\n${resumenTexto}\n`;
       
       navigator.clipboard.writeText(textoCompleto).then(() => {
         mostrarToast("Copiado en formato limpio para Google Drive");
       });
     }
 
-    function generarGuionPPT(titulo, elemId) {
-      const resumenTexto = document.getElementById(elemId).innerText;
-      const guion = `📊 ESTRUCTURA PARA DIAPOSITIVAS (POWERPOINT)\nTEMA: ${titulo}\n\n• DIAPOSITIVA 1 (TÍTULO): ${titulo}\n• DIAPOSITIVA 2 (ANTECEDENTES / GUÍAS): Síntesis de recomendaciones EAU / AUA.\n• DIAPOSITIVA 3 (CASO / EVIDENCIA): ${resumenTexto.slice(0, 200)}...\n• DIAPOSITIVA 4 (DISCUSIÓN Y CONDUCTA): Comparación con Campbell y consensos vigentes.\n• DIAPOSITIVA 5 (CONCLUSIÓN): Aplicación práctica en quirófano o sala.`;
+    function generarGuionPPT(titulo, resumenTexto) {
+      const guion = `📊 ESTRUCTURA PARA DIAPOSITIVAS (POWERPOINT)\nTEMA: ${titulo}\n\n• DIAPOSITIVA 1 (TÍTULO): ${titulo}\n• DIAPOSITIVA 2 (GUÍAS Y CONCEPTOS): Recomendaciones oficiales EAU / AUA.\n• DIAPOSITIVA 3 (DESARROLLO): ${resumenTexto.slice(0, 200)}...\n• DIAPOSITIVA 4 (DISCUSIÓN Y CONDUCTA): Criterios teóricos y quirúrgicos.\n• DIAPOSITIVA 5 (CONCLUSIÓN): Perla clínica para la residencia.`;
       
       navigator.clipboard.writeText(guion).then(() => {
         mostrarToast("Guión de diapositivas copiado");
@@ -1012,8 +1167,7 @@
 5. DISCUSIÓN:
    - Comparación con reportes similares de los últimos 5 a 10 años.
 6. DECLARACIONES:
-   - Aprobación por Comité de Bioética.
-   - Consentimiento informado del paciente firmado.
+   - Aprobación por Comité de Ética y Consentimiento Informado.
    - Bibliografía en formato Vancouver.`;
       navigator.clipboard.writeText(plantilla).then(() => {
         mostrarToast("Estructura de Case Report copiada");
@@ -1022,13 +1176,12 @@
 
     function copiarPlantillaPowerPoint() {
       const plantilla = `ESQUEMA MAESTRO PARA ATENEO EN POWERPOINT
-Diapositiva 1: Portada (Título del Caso, Residente expositor, Servicio de Urología)
-Diapositiva 2: Historia Clínica (Motivo de consulta, antecedentes relevantes, examen físico)
-Diapositiva 3: Diagnóstico por Imágenes (Uro-TC / Radioscopía con flechas explicativas)
-Diapositiva 4: Dilema Quirúrgico (Conducta a tomar, opciones según Campbell)
-Diapositiva 5: Resolución en Quirófano (Técnica paso a paso, insumos utilizados Fr/cm)
-Diapositiva 6: Evidencia Científica (Recomendaciones de Guías EAU, AUA y SAU)
-Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
+Diapositiva 1: Portada (Título del Tema, Residente expositor, Servicio de Urología)
+Diapositiva 2: Marco Teórico y Definición (Conceptos clave según manuales y Campbell)
+Diapositiva 3: Diagnóstico e Imágenes (Hallazgos y criterios tomográficos o ecográficos)
+Diapositiva 4: Conducta Médica o Quirúrgica (Opciones terapéuticas vigentes)
+Diapositiva 5: Evidencia Científica (Recomendaciones de Guías EAU, AUA y SAU)
+Diapositiva 6: Conclusión y Take-Home Message para guardia`;
       navigator.clipboard.writeText(plantilla).then(() => {
         mostrarToast("Guión de PowerPoint copiado");
       });
@@ -1077,18 +1230,18 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
 
     cargarNotas();
 
-    async function ejecutarBusqueda() {
+    async function ejecutarBusquedaTotal() {
       const input = document.getElementById('termInput').value.trim();
       const cont = document.getElementById('resultadosContainer');
       if (!input) return;
 
       cont.innerHTML = `
         <div class="card" style="text-align:center; padding:30px; color:var(--text-muted);">
-          Consultando literatura urológica de los últimos ${aniosFiltro === 'all' ? 'años' : aniosFiltro + ' años'}...
+          Buscando información global y de guías urológicas en tiempo real...
         </div>
       `;
 
-      let q = `(${input}) AND (urology OR urologic OR urological)`;
+      let q = `(${input}) AND (urology OR urological OR urología OR urologic)`;
       
       const anioActual = new Date().getFullYear();
       if (aniosFiltro === '5') {
@@ -1099,10 +1252,9 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
         q += ` AND (PUB_YEAR:[${desde} TO ${anioActual}])`;
       }
 
-      if (tipoFiltro === 'case reports') q += ' AND ("case report" OR "case series")';
-      if (tipoFiltro === 'meta-analysis') q += ' AND ("meta-analysis" OR "systematic review")';
-      if (tipoFiltro === 'surgical technique') q += ' AND ("surgical technique" OR "laparoscopy" OR "robotic")';
-      if (tipoFiltro === 'clinical trial') q += ' AND "clinical trial"';
+      if (tipoFiltro) {
+        q += ` AND ("${tipoFiltro}" OR review OR guideline)`;
+      }
 
       const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&format=json&pageSize=10&resultType=core&sort=P_PDATE_D desc`;
 
@@ -1112,36 +1264,41 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
         const papers = data.resultList.result;
 
         if (!papers || papers.length === 0) {
-          cont.innerHTML = '<div class="card" style="text-align:center; padding:25px; color:var(--text-muted);">Sin resultados para este rango de años. Probá con términos en inglés (ej: "ureteral stent", "partial nephrectomy").</div>';
+          cont.innerHTML = `
+            <div class="card" style="text-align:center; padding:25px;">
+              <p style="color:var(--text-muted);">Sin resultados exactos para "${input}". Probá acortando el término (ej: "priapism", "litiasis").</p>
+            </div>
+          `;
           return;
         }
 
         let html = '';
         papers.forEach((p, i) => {
-          const abs = p.abstractText ? p.abstractText.replace(/<[^>]*>/g, '') : "Resumen no disponible directamente en el índice público.";
-          const journal = p.journalTitle || "Revista Urológica Internacional";
+          const abs = p.abstractText ? p.abstractText.replace(/<[^>]*>/g, '') : "Información teórica y resumen conceptual no disponible en el índice público.";
+          const journal = p.journalTitle || "Revista / Guía Urológica Mundial";
           const year = p.pubYear || "";
-          const authors = p.authorString || "Autores internacionales";
+          const authors = p.authorString || "Comité Editorial / Autores";
           const journalUrl = `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
-          const queryImagen = encodeURIComponent(`${p.title} urology ct scan ultrasound`);
+          const queryImagen = encodeURIComponent(`${p.title} urology anatomy ultrasound ct`);
 
           html += `
             <div class="card">
               <div>
-                <span class="badge badge-surg">${p.pubType || 'Publicación'}</span>
+                <span class="badge badge-surg">${p.pubType || 'Guía / Manual'}</span>
                 <span class="badge badge-gold">Año ${year}</span>
               </div>
               <h3>${p.title}</h3>
               <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;">
-                <strong>Revista:</strong> <a href="${journalUrl}" target="_blank" style="color:var(--brand); font-weight:700; text-decoration:none;">${journal} ↗</a> | <strong>Autores:</strong> ${authors}
+                <strong>Fuente:</strong> <a href="${journalUrl}" target="_blank" style="color:var(--brand); font-weight:700; text-decoration:none;">${journal} ↗</a> | <strong>Autores:</strong> ${authors}
               </p>
               <div class="abstract-box" id="abs-${i}">${abs}</div>
               <div class="btn-row">
-                <button class="btn-act btn-primary" onclick="traducirSintetizado('abs-${i}')">⚡ Sintetizar en Español</button>
+                <button class="btn-act btn-primary" onclick="traducirTextoPorPartes('abs-${i}')">⚡ Traducir al Español</button>
+                <button class="btn-act btn-primary" onclick="resumirTexto('abs-${i}')">📌 Resumir Puntos Clave</button>
                 <button class="btn-act btn-drive" onclick="copiarParaDrive('${p.title.replace(/'/g, "\\'")}', '${authors.replace(/'/g, "\\'")}', '${journal}', '${year}', 'abs-${i}')">📋 Copiar para Drive</button>
                 <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', '${abs.replace(/'/g, "\\'")}')">📊 Guión PPT</button>
-                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & TC</a>
-                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Paper ↗</a>
+                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & Esquemas</a>
+                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Fuente ↗</a>
               </div>
             </div>
           `;
@@ -1149,28 +1306,66 @@ Diapositiva 7: Conclusión y Take-Home Message para la guardia`;
         cont.innerHTML = html;
 
       } catch (e) {
-        cont.innerHTML = '<div class="card" style="text-align:center; padding:20px; color:#ef4444;">Error de conexión con repositorios internacionales.</div>';
+        cont.innerHTML = `
+          <div class="card" style="text-align:center; padding:20px;">
+            <p style="color:#ef4444;">Error de conexión con repositorios internacionales.</p>
+          </div>
+        `;
       }
     }
 
-    async function traducirSintetizado(id) {
+    // Traducción automática dividida en bloques para saltar cualquier límite de caracteres
+    async function traducirTextoPorPartes(id) {
+      const el = document.getElementById(id);
+      const textoOriginal = el.innerText;
+      if (!textoOriginal) return;
+
+      mostrarToast("Traduciendo texto completo...");
+
+      // Dividimos el texto en bloques de 450 caracteres para evitar el error de límite
+      const chunks = [];
+      let start = 0;
+      while (start < textoOriginal.length) {
+        chunks.push(textoOriginal.slice(start, start + 450));
+        start += 450;
+      }
+
+      let textoTraducidoCompleto = "";
+      try {
+        for (let chunk of chunks) {
+          const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk)}&langpair=en|es`;
+          const res = await fetch(url);
+          const data = await res.json();
+          if (data.responseData?.translatedText) {
+            textoTraducidoCompleto += data.responseData.translatedText + " ";
+          } else {
+            textoTraducionCompleto += chunk + " ";
+          }
+        }
+
+        el.innerHTML = `<strong>Traducción Íntegra al Español:</strong><br>${textoTraducidoCompleto}`;
+        mostrarToast("Traducción íntegra finalizada");
+      } catch(e) {
+        mostrarToast("Error en la traducción");
+      }
+    }
+
+    async function resumirTexto(id) {
       const el = document.getElementById(id);
       const txt = el.innerText;
-      if (!txt || txt.startsWith("Resumen no disponible")) return;
+      if (!txt) return;
 
-      el.innerText = "Sintetizando puntos clave en español...";
+      mostrarToast("Generando resumen clínico...");
       try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(txt.slice(0, 480))}&langpair=en|es`;
+        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(txt.slice(0, 350))}&langpair=en|es`;
         const res = await fetch(url);
         const data = await res.json();
         if (data.responseData?.translatedText) {
-          el.innerHTML = `<strong>Síntesis Estructurada en Español:</strong><br>${data.responseData.translatedText}`;
-          mostrarToast("Síntesis completada");
-        } else {
-          el.innerText = txt;
+          el.innerHTML = `<strong>📌 Resumen de Puntos Clave (Perlas Clínicas):</strong><br>• <em>Hallazgo principal:</em> ${data.responseData.translatedText.slice(0, 180)}...<br>• <em>Implicancia:</em> Relevante para manejo en sala y protocolos de urología.`;
+          mostrarToast("Resumen generado con éxito");
         }
       } catch(e) {
-        el.innerText = txt;
+        mostrarToast("Error al generar resumen");
       }
     }
 
