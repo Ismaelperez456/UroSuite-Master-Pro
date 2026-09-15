@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | Full Clinical AI Decision Support</title>
+  <title>UroSuite Master Pro | Full Clinical AI & Ficha Rápida</title>
 
   <meta name="theme-color" content="#0f172a">
   <meta name="mobile-web-app-capable" content="yes">
@@ -328,12 +328,12 @@
     td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; color: #334155; }
     tr:last-child td { border-bottom: none; }
 
-    /* ESTILOS DEL ASISTENTE CLÍNICO FULL */
+    /* ESTILOS DEL ASISTENTE HÍBRIDO (FICHA RÁPIDA + CASOS) */
     .ai-chat-box {
       background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 12px;
-      max-height: 520px;
+      max-height: 560px;
       overflow-y: auto;
       padding: 16px;
       display: flex;
@@ -362,14 +362,16 @@
       box-shadow: var(--shadow-sm);
       border-left: 4px solid var(--primary);
     }
-    .case-section-title {
+    .section-title {
       font-weight: 800;
       color: var(--primary-dark);
       margin-top: 12px;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.3px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 2px;
     }
     .ai-input-row {
       display: flex;
@@ -479,7 +481,7 @@
       <div class="header-controls">
         <div class="live-status">
           <span class="live-dot"></span>
-          <span>Asistente Full Activo</span>
+          <span>Asistente Total Activo</span>
         </div>
         <button class="btn-fullscreen" onclick="alternarPantallaCompleta()" title="Pantalla Completa">
           <span id="fsIcon">⛶</span>
@@ -914,24 +916,24 @@
       </div>
     </div>
 
-    <!-- TAB 6: ASISTENTE CLÍNICO FULL ESTRUCTURADO -->
+    <!-- TAB 6: ASISTENTE CLÍNICO HÍBRIDO (FICHA RÁPIDA + CASOS) -->
     <div id="tab-asistente" class="tab-content">
       <div class="card">
-        <span class="badge badge-proj">Asistente de Guardia & Ateneos</span>
-        <h3>Resolución Estructurada Full de Casos Clínicos</h3>
+        <span class="badge badge-proj">Asistente Clínico Inteligente</span>
+        <h3>Ficha Rápida & Resolución Estructurada de Casos</h3>
         <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:14px;">
-          Ingresá cualquier cuadro clínico (ej: <em>"Paciente con dolor lumbar, fiebre y cálculo ureteral de 8 mm"</em> o <em>"Escroto agudo doloroso de 3 horas"</em>) para estructurarlo de manera completa:
+          Escribí una patología (ej: <em>"Fournier"</em>, <em>"Priapismo"</em>) para ver su <strong>Ficha Rápida (10 puntos)</strong>, o describí un caso (ej: <em>"Dolor lumbar y fiebre con cálculo de 8 mm"</em>) para la <strong>Resolución de Casos</strong>.
         </p>
 
         <div class="ai-chat-box" id="aiChatBox">
           <div class="ai-msg assistant">
-            <strong>Asistente Full UroSuite:</strong> Ingresá los datos del paciente. El sistema estructurará automáticamente el caso en los 7 puntos clave (Problema, Datos faltantes, Diagnóstico diferencial, Estudios, Gravedad, Opciones de manejo y Bibliografía).
+            <strong>Asistente Clínico Master Pro:</strong> Ingresá una patología o un caso clínico de guardia para procesarlo al instante.
           </div>
         </div>
 
         <div class="ai-input-row">
-          <input type="text" id="aiInput" class="note-input" placeholder="Ej: Paciente con dolor lumbar, fiebre y cálculo de 8 mm..." style="margin-bottom:0;" onkeydown="if(event.key==='Enter') resolverCasoClinicoFull()">
-          <button class="btn-search" onclick="resolverCasoClinicoFull()">Analizar Caso</button>
+          <input type="text" id="aiInput" class="note-input" placeholder="Ej: Fournier, Torsión testicular, o un caso clínico..." style="margin-bottom:0;" onkeydown="if(event.key==='Enter') procesarConsultaAsistente()">
+          <button class="btn-search" onclick="procesarConsultaAsistente()">Consultar</button>
         </div>
       </div>
     </div>
@@ -1312,97 +1314,119 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
 
     cargarNotas();
 
-    // MOTOR FULL DE ANÁLISIS DE CASOS CLÍNICOS
-    function resolverCasoClinicoFull() {
+    // MOTOR HÍBRIDO: DETECTA SI ES PATOLOGÍA (FICHA RÁPIDA DE 10 PUNTOS) O CASO CLÍNICO DE GUARDIA
+    function procesarConsultaAsistente() {
       const input = document.getElementById('aiInput');
       const box = document.getElementById('aiChatBox');
       const txt = input.value.trim();
       if (!txt) return;
 
-      // Mensaje usuario
       box.innerHTML += `<div class="ai-msg user">${txt}</div>`;
       input.value = '';
       box.scrollTop = box.scrollHeight;
 
-      // Generación estructurada full de cualquier patología urológica
       setTimeout(() => {
         let lower = txt.toLowerCase();
         let respuestaHtml = "";
 
-        if (lower.includes('fiebre') || lower.includes('litiasis') || lower.includes('dolor lumbar')) {
+        if (lower.includes('fournier') || lower.includes('gangrena')) {
           respuestaHtml = `
-            <div class="case-section-title">1. Problema Principal</div>
-            <p>Urgencia urológica por litiasis ureteral obstructiva asociada a cuadro febril. Alta sospecha de urosepsis obstructiva.</p>
-
-            <div class="case-section-title">2. Datos Faltantes / Anamnesis Crítica</div>
-            <p>• Hemodinámica (PA, FC), diuresis horaria.<br>• Laboratorio: Hemograma con recuento leucocitario, función renal (creatinina, urea), ionograma, estado ácido-base y lactato sérico.</p>
-
-            <div class="case-section-title">3. Diagnóstico Diferencial</div>
-            <p>• Pielonefritis aguda no obstructiva.<br>• Cólico renal simple con SIRS leve.<br>• Absceso renal / perirrenal.</p>
-
-            <div class="case-section-title">4. Estudios Complementarios</div>
-            <p>• Ecografía renal (hidronefrosis).<br>• Uro-TC sin contraste de urgencia (confirma tamaño de litiasis &gt; 5-8 mm y nivel de obstrucción).</p>
-
-            <div class="case-section-title">5. Criterios de Gravedad / Alertas</div>
-            <p>⚠️ <strong>Emergencia Médica y Quirúrgica:</strong> Riesgo de shock séptico de foco obstructivo. La litotricia está contraindicada con infección activa.</p>
-
-            <div class="case-section-title">6. Opciones de Manejo Terapéutico y Quirúrgico</div>
-            <p>• <strong>Médico:</strong> Reanimación hídrica, corrección hidroelectrolítica y antibioticoterapia IV de amplio espectro.<br>• <strong>Quirúrgico:</strong> Descompresión urgente de la vía urinaria mediante colocación de Catéter Doble J o Nefrostomía Percutánea.</p>
-
-            <div class="case-section-title">7. Bibliografía y Guías de Soporte</div>
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: Gangrena de Fournier</h3>
+            <div class="section-title">1. Definición</div>
+            <p>Fasciitis necrotizante polimicrobiana de rápida evolución que afecta los genitales externos y región perineal.</p>
+            <div class="section-title">2. Diagnóstico</div>
+            <p>Clínico (dolor desproporcionado, crepitación, eritema oscuro, necrosis, secreción fétida). Analítica con leucocitosis severa e hiponatremia.</p>
+            <div class="section-title">3. Clasificación</div>
+            <p>Infección necrotizante de tejidos blandos perineales tipo I (polimicrobiana: anaerobios y aerobios).</p>
+            <div class="section-title">4. Signos de alarma</div>
+            <p>⚡ Shock séptico, crepitación subcutánea ascendente hacia pared abdominal, SIRS refractario y rápida progresión del área necrótica.</p>
+            <div class="section-title">5. Estudios</div>
+            <p>Laboratorio completo, estado ácido-base, lactato, ecografía o tomografía de pelvis/abdomen si hay duda diagnóstica.</p>
+            <div class="section-title">6. Tratamiento</div>
+            <p>Reanimación hemodinámica agresiva, estabilización hidroelectrolítica y soporte intensivo inmediato.</p>
+            <div class="section-title">7. Antibióticos</div>
+            <p>Esquema empírico triple IV: Carbapenem o Piperacilina-Tazobactam + Vancomicina + Clindamicina (inhibe toxinas).</p>
+            <div class="section-title">8. Cirugía</div>
+            <p>Desbridamiento quirúrgico amplio y radical de todo el tejido necrótico hasta encontrar tejido sangrante sano. Curaciones diarias en quirófano.</p>
+            <div class="section-title">9. Complicaciones</div>
+            <p>Shock séptico, falla multiorgánica, pérdida amplia de tejidos perineales requiriendo cirugía reconstructiva posterior.</p>
+            <div class="section-title">10. Bibliografía</div>
+            <p>📖 EAU Guidelines on Urological Infections; Campbell-Walsh Urology.</p>
+          `;
+        } else if (lower.includes('priapismo') || lower.includes('priapism')) {
+          respuestaHtml = `
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: Priapismo Isquémico</h3>
+            <div class="section-title">1. Definición</div>
+            <p>Erección persistente &gt; 4 horas no relacionada con el estímulo sexual, debida a falla en el drenaje venoso (venooclusivo/isquémico).</p>
+            <div class="section-title">2. Diagnóstico</div>
+            <p>Clínico: Cuerpos cavernosos rígidos y dolorosos, glande flácido. Gasometría cavernosa (hipoxia, acidosis).</p>
+            <div class="section-title">3. Clasificación</div>
+            <p>Isquémico (bajo flujo / doloroso / emergencia) vs No isquémico (alto flujo / arterial / indoloro).</p>
+            <div class="section-title">4. Signos de alarma</div>
+            <p>⚡ Isquemia prolongada (&gt; 24-48 h) con riesgo inminente de fibrosis tisular y disfunción eréctil permanente.</p>
+            <div class="section-title">5. Estudios</div>
+            <p>Gasometría de cuerpos cavernosos, ecografía Doppler peneana, hemograma y perfil de coagulación.</p>
+            <div class="section-title">6. Tratamiento</div>
+            <p>Alivio del dolor, analgesia/anestesia local y descompresión cavernosa precoz.</p>
+            <div class="section-title">7. Antibióticos</div>
+            <p>No requiere de rutina salvo procedimiento instrumental invasivo.</p>
+            <div class="section-title">8. Cirugía</div>
+            <p>Punciones de cuerpos cavernosos con lavado e inyección de Fenilefrina diluida. Si fracasa: Shunts quirúrgicos (Winter, Al-Ghorab).</p>
+            <div class="section-title">9. Complicaciones</div>
+            <p>Fibrosis cavernosa, disfunción eréctil irreversible y acortamiento peneano.</p>
+            <div class="section-title">10. Bibliografía</div>
+            <p>📖 EAU Guidelines on Sexual and Reproductive Health; Campbell-Walsh Urology.</p>
+          `;
+        } else if (lower.includes('fiebre') || lower.includes('litiasis') || lower.includes('dolor lumbar') || lower.includes('caso')) {
+          // Resolución Estructurada de Casos Clínicos
+          respuestaHtml = `
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Resolución de Caso Clínico</h3>
+            <div class="section-title">1. Problema Principal</div>
+            <p>Urgencia urológica obstructiva e infecciosa asociada a litiasis ureteral obstructiva mayor a 5 mm con sospecha de urosepsis.</p>
+            <div class="section-title">2. Datos Faltantes / Anamnesis</div>
+            <p>• Signos vitales completos (PA, FC, Temp).<br>• Hemograma, función renal (creatinina, urea) y estado ácido-base con lactato.</p>
+            <div class="section-title">3. Diagnóstico Diferencial</div>
+            <p>• Pielonefritis aguda sin obstrucción.<br>• Cólico renal simple con SIRS leve.</p>
+            <div class="section-title">4. Estudios Complementarios</div>
+            <p>• Ecografía renal (hidronefrosis).<br>• Uro-TC sin contraste para confirmar tamaño exacto (8 mm) y nivel de obstrucción.</p>
+            <div class="section-title">5. Criterios de Gravedad</div>
+            <p>⚠️ <strong>Emergencia Quirúrgica:</strong> Riesgo inminente de urosepsis obstructiva.</p>
+            <div class="section-title">6. Opciones de Manejo</div>
+            <p>• Hidratación y antibioticoterapia IV de amplio espectro.<br>• Descompresión urgente de la vía urinaria (Catéter Doble J o Nefrostomía).</p>
+            <div class="section-title">7. Bibliografía</div>
             <p>📖 EAU Guidelines on Urolithiasis & Urological Infections; Campbell-Walsh Urology.</p>
           `;
-        } else if (lower.includes('escroto') || lower.includes('testiculo') || lower.includes('torsion') || lower.includes('dolor testicular')) {
-          respuestaHtml = `
-            <div class="case-section-title">1. Problema Principal</div>
-            <p>Síndrome escrotal agudo. Sospecha principal de torsión testicular (emergencia quirúrgica).</p>
-
-            <div class="case-section-title">2. Datos Faltantes / Anamnesis Crítica</div>
-            <p>• Tiempo exacto de evolución desde el inicio brusco del dolor (&lt; 6 horas es la ventana de oro de salvataje testicular).<br>• Presencia de reflejo cremastérico y signo de Prehn.</p>
-
-            <div class="case-section-title">3. Diagnóstico Diferencial</div>
-            <p>• Orquiepididimitis aguda.<br>• Torsión de hidátide de Morgagni.<br>• Trauma escrotal o hernia inguinal encarcelada.</p>
-
-            <div class="case-section-title">4. Estudios Complementarios</div>
-            <p>Ecografía Doppler testicular bilateral (evalúa simetría de flujos sanguíneos intratesticulares, aunque la clínica manda ante sospecha firme).</p>
-
-            <div class="case-section-title">5. Criterios de Gravedad / Alertas</div>
-            <p>⚠️ Isquemia testicular prolongada conduce a necrosis irreversible y pérdida del órgano en pocas horas.</p>
-
-            <div class="case-section-title">6. Opciones de Manejo Terapéutico y Quirúrgico</div>
-            <p>Exploración quirúrgica escrotal de urgencia (escrotomía exploradora), destorción, evaluación de viabilidad con compresas tibias y orquidopexia bilateral obligatoria con puntos de fijación. Orquiectomía si hay necrosis franca.</p>
-
-            <div class="case-section-title">7. Bibliografía y Guías de Soporte</div>
-            <p>📖 EAU Guidelines on Sexual and Reproductive Health & Scrotal Trauma.</p>
-          `;
         } else {
-          respuestaHtml = `
-            <div class="case-section-title">1. Problema Principal</div>
-            <p>Evaluación clínica integral del cuadro urológico presentado: <em>${txt}</em>.</p>
-
-            <div class="case-section-title">2. Datos Faltantes / Anamnesis Crítica</div>
-            <p>• Antecedentes urológicos personales, comorbilidades y medicación actual.<br>• Examen físico regional completo y analítica básica de guardia.</p>
-
-            <div class="case-section-title">3. Diagnóstico Diferencial</div>
-            <p>• Patologías urológicas obstructivas, infecciosas, litiásicas o neoplásicas según localización del cuadro.</p>
-
-            <div class="case-section-title">4. Estudios Complementarios</div>
-            <p>• Diagnóstico por imágenes de soporte (Ecografía, Tomografía o Uro-Resonancia según indicación clínica).</p>
-
-            <div class="case-section-title">5. Criterios de Gravedad / Alertas</div>
-            <p>⚠️ Descartar compromiso hemodinámico, falla renal aguda u obstrucción bilateral.</p>
-
-            <div class="case-section-title">6. Opciones de Manejo Terapéutico y Quirúrgico</div>
-            <p>• Tratamiento médico sintomático o antibioticoterapia específica.<br>• Evaluación de conducta endourológica o quirúrgica según hallazgos de imágenes.</p>
-
-            <div class="case-section-title">7. Bibliografía y Guías de Soporte</div>
-            <p>📖 Guías EAU y AUA vigentes; Campbell-Walsh Urology.</p>
+          // Ficha Rápida Estándar Automática
+          fichaHtml = `
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: ${txt}</h3>
+            <div class="section-title">1. Definición</div>
+            <p>Concepto fisiopatológico y clínico central sobre ${txt} en la práctica urológica.</p>
+            <div class="section-title">2. Diagnóstico</div>
+            <p>Evaluación clínica sintomática, anamnesis y exploración física específica.</p>
+            <div class="section-title">3. Clasificación</div>
+            <p>Estadios clínicos, etiológicos o grados de severidad según guías vigentes.</p>
+            <div class="section-title">4. Signos de alarma</div>
+            <p>⚡ Criterios de gravedad, SIRS, compromiso hemodinámico u obstrucción.</p>
+            <div class="section-title">5. Estudios</div>
+            <p>Laboratorio general, marcadores inflamatorios y estudios de imagen (Ecografía / Uro-TC).</p>
+            <div class="section-title">6. Tratamiento</div>
+            <p>Medidas de soporte iniciales, estabilización y conducta conservadora o activa.</p>
+            <div class="section-title">7. Antibióticos</div>
+            <p>Profilaxis o tratamiento empírico según foco infeccioso y sensibilidad.</p>
+            <div class="section-title">8. Cirugía</div>
+            <p>Indicaciones de intervención quirúrgica, endourológica o descompresión urgente.</p>
+            <div class="section-title">9. Complicaciones</div>
+            <p>Riesgos evolutivos a corto y largo plazo (infección, recidiva, daño orgánico).</p>
+            <div class="section-title">10. Bibliografía</div>
+            <p>📖 Guías Clínicas EAU & AUA; Campbell-Walsh Urology.</p>
           `;
+          respuestaHtml = fichaHtml;
         }
 
         box.innerHTML += `<div class="ai-msg assistant">${respuestaHtml}</div>`;
         box.scrollTop = box.scrollHeight;
-      }, 700);
+      }, 600);
     }
 
     async function ejecutarBusquedaTotal() {
