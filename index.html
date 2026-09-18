@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | PubMed & Europe PMC Direct Search</title>
+  <title>UroSuite Master Pro | EAU • AUA • SAU • Campbell & Quirófano</title>
 
-  <meta name="theme-color" content="#0f172a">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="UroSuite">
+  <meta name="theme-color" content="#0284c7">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,43 +13,44 @@
   
   <style>
     :root {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --primary-light: #e0f2fe;
-      --slate-dark: #0f172a;
-      --slate-muted: #64748b;
-      --bg-app: #f1f5f9;
+      --brand: #0284c7;
+      --brand-dark: #0369a1;
+      --brand-gradient: linear-gradient(135deg, #0284c7 0%, #0f172a 100%);
+      --bg: #f8fafc;
       --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
       --border: #e2e8f0;
       
-      --badge-onco-bg: #fdf2f8;
-      --badge-onco-txt: #db2777;
-      --badge-surg-bg: #f0fdf4;
-      --badge-surg-txt: #16a34a;
-      --badge-proj-bg: #f5f3ff;
-      --badge-proj-txt: #7c3aed;
-      --badge-gold-bg: #fffbeb;
-      --badge-gold-txt: #d97706;
+      --badge-onco: #fce7f3;
+      --badge-onco-t: #be185d;
+      --badge-surg: #dcfce7;
+      --badge-surg-t: #15803d;
+      --badge-proj: #ede9fe;
+      --badge-proj-t: #6d28d9;
+      --badge-gold: #fef3c7;
+      --badge-gold-t: #92400e;
+      --tag-drive: #107c41;
+      --tag-ppt: #d24726;
+      --tag-img: #0284c7;
       
-      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
-      --radius: 16px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
+      --radius: 14px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
-    body { background-color: var(--bg-app); color: var(--slate-dark); padding-bottom: 120px; line-height: 1.6; min-height: 100vh; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 110px; line-height: 1.5; min-height: 100vh; }
 
     header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: var(--brand-gradient);
       color: white;
-      padding: 24px 20px 20px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-      box-shadow: var(--shadow-lg);
+      padding: 22px 18px 18px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: var(--shadow);
     }
-    .header-box { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-    .header-brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(to right, #38bdf8, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+    .header-brand { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.5px; }
     .header-controls { display: flex; align-items: center; gap: 8px; }
 
     .live-status {
@@ -61,83 +58,103 @@
       align-items: center;
       gap: 6px;
       font-size: 0.72rem;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
       border-radius: 20px;
       font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .live-dot { width: 7px; height: 7px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; }
+    .live-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
 
     .btn-fullscreen {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
       border-radius: 20px;
-      padding: 5px 12px;
+      padding: 4px 10px;
       font-size: 0.72rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
-      transition: all 0.2s ease;
+      gap: 4px;
+      transition: all 0.15s ease;
     }
-    .btn-fullscreen:hover { background: rgba(255, 255, 255, 0.25); }
+    .btn-fullscreen:hover { background: rgba(255, 255, 255, 0.3); }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
-    .tab-content { display: none; animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+    .container { max-width: 900px; margin: 0 auto; padding: 16px; }
+    .tab-content { display: none; animation: fadeIn 0.2s ease-in-out; }
     .tab-content.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .soc-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .soc-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 8px;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #334155;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      transition: all 0.15s;
+    }
+    .soc-item:hover { border-color: var(--brand); background: #f0f9ff; }
+    .soc-item span { font-size: 0.67rem; color: var(--text-muted); font-weight: 500; }
 
     .search-panel {
       background: var(--surface);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 16px;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
     }
     .search-row {
       display: flex;
       align-items: center;
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 6px 8px 6px 16px;
-      border: 2px solid var(--border);
-      transition: all 0.2s ease;
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 4px 8px 4px 14px;
+      border: 1.5px solid transparent;
+      transition: all 0.2s;
     }
     .search-row:focus-within {
       background: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
     .search-row input {
       flex: 1;
       border: none;
       background: transparent;
-      padding: 10px 4px;
-      font-size: 1rem;
-      color: var(--slate-dark);
+      padding: 10px 6px;
+      font-size: 0.95rem;
+      color: var(--text);
       outline: none;
-      font-weight: 500;
     }
     .btn-search {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: var(--brand);
       color: white;
       border: none;
-      padding: 11px 22px;
-      border-radius: 10px;
+      padding: 9px 18px;
+      border-radius: 9px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
-      box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
-      transition: all 0.2s ease;
     }
-    .btn-search:hover { opacity: 0.95; transform: translateY(-1px); }
 
-    .filter-label { font-size: 0.72rem; font-weight: 800; color: var(--slate-muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; }
+    .filter-label { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin: 10px 0 4px; }
     .filter-scroll {
       display: flex;
       gap: 8px;
@@ -148,76 +165,52 @@
     .filter-scroll::-webkit-scrollbar { display: none; }
     .pill {
       background: #f1f5f9;
-      color: var(--slate-muted);
+      color: var(--text-muted);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 7px 14px;
-      font-size: 0.76rem;
+      padding: 6px 13px;
+      font-size: 0.73rem;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s;
     }
-    .pill:hover { background: #e2e8f0; color: var(--slate-dark); }
-    .pill.active { background: var(--slate-dark); color: white; border-color: var(--slate-dark); }
-    .pill-year.active { background: var(--primary); border-color: var(--primary); color: white; }
+    .pill.active { background: var(--text); color: white; border-color: var(--text); }
+    .pill-year.active { background: var(--brand); border-color: var(--brand); color: white; }
 
     .card {
       background: var(--surface);
       border-radius: var(--radius);
-      padding: 22px;
-      margin-bottom: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
+      box-shadow: var(--shadow);
     }
-    .card:hover { box-shadow: var(--shadow-md); border-color: #cbd5e1; }
-    
     .badge {
       display: inline-block;
       font-size: 0.7rem;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 4px 9px;
       border-radius: 6px;
-      margin-bottom: 10px;
-      letter-spacing: 0.4px;
+      margin-bottom: 8px;
     }
-    .badge-surg { background: var(--badge-surg-bg); color: var(--badge-surg-txt); }
-    .badge-onco { background: var(--badge-onco-bg); color: var(--badge-onco-txt); }
-    .badge-proj { background: var(--badge-proj-bg); color: var(--badge-proj-txt); }
-    .badge-gold { background: var(--badge-gold-bg); color: var(--badge-gold-txt); }
+    .badge-onco { background: var(--badge-onco); color: var(--badge-onco-t); }
+    .badge-surg { background: var(--badge-surg); color: var(--badge-surg-t); }
+    .badge-proj { background: var(--badge-proj); color: var(--badge-proj-t); }
+    .badge-gold { background: var(--badge-gold); color: var(--badge-gold-t); }
 
-    .card h3 { font-size: 1.15rem; font-weight: 800; color: var(--slate-dark); margin-bottom: 8px; line-height: 1.4; }
-    .card h4 { font-size: 0.9rem; font-weight: 700; color: #334155; margin: 14px 0 6px; }
-    .card p, .card li { font-size: 0.88rem; color: #334155; line-height: 1.6; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .card p, .card li { font-size: 0.86rem; color: #334155; line-height: 1.55; }
     .card ul, .card ol { padding-left: 20px; margin-top: 6px; }
-
-    .crono-item {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .crono-item:hover { background: #ffffff; border-color: var(--primary); box-shadow: var(--shadow-sm); }
-    .crono-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
-    .crono-date { font-size: 0.78rem; font-weight: 800; color: var(--primary-dark); background: var(--primary-light); padding: 3px 10px; border-radius: 8px; }
-    .crono-speaker { font-size: 0.76rem; font-weight: 700; color: var(--slate-muted); }
-    .crono-title { font-size: 0.95rem; font-weight: 800; color: var(--slate-dark); }
-    .crono-desc { font-size: 0.84rem; color: var(--slate-muted); }
 
     .card-surg-item {
       background: var(--surface);
       border-radius: var(--radius);
-      padding: 18px 20px;
-      margin-bottom: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -225,26 +218,25 @@
       transition: all 0.2s ease;
     }
     .card-surg-item:hover {
-      border-color: var(--primary);
+      border-color: var(--brand);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      background: #fcfdff;
+      box-shadow: 0 6px 12px -2px rgba(2, 132, 199, 0.12);
     }
-    .surg-info h3 { font-size: 1.05rem; font-weight: 800; color: var(--slate-dark); margin-bottom: 4px; }
-    .surg-info p { font-size: 0.84rem; color: var(--slate-muted); font-weight: 500; }
-    .surg-arrow { font-size: 1.25rem; color: var(--primary); font-weight: 800; }
+    .surg-info h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .surg-info p { font-size: 0.8rem; color: var(--text-muted); }
+    .surg-arrow { font-size: 1.2rem; color: var(--brand); font-weight: 800; }
 
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(6px);
       z-index: 3000;
       display: none;
       align-items: flex-end;
       justify-content: center;
     }
-    .modal-overlay.open { display: flex; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-overlay.open { display: flex; animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
     @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
     .modal-sheet {
@@ -252,29 +244,40 @@
       width: 100%;
       max-width: 800px;
       max-height: 90vh;
-      border-top-left-radius: 28px;
-      border-top-right-radius: 28px;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
       overflow-y: auto;
-      padding: 28px 24px 48px;
-      box-shadow: 0 -20px 40px rgba(0,0,0,0.2);
+      padding: 24px 20px 40px;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
     }
-    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
-    .modal-close { background: #f1f5f9; border: none; border-radius: 50%; width: 38px; height: 38px; font-size: 1.1rem; font-weight: 800; cursor: pointer; color: var(--slate-muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-    .modal-close:hover { background: #e2e8f0; color: var(--slate-dark); }
-    .modal-section { margin-bottom: 20px; }
-    .modal-section h4 { font-size: 0.9rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .modal-section p, .modal-section li { font-size: 0.9rem; color: #334155; line-height: 1.65; }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .modal-close { background: #f1f5f9; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 1.1rem; font-weight: 700; cursor: pointer; color: var(--text-muted); }
+    .modal-section { margin-bottom: 18px; }
+    .modal-section h4 { font-size: 0.9rem; font-weight: 700; color: var(--brand-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .modal-section p, .modal-section li { font-size: 0.86rem; color: #334155; line-height: 1.6; }
     .modal-section ol, .modal-section ul { padding-left: 20px; }
 
     .abstract-box {
       background: #f8fafc;
-      border-left: 4px solid var(--primary);
-      border-radius: 0 12px 12px 0;
-      padding: 16px 18px;
-      font-size: 0.88rem;
+      border-left: 3.5px solid var(--brand);
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      font-size: 0.84rem;
       color: #1e293b;
-      margin: 14px 0;
-      line-height: 1.65;
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+    .journal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #e0f2fe;
+      color: var(--brand-dark);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
     }
 
     .btn-row {
@@ -283,191 +286,134 @@
       flex-wrap: wrap;
       margin-top: 14px;
       padding-top: 12px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #f1f5f9;
     }
     .btn-act {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #f8fafc;
-      color: var(--slate-dark);
+      color: var(--text);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 14px;
-      font-size: 0.78rem;
-      font-weight: 700;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.76rem;
+      font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s;
     }
-    .btn-act:hover { background: #f1f5f9; border-color: #cbd5e1; transform: translateY(-1px); }
-    .btn-primary { background: var(--primary-light); color: var(--primary-dark); border-color: #bae6fd; }
-    .btn-drive { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-    .btn-ppt { background: #fff5f2; color: #c2410c; border-color: #fed7cc; }
-    .btn-img { background: #f0fdf4; color: #0284c7; border-color: #bbf7d0; }
-    .btn-purple { background: var(--badge-proj-bg); color: var(--badge-proj-txt); border-color: #ddd6fe; }
+    .btn-act:hover { background: #f1f5f9; }
+    .btn-primary { background: #eff6ff; color: var(--brand); border-color: #bfdbfe; }
+    .btn-drive { background: #f0fdf4; color: var(--tag-drive); border-color: #bbf7d0; font-weight: 700; }
+    .btn-ppt { background: #fff5f2; color: var(--tag-ppt); border-color: #fed7cc; font-weight: 700; }
+    .btn-img { background: #f0fdf4; color: var(--tag-img); border-color: #bbf7d0; font-weight: 700; }
+    .btn-purple { background: var(--badge-proj); color: var(--badge-proj-t); border-color: #ddd6fe; }
 
-    .note-input, .note-area, .calc-select {
+    .note-input, .note-area {
       width: 100%;
-      padding: 12px 16px;
+      padding: 10px 12px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 0.9rem;
-      color: var(--slate-dark);
-      background: #f8fafc;
-      margin-bottom: 12px;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .note-input:focus, .note-area:focus, .calc-select:focus { background: #fff; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1); }
-    .note-area { min-height: 100px; resize: vertical; }
-
-    .table-box { width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-top: 12px; box-shadow: var(--shadow-sm); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-    th { background: #f1f5f9; color: var(--slate-muted); font-weight: 800; text-align: left; padding: 12px 16px; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.5px; }
-    td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; color: #334155; }
-    tr:last-child td { border-bottom: none; }
-
-    /* ESTILOS ASISTENTE Y FICHA RÁPIDA */
-    .ai-chat-box {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      max-height: 560px;
-      overflow-y: auto;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .ai-msg {
-      padding: 14px 16px;
-      border-radius: 12px;
+      border-radius: 10px;
       font-size: 0.88rem;
-      line-height: 1.6;
+      color: var(--text);
+      background: #f8fafc;
+      margin-bottom: 10px;
+      outline: none;
     }
-    .ai-msg.user {
-      background: var(--primary);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 2px;
-      max-width: 85%;
-    }
-    .ai-msg.assistant {
-      background: #ffffff;
-      color: var(--slate-dark);
-      align-self: stretch;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--primary);
-    }
-    .section-title {
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-top: 12px;
-      margin-bottom: 2px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      border-bottom: 1px dashed var(--border);
-      padding-bottom: 2px;
-    }
-    .ai-input-row {
-      display: flex;
-      gap: 8px;
-    }
+    .note-area { min-height: 80px; resize: vertical; }
+
+    .table-box { width: 100%; overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { background: #f1f5f9; color: var(--text-muted); font-weight: 700; text-align: left; padding: 10px 12px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; }
+    tr:last-child td { border-bottom: none; }
 
     .disclaimer-footer {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
-      margin-top: 28px;
-      font-size: 0.76rem;
-      color: var(--slate-muted);
-      line-height: 1.6;
-      box-shadow: var(--shadow-sm);
+      padding: 16px;
+      margin-top: 24px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.55;
     }
-    .disclaimer-footer strong { color: var(--slate-dark); }
-    .legal-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .disclaimer-footer strong { color: #334155; }
+    .legal-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
     .legal-badge {
-      background: #f1f5f9;
+      background: #f1f3f5;
       color: #475569;
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 4px 10px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 9px;
       border-radius: 6px;
       border: 1px solid var(--border);
     }
 
     .dock-nav {
       position: fixed;
-      bottom: 20px;
+      bottom: 16px;
       left: 16px;
       right: 16px;
-      max-width: 660px;
+      max-width: 580px;
       margin: 0 auto;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 30px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 26px;
       padding: 8px 10px;
       display: flex;
       justify-content: space-around;
-      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
       z-index: 1000;
-      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .dock-btn {
       background: none;
       border: none;
       color: #94a3b8;
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       font-weight: 700;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 3px;
       cursor: pointer;
-      padding: 6px 8px;
-      border-radius: 18px;
-      transition: all 0.2s ease;
+      padding: 6px 10px;
+      border-radius: 14px;
+      transition: all 0.2s;
     }
     .dock-btn span.icon { font-size: 1.15rem; }
-    .dock-btn:hover { color: #ffffff; }
-    .dock-btn.active { color: white; background: rgba(255, 255, 255, 0.16); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .dock-btn.active { color: white; background: rgba(255, 255, 255, 0.14); }
 
     #toast {
       position: fixed;
-      top: 24px;
+      top: 20px;
       left: 50%;
-      transform: translateX(-50%) translateY(-80px);
-      background: var(--slate-dark);
+      transform: translateX(-50%) translateY(-60px);
+      background: #0f172a;
       color: white;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 12px 24px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 10px 20px;
       border-radius: 30px;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow);
       z-index: 4000;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
 
-  <div id="toast">Copiado al portapapeles</div>
+  <div id="toast">Copiado al Portapapeles</div>
 
-  <!-- MODAL QUIRÚRGICO -->
   <div id="modalSurg" class="modal-overlay" onclick="cerrarModal(event)">
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <div class="modal-header">
         <div>
           <span id="mBadge" class="badge">Nivel Quirúrgico</span>
-          <h2 id="mTitulo" style="font-size:1.3rem; color:var(--slate-dark); font-weight:800;">Título</h2>
+          <h2 id="mTitulo" style="font-size:1.2rem; color:var(--text); font-weight:800;">Título</h2>
         </div>
         <button class="modal-close" onclick="forzarCierreModal()">✕</button>
       </div>
@@ -481,306 +427,116 @@
       <div class="header-controls">
         <div class="live-status">
           <span class="live-dot"></span>
-          <span>PubMed & Europe PMC Activo</span>
+          <span>Online / Live Feed</span>
         </div>
         <button class="btn-fullscreen" onclick="alternarPantallaCompleta()" title="Pantalla Completa">
           <span id="fsIcon">⛶</span>
-          <span id="fsTexto">Pantalla</span>
+          <span id="fsTexto">Completar</span>
         </button>
       </div>
     </div>
-    <p style="font-size:0.82rem; opacity:0.85; font-weight:500;">Plataforma Clínica de Residencia & Quirófano</p>
+    <p style="font-size:0.8rem; opacity:0.85;">Buscador Inteligente PubMed • Case Reports • Atlas Quirúrgico • Guías Mundiales</p>
   </header>
 
   <div class="container">
 
-    <!-- TAB 1: BUSCADOR GLOBAL INTERNACIONAL -->
+    <div class="soc-bar">
+      <a href="https://uroweb.org/guidelines" target="_blank" class="soc-item">
+        🇪🇺 Guías EAU
+        <span>Europa (Libre)</span>
+      </a>
+      <a href="https://www.auanet.org/guidelines-and-quality/guidelines" target="_blank" class="soc-item">
+        🇺🇸 Guías AUA
+        <span>Estados Unidos</span>
+      </a>
+      <a href="https://www.sau-net.org/" target="_blank" class="soc-item">
+        🇦🇷 SAU Argentina
+        <span>Sociedad Argentina</span>
+      </a>
+      <a href="https://www.aeu.es/" target="_blank" class="soc-item">
+        🇪🇸 AEU España
+        <span>Consensos en Español</span>
+      </a>
+    </div>
+
+    <!-- TAB 1: BUSCADOR -->
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
-          <input type="text" id="termInput" placeholder="Buscá en PubMed / Europe PMC (ej: litiasis, priapism, retention)..." onkeydown="if(event.key==='Enter') ejecutarBusquedaGlobal()">
-          <button class="btn-search" onclick="ejecutarBusquedaGlobal()">Buscar</button>
+          <input type="text" id="termInput" placeholder="Ej: ureteral stent, lithiasis, partial nephrectomy..." onkeydown="if(event.key==='Enter') ejecutarBusqueda()">
+          <button class="btn-search" onclick="ejecutarBusqueda()">Buscar</button>
         </div>
 
-        <div class="filter-label">Antigüedad (Criterio para Trabajos y Congresos):</div>
+        <div class="filter-label">Antigüedad Bibliográfica:</div>
         <div class="filter-scroll">
-          <button class="pill pill-year active" onclick="setFiltroTiempo(this, '5')">⚡ Muy Nuevos (&lt; 5 años)</button>
-          <button class="pill pill-year" onclick="setFiltroTiempo(this, '10')">📅 Últimos 10 años (Vigentes)</button>
+          <button class="pill pill-year active" onclick="setFiltroTiempo(this, '5')">⚡ Últimos 5 años</button>
+          <button class="pill pill-year" onclick="setFiltroTiempo(this, '10')">📅 Últimos 10 años</button>
           <button class="pill pill-year" onclick="setFiltroTiempo(this, 'all')">Histórico Completo</button>
         </div>
-
-        <div class="filter-label">Tipo de Información:</div>
+        
+        <div class="filter-label">Tipo de Publicación:</div>
         <div class="filter-scroll">
-          <button class="pill active" onclick="setFiltroTipo(this, '')">Todo (Guías, Manuales & Papers)</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'guideline')">Guías Clínicas Oficiales</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'review')">Revisiones / Tratados / Manuales</button>
-          <button class="pill" onclick="setFiltroTipo(this, 'case reports')">Casos Clínicos</button>
+          <button class="pill active" onclick="setFiltroTipo(this, '')">Todo Urología</button>
+          <button class="pill" onclick="setFiltroTipo(this, 'case reports')">Casos Raros</button>
+          <button class="pill" onclick="setFiltroTipo(this, 'meta-analysis')">Metaanálisis</button>
           <button class="pill" onclick="setFiltroTipo(this, 'surgical technique')">Técnicas Quirúrgicas</button>
         </div>
       </div>
 
       <div id="resultadosContainer">
-        <div class="card" style="text-align:center; padding: 44px 20px;">
-          <p style="font-size: 2.2rem; margin-bottom: 10px;">🌍</p>
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Buscador Global en Vivo (PubMed / Europe PMC)</h3>
-          <p style="font-size: 0.85rem; color: var(--slate-muted); max-width: 440px; margin: 0 auto;">
-            Consultá literatura médica internacional en tiempo real con traducción íntegra por bloques.
+        <div class="card" style="text-align:center; padding: 34px 20px;">
+          <p style="font-size: 1.8rem; margin-bottom: 8px;">🔍</p>
+          <h3 style="font-size: 0.95rem; margin-bottom: 4px;">Buscador Conectado a PubMed & Europe PMC</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 440px; margin: 0 auto;">
+            Ingresá cualquier término clínico en inglés para consultar artículos internacionales indexados en tiempo real.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: CRONOGRAMA OFICIAL INTERACTIVO 2026 -->
-    <div id="tab-cronograma" class="tab-content">
-      <div class="card">
-        <span class="badge badge-gold">Cronograma Oficial 2026</span>
-        <h3>Temario de Clases, Ateneos y Guardias (Junio a Septiembre)</h3>
-        <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:16px;">
-          Tocá cualquier tema del cronograma para buscar su información bibliográfica al instante:
-        </p>
-
-        <!-- Junio -->
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">22/06/2026 • Maca</span>
-            <span class="crono-speaker">Polo Genital</span>
-          </div>
-          <div class="crono-title">Anatomía de Polo Genital y Punción Biopsia de Próstata</div>
-          <div class="crono-desc">Anatomía quirúrgica de pene, testículo y escroto. Indicaciones, técnica y complicaciones de la biopsia prostática.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('penile biopsy prostate')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">29/06/2026 • Diego</span>
-            <span class="crono-speaker">Retroperitoneo</span>
-          </div>
-          <div class="crono-title">Anatomía Quirúrgica del Retroperitoneo y Abordajes</div>
-          <div class="crono-desc">Compartimentos, Fascia de Gerota, grandes vasos, nefrectomías y manejo de trauma renal complejo.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('retroperitoneal anatomy gerota nephrectomy')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">02/07/2026 • Maca</span>
-            <span class="crono-speaker">Urgencias</span>
-          </div>
-          <div class="crono-title">Urgencias Urológicas: Diagnóstico y Tratamiento</div>
-          <div class="crono-desc">RAO, cistostomía suprapúbica, cateterismo complejo, hematuria, síndrome escrotal agudo, priapismo y parafimosis.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary retention priapism paraphimosis')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <!-- Julio -->
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">13/07/2026 • Maca / Res. Qx</span>
-            <span class="crono-speaker">Cirugía Abdominal</span>
-          </div>
-          <div class="crono-title">Manejo del Colón Durante Cirugía Urológica</div>
-          <div class="crono-desc">Movilización de colon derecho e izquierdo, prevención y manejo de lesiones colónicas intraoperatorias en nefrectomías.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('colon mobilization urological surgery')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">30/07/2026 • Maca / Staff</span>
-            <span class="crono-speaker">Vejiga</span>
-          </div>
-          <div class="crono-title">Estallido Vesical & Revisión Bibliográfica</div>
-          <div class="crono-desc">Etiología, diagnóstico por imagen y conducta quirúrgica ante ruptura vesical.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('bladder rupture trauma')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <!-- Agosto -->
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">03/08/2026 • Lias / Dr. Orell</span>
-            <span class="crono-speaker">Endourología Básica</span>
-          </div>
-          <div class="crono-title">Sondaje Vesical: Tipos, Materiales y Colocación</div>
-          <div class="crono-desc">Técnica paso a paso, selección de sondas y manejo de vías urinarias bajas.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary catheterization technique')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">10/08/2026 • Maca / Fabrizio</span>
-            <span class="crono-speaker">HPB & LUTS</span>
-          </div>
-          <div class="crono-title">Anamnesis, Historia Clínica y Algoritmo LUTS-HPB</div>
-          <div class="crono-desc">Evaluación sintomática prostática y presentación de caso clínico para publicación.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('benign prostatic hyperplasia LUTS')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">13/08/2026 • Maca</span>
-            <span class="crono-speaker">Litiasis</span>
-          </div>
-          <div class="crono-title">Cólico Renal & Revisión Bibliográfica de Litiasis</div>
-          <div class="crono-desc">Manejo del dolor agudo, expulsiva médica y opciones endourológicas.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('renal colic ureteral stone')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">17/08/2026 • Maca</span>
-            <span class="crono-speaker">Infectología Urológica</span>
-          </div>
-          <div class="crono-title">ITU, ITU Complicada y Pielonefritis Enfisematosa</div>
-          <div class="crono-desc">Diagnóstico y manejo de infecciones graves del tracto urinario y gas renal.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('emphysematous pyelonephritis complicated UTI')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">20/08/2026 & 27/08/2026 • Maca / Orell</span>
-            <span class="crono-speaker">Trauma</span>
-          </div>
-          <div class="crono-title">Traumas en Urología: Renal, Ureteral, Vesical, Uretral y Genital</div>
-          <div class="crono-desc">Clasificación AAST, manejo conservador vs. quirúrgico de lesiones del tracto urinario.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urological trauma renal urethral injury')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">24/08/2026 • Maca</span>
-            <span class="crono-speaker">Cirugía Menor & Escrotal</span>
-          </div>
-          <div class="crono-title">Fimosis, Hidrocele, Varicocele y Orquectomía</div>
-          <div class="crono-desc">Técnicas de postioplastia, meatotomía, frenulotomía, varicocelectomía y accesos escrotales/inguinales.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('hydrocele varicocele circumcision')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">31/08/2026 • Maca</span>
-            <span class="crono-speaker">Endourología</span>
-          </div>
-          <div class="crono-title">Uretrocistoscopia, Catéter Doble J y Nefrostomía</div>
-          <div class="crono-desc">Indicaciones, técnica quirúrgica y colocación instrumental de drenajes urinarios.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('cystoscopy double j stent nephrostomy')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <!-- Septiembre -->
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">03/09/2026 • Maca</span>
-            <span class="crono-speaker">Urgencia Grave</span>
-          </div>
-          <div class="crono-title">Gangrena de Fournier</div>
-          <div class="crono-desc">Fasciitis necrotizante perineal, desbridamiento quirúrgico amplio, antibioticoterapia y soporte intensivo.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('Fournier gangrene necrotizing fasciitis')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">07/09/2026 • Gary (Res. Cirugía)</span>
-            <span class="crono-speaker">Cirugía General</span>
-          </div>
-          <div class="crono-title">Abdomen Abierto y Contención (VAC, Bolsa de Bogotá)</div>
-          <div class="crono-desc">Estrategia terapéutica, terapia de presión negativa, manejo de fluidos y prevención de fístulas.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('open abdomen vacuum assisted closure')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">14/09/2026 • Gary</span>
-            <span class="crono-speaker">Urología Reconstructiva</span>
-          </div>
-          <div class="crono-title">Cirugía Intestinal en el Paciente Urológico</div>
-          <div class="crono-desc">Segmentos intestinales (íleon/colon), técnicas de anastomosis, complicaciones y acidosis metabólica hiperclorémica.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('urinary diversion intestinal segment')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-        <div class="crono-item">
-          <div class="crono-header">
-            <span class="crono-date">17/09/2026 • Infectología / Maca</span>
-            <span class="crono-speaker">Infectología Quirúrgica</span>
-          </div>
-          <div class="crono-title">Protocolo de Manejo Antibiótico en Cirugías Urológicas</div>
-          <div class="crono-desc">Clasificación de cirugías (limpias, sucias, contaminadas) y elección de profilaxis antibiótica.</div>
-          <div class="btn-row">
-            <button class="btn-act btn-primary" onclick="buscarTemaExamen('antibiotic prophylaxis urological surgery')">🔍 Buscar en el Buscador</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TAB 3: PROYECTOS & PÓSTER A PAPER -->
+    <!-- TAB 2: PROYECTOS Y ATENEOS -->
     <div id="tab-cuaderno" class="tab-content">
       <div class="card">
         <span class="badge badge-proj">Publicación Científica</span>
-        <h3>Conversor de Póster de Congreso a "Case Report" Publicable</h3>
-        <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:12px;">
-          Estructura requerida por comités de ética y revistas indexadas (Urology Case Reports / BMC Urology):
+        <h3>Estructura de "Case Report" (Guías CARE)</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">
+          Plantilla estándar exigida por revistas científicas para someter a publicación reportes de casos urológicos:
         </p>
-        <ol style="font-size: 0.88rem; color: #334155; display: flex; flex-direction: column; gap: 6px;">
-          <li><strong>Título Informativo:</strong> Incluir "Case Report" y la entidad urológica exacta.</li>
-          <li><strong>Resumen Estructurado (Abstract):</strong> Introducción, Presentación del Caso y Conclusión (&lt; 250 palabras).</li>
-          <li><strong>Introducción:</strong> Marco teórico y estado del arte citando EAU/AUA/Campbell.</li>
-          <li><strong>Presentación del Caso (Guía CARE):</strong> Cuadro clínico, laboratorio, Uro-TC, intervención y evolución.</li>
-          <li><strong>Discusión:</strong> Comparación con los casos reportados en los últimos 5 a 10 años.</li>
-          <li><strong>Aspectos Éticos:</strong> Aprobación de Comité de Ética y Consentimiento Informado.</li>
+        <ol>
+          <li><strong>Título Informativo:</strong> Entidad y resolución.</li>
+          <li><strong>Abstract Estructurado:</strong> Introducción, Caso clínico y Conclusión (&lt;250 palabras).</li>
+          <li><strong>Introducción:</strong> Estado del arte y revisión de bibliografía EAU/AUA/Campbell.</li>
+          <li><strong>Presentación del Caso:</strong> Clínica, laboratorio, Uro-TC, tratamiento y evolución.</li>
+          <li><strong>Discusión:</strong> Comparación con la literatura de los últimos 5-10 años.</li>
+          <li><strong>Consentimiento:</strong> Aprobación ética del paciente.</li>
         </ol>
         <div class="btn-row">
-          <button class="btn-act btn-purple" onclick="copiarPlantillaCaseReport()">📋 Copiar Estructura para Publicar</button>
+          <button class="btn-act btn-purple" onclick="copiarPlantillaCaseReport()">📋 Copiar Estructura Paper</button>
         </div>
       </div>
 
       <div class="card">
-        <span class="badge badge-gold">Herramienta para Presentaciones</span>
-        <h3>Desglose Estructurado para Diapositivas (PowerPoint)</h3>
-        <ul style="font-size: 0.88rem; color: #334155; display: flex; flex-direction: column; gap: 6px;">
-          <li><strong>Diapositiva 1 (Carátula):</strong> Título, Residente expositor, Servicio de Urología.</li>
-          <li><strong>Diapositiva 2 (Caso Clínico / Problema):</strong> Motivo de consulta y antecedentes.</li>
-          <li><strong>Diapositiva 3 (Imágenes & TC):</strong> Tomografía / Radioscopía con flechas explicativas.</li>
-          <li><strong>Diapositiva 4 (Resolución Quirúrgica):</strong> Técnica empleada y calibre del catéter.</li>
-          <li><strong>Diapositiva 5 (Revisión de Guías):</strong> Recomendación EAU, AUA y Sociedad Argentina.</li>
-          <li><strong>Diapositiva 6 (Conclusión & Perla Clínica):</strong> Take-Home Message para guardia.</li>
+        <span class="badge badge-gold">Ateneos Hospitalarios</span>
+        <h3>Guión para Diapositivas (PowerPoint)</h3>
+        <ul>
+          <li><strong>Diapositiva 1:</strong> Portada y Servicio de Urología.</li>
+          <li><strong>Diapositiva 2:</strong> Motivo de consulta y Antecedentes.</li>
+          <li><strong>Diapositiva 3:</strong> Imágenes (Uro-TC / Ecografía con hallazgos).</li>
+          <li><strong>Diapositiva 4:</strong> Elección de conducta según Guías EAU/AUA.</li>
+          <li><strong>Diapositiva 5:</strong> Técnica Quirúrgica y Insumos (Fr/cm).</li>
+          <li><strong>Diapositiva 6:</strong> Conclusiones y perlas clínicas para guardia.</li>
         </ul>
         <div class="btn-row">
-          <button class="btn-act btn-ppt" onclick="copiarPlantillaPowerPoint()">📑 Guión para Diapositivas</button>
+          <button class="btn-act btn-ppt" onclick="copiarPlantillaPowerPoint()">📊 Copiar Guión PPT</button>
         </div>
       </div>
 
       <div class="card">
-        <span class="badge badge-proj">Mi Cuaderno Privado (Memoria Local)</span>
-        <h3>Anotaciones de Proyectos y Ateneos</h3>
-        <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Modificación de Póster a Paper)">
-        <textarea id="notaCuerpo" class="note-area" placeholder="Anotaciones teóricas, dudas con médicos de planta..."></textarea>
-        <button class="btn-act btn-purple" onclick="guardarNota()">💾 Guardar en este Teléfono</button>
+        <span class="badge badge-proj">Cuaderno de Residencia</span>
+        <h3>Notas Rápidas</h3>
+        <input type="text" id="notaTitulo" class="note-input" placeholder="Título (ej: Dosis antibiótico profiláctico RTUP)">
+        <textarea id="notaCuerpo" class="note-area" placeholder="Anotaciones, dudas con médicos de planta o referencias bibliográficas..."></textarea>
+        <button class="btn-act btn-purple" onclick="guardarNota()">💾 Guardar Nota</button>
       </div>
 
       <div class="card">
@@ -789,18 +545,42 @@
       </div>
     </div>
 
-    <!-- TAB 4: ATLAS QUIRÚRGICO -->
+    <!-- TAB 3: TRATADOS -->
+    <div id="tab-tratados" class="tab-content">
+      <div class="card">
+        <span class="badge badge-gold">Tratados de Referencia Mundial</span>
+        <h3>Bibliografía Canónica</h3>
+        <ul>
+          <li><strong>Campbell-Walsh-Wein Urology:</strong> El tratado universal indispensable para fisiopatología y fundamentos quirúrgicos.</li>
+          <li><strong>Smith & Tanagho's General Urology:</strong> Excelente para diagnóstico rápido y semiología urológica.</li>
+          <li><strong>Hinman's Atlas of Urologic Surgery:</strong> Manual gráfico de referencia para anatomía quirúrgica y abordajes.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-soc">Portales Oficiales</span>
+        <h3>Acceso Directo a Guías</h3>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          <a href="https://uroweb.org/guidelines" target="_blank" class="journal-link">📘 EAU Guidelines (Europa) ↗</a>
+          <a href="https://www.auanet.org/guidelines-and-quality/guidelines" target="_blank" class="journal-link">📘 AUA Guidelines (EE.UU.) ↗</a>
+          <a href="https://www.sau-net.org/" target="_blank" class="journal-link">📘 Sociedad Argentina de Urología (SAU) ↗</a>
+          <a href="https://www.aeu.es/" target="_blank" class="journal-link">📘 Asociación Española de Urología (AEU) ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: CIRUGÍAS -->
     <div id="tab-cirugias" class="tab-content">
-      <div style="margin-bottom: 16px;">
-        <h3 style="font-size:1.2rem; color:var(--slate-dark); font-weight:800;">Atlas Quirúrgico Escalonado</h3>
-        <p style="font-size:0.85rem; color:var(--slate-muted);">Tocá cualquier cirugía para abrir su protocolo operatorio completo paso a paso.</p>
+      <div style="margin-bottom: 14px;">
+        <h3 style="font-size:1.1rem; color:var(--text); font-weight:800;">Atlas Quirúrgico Escalonado</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted);">Seleccioná cualquier procedimiento para desplegar sus tiempos operatorios.</p>
       </div>
 
       <div class="card-surg-item" onclick="abrirCirugia('torsion')">
         <div class="surg-info">
-          <span class="badge badge-surg">Nivel R1 • Guardia Escrotal</span>
+          <span class="badge badge-surg">Nivel R1 • Urgencia Escrotal</span>
           <h3>Exploración & Orquidopexia por Torsión</h3>
-          <p>Tiempos de isquemia, fijación en 3 puntos y orquidopexia contralateral.</p>
+          <p>Tiempos de isquemia, fijación en 3 puntos y conducta contralateral.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -809,7 +589,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R1 • Cirugía Menor</span>
           <h3>Circuncisión & Plastia de Frenillo</h3>
-          <p>Técnica de manga (sleeve) vs. dorsal slit y puntos de sutura.</p>
+          <p>Técnica de manga (sleeve), hemostasia y sutura con Vicryl Rapid.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -818,7 +598,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Endourología</span>
           <h3>RTU de Vejiga (RTUV)</h3>
-          <p>Obtención de detrusor muscular y manejo del nervio obturador.</p>
+          <p>Resección en capas, obtención de detrusor y prevención de perforación.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -827,7 +607,7 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Endourología</span>
           <h3>RTU de Próstata (RTUP)</h3>
-          <p>Reparo del veru montanum y canal a hora 12.</p>
+          <p>Identificación de veru montanum, canal a hora 12 y hemostasia.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -836,16 +616,16 @@
         <div class="surg-info">
           <span class="badge badge-surg">Nivel R2 • Litiasis</span>
           <h3>Ureteroscopía Semirrígida & Flexible (URS)</h3>
-          <p>Acceso ureteral, dusting láser y canastilla Dormia.</p>
+          <p>Acceso ureteral, dusting con láser Holmio y extracción con canastilla.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
 
       <div class="card-surg-item" onclick="abrirCirugia('nefrectomia')">
         <div class="surg-info">
-          <span class="badge badge-onco">Nivel R3 • Laparoscópica</span>
+          <span class="badge badge-onco">Nivel R3 • Laparoscopía</span>
           <h3>Nefrectomía Radical Laparoscópica</h3>
-          <p>Trócares, línea de Toldt y ligadura precoz de arteria renal.</p>
+          <p>Abordaje transperitoneal, línea de Toldt y ligadura arterial precoz.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
@@ -853,98 +633,50 @@
       <div class="card-surg-item" onclick="abrirCirugia('prostatectomia')">
         <div class="surg-info">
           <span class="badge badge-onco">Nivel R4 • Oncología Mayor</span>
-          <h3>Prostatectomía Radical (Laparoscópica / Robótica)</h3>
-          <p>Espacio de Retzius, preservación de cuello y anastomosis Van Velthoven.</p>
+          <h3>Prostatectomía Radical</h3>
+          <p>Espacio de Retzius, preservación neurovascular y anastomosis.</p>
         </div>
         <div class="surg-arrow">→</div>
       </div>
     </div>
 
-    <!-- TAB 5: ESCALAS & CALCULADORAS -->
+    <!-- TAB 5: ESCALAS -->
     <div id="tab-escalas" class="tab-content">
       <div class="card">
         <span class="badge badge-surg">Insumos Quirúrgicos</span>
         <h3>Calculadora de Catéter Doble J</h3>
-        <select id="selectAltura" class="calc-select" onchange="calcularStent()">
-          <option value="">Seleccionar talla del paciente...</option>
+        <select id="selectAltura" class="note-input" style="margin-top:6px;" onchange="calcularStent()">
+          <option value="">Seleccionar estatura del paciente...</option>
           <option value="baja">&lt; 1.55 m (Baja estatura)</option>
           <option value="media">1.55 m a 1.75 m (Estatura media)</option>
           <option value="alta">&gt; 1.75 m (Alta estatura)</option>
         </select>
-        <div id="resStent" style="display:none; background:#eff6ff; border-left:4px var(--primary) solid; padding:12px; border-radius:8px; font-size:0.88rem; color:var(--primary-dark); margin-top:10px; font-weight: 600;"></div>
-      </div>
-
-      <div class="card">
-        <span class="badge badge-proj">Complicaciones Postoperatorias</span>
-        <h3>Escala de Clavien-Dindo</h3>
-        <div class="table-box">
-          <table>
-            <tr><th>Grado</th><th>Definición Clínica</th></tr>
-            <tr><td><strong>Grado I</strong></td><td>Desviación sin tratamiento farmacológico o quirúrgico.</td></tr>
-            <tr><td><strong>Grado II</strong></td><td>Requiere tratamiento farmacológico (transfusiones, nutrición).</td></tr>
-            <tr><td><strong>Grado III</strong></td><td>Requiere intervención quirúrgica, endoscópica o radiológica.</td></tr>
-            <tr><td><strong>Grado IV</strong></td><td>Complicación que pone en riesgo la vida (falla orgánica). UTI.</td></tr>
-            <tr><td><strong>Grado V</strong></td><td>Muerte del paciente.</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="badge badge-onco">Urología Funcional & HPB</span>
-        <h3>Score IPSS (International Prostate Symptom Score)</h3>
-        <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:10px;">Evaluación de síntomas urinarios obstructivos e irritativos (0 a 35):</p>
-        <ul style="font-size:0.88rem; line-height:1.6; display: flex; flex-direction: column; gap: 4px;">
-          <li><strong>Leve (1 a 7 puntos):</strong> Conducta expectante y control.</li>
-          <li><strong>Moderado (8 a 19 puntos):</strong> Tratamiento médico.</li>
-          <li><strong>Severo (20 a 35 puntos):</strong> Evaluación quirúrgica (RTUP / Láser).</li>
-        </ul>
+        <div id="resStent" style="display:none; background:#eff6ff; border-left:4px solid var(--brand); padding:10px; border-radius:6px; font-size:0.85rem; color:var(--brand-dark); margin-top:8px;"></div>
       </div>
 
       <div class="card">
         <span class="badge badge-onco">Oncología Renal</span>
-        <h3>Clasificación Bosniak (Quistes Renales por TC)</h3>
+        <h3>Clasificación Bosniak (Quistes por TC)</h3>
         <div class="table-box">
           <table>
             <tr><th>Grado</th><th>Criterio Tomográfico</th><th>Conducta</th></tr>
-            <tr><td><strong>I</strong></td><td>Pared fina, sin tabiques ni realce.</td><td>Benigno. Alta médica.</td></tr>
-            <tr><td><strong>II</strong></td><td>Tabiques &lt;1 mm, &lt;3 cm.</td><td>Benigno. Sin seguimiento.</td></tr>
-            <tr><td><strong>IIF</strong></td><td>Tabiques finos múltiples, &gt;3 cm.</td><td>Seguimiento TC 6-12 meses.</td></tr>
-            <tr><td><strong>III</strong></td><td>Paredes engrosadas con realce medible.</td><td>Quirúrgico (Nefrectomía parcial).</td></tr>
-            <tr><td><strong>IV</strong></td><td>Masa sólida con realce franco.</td><td>Maligno (&gt;85%). Exéresis oncológica.</td></tr>
+            <tr><td><strong>I</strong></td><td>Pared fina, sin tabiques, densidad agua.</td><td>Benigno. Alta.</td></tr>
+            <tr><td><strong>II</strong></td><td>Tabiques &lt;1 mm, calcificaciones finas.</td><td>Benigno. Sin seguimiento.</td></tr>
+            <tr><td><strong>IIF</strong></td><td>Tabiques múltiples finos, leve realce.</td><td>Seguimiento TC 6-12 meses.</td></tr>
+            <tr><td><strong>III</strong></td><td>Paredes engrosadas con realce medible.</td><td>Quirúrgico (Parcial).</td></tr>
+            <tr><td><strong>IV</strong></td><td>Masa sólida con realce franco.</td><td>Maligno (&gt;85%). Exéresis.</td></tr>
           </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 6: ASISTENTE HÍBRIDO (FICHA RÁPIDA 10 PUNTOS + CASOS CLÍNICOS) -->
-    <div id="tab-asistente" class="tab-content">
-      <div class="card">
-        <span class="badge badge-proj">Asistente Clínico Master Pro</span>
-        <h3>Ficha Rápida & Resolución de Casos de Guardia</h3>
-        <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:14px;">
-          Escribí una patología (ej: <em>"Fournier"</em>, <em>"Priapismo"</em>, <em>"Torsión"</em>) para ver su <strong>Ficha Rápida de 10 puntos</strong>, o un caso clínico (ej: <em>"Dolor lumbar, fiebre y cálculo de 8 mm"</em>) para su resolución estructurada.
-        </p>
-
-        <div class="ai-chat-box" id="aiChatBox">
-          <div class="ai-msg assistant">
-            <strong>Asistente Clínico Integrado:</strong> Ingresá cualquier patología o caso clínico para generar su análisis completo al instante.
-          </div>
-        </div>
-
-        <div class="ai-input-row">
-          <input type="text" id="aiInput" class="note-input" placeholder="Ej: Fournier, Torsión testicular, o caso clínico..." style="margin-bottom:0;" onkeydown="if(event.key==='Enter') procesarConsultaAsistente()">
-          <button class="btn-search" onclick="procesarConsultaAsistente()">Generar</button>
         </div>
       </div>
     </div>
 
     <footer class="disclaimer-footer">
       <div class="legal-badges">
-        <span class="legal-badge">Uso Académico & Residencia</span>
+        <span class="legal-badge">Soporte de Residencia</span>
         <span class="legal-badge">Open Access & Ciencia Abierta</span>
-        <span class="legal-badge">NCBI / Europe PMC Certified API</span>
+        <span class="legal-badge">Europe PMC / PubMed Certified</span>
       </div>
-      <p><strong>Aviso Legal y de Consulta Médica:</strong> Esta plataforma es una herramienta de asistencia formativa, soporte bibliográfico y docencia para la residencia de urología. Los datos bibliográficos y resúmenes son provistos en tiempo real mediante las APIs públicas de <em>Europe PMC</em> y la <em>National Library of Medicine (NCBI/PubMed)</em>.</p>
+      <p><strong>Aviso Legal:</strong> Herramienta académica de consulta bibliográfica y soporte formativo para residentes de urología. Las consultas en tiempo real se realizan a través de las APIs públicas de <em>Europe PMC</em>. Las decisiones clínicas y quirúrgicas finales son responsabilidad exclusiva del equipo médico tratante y de las normas de la institución.</p>
     </footer>
 
   </div>
@@ -954,13 +686,13 @@
       <span class="icon">🔍</span>
       <span>Búsqueda</span>
     </button>
-    <button class="dock-btn" onclick="cambiarPestana('tab-cronograma', this)">
-      <span class="icon">📅</span>
-      <span>Cronograma</span>
-    </button>
     <button class="dock-btn" onclick="cambiarPestana('tab-cuaderno', this)">
       <span class="icon">📑</span>
       <span>Proyectos</span>
+    </button>
+    <button class="dock-btn" onclick="cambiarPestana('tab-tratados', this)">
+      <span class="icon">🏛️</span>
+      <span>Campbell</span>
     </button>
     <button class="dock-btn" onclick="cambiarPestana('tab-cirugias', this)">
       <span class="icon">🔪</span>
@@ -970,20 +702,15 @@
       <span class="icon">📐</span>
       <span>Escalas</span>
     </button>
-    <button class="dock-btn" onclick="cambiarPestana('tab-asistente', this)">
-      <span class="icon">🤖</span>
-      <span>Asistente</span>
-    </button>
   </nav>
 
-  <script src="config.js"></script>
   <script>
     function alternarPantallaCompleta() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(() => {
           document.getElementById('fsIcon').innerText = '✕';
           document.getElementById('fsTexto').innerText = 'Salir';
-          mostrarToast('Pantalla Completa activada');
+          mostrarToast('Modo Pantalla Completa activado');
         }).catch(() => {
           mostrarToast('Pantalla completa no disponible');
         });
@@ -991,45 +718,32 @@
         if (document.exitFullscreen) {
           document.exitFullscreen().then(() => {
             document.getElementById('fsIcon').innerText = '⛶';
-            document.getElementById('fsTexto').innerText = 'Pantalla';
+            document.getElementById('fsTexto').innerText = 'Completar';
           });
         }
       }
     }
 
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) {
-        document.getElementById('fsIcon').innerText = '⛶';
-        document.getElementById('fsTexto').innerText = 'Pantalla';
-      }
-    });
-
-    function buscarTemaExamen(termino) {
-      cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
-      document.getElementById('termInput').value = termino;
-      ejecutarBusquedaGlobal();
-    }
-
     const atlasCirugias = {
       torsion: {
         titulo: "Exploración & Orquidopexia por Torsión Testicular",
-        nivel: "Nivel R1 • Guardia Escrotal",
+        nivel: "Nivel R1 • Urgencia Quirúrgica",
         badgeClass: "badge-surg",
-        queryPubmed: "testicular torsion orchiopexy surgical technique",
+        queryPubmed: "testicular torsion orchiopexy",
         contenido: `
           <div class="modal-section">
-            <h4>1. Indicación y Ventana Quirúrgica</h4>
-            <p>Sospecha clínica o Doppler de torsión funicular. <strong>Ventana de oro:</strong> &lt; 6 horas desde el inicio del dolor.</p>
+            <h4>1. Ventana Quirúrgica</h4>
+            <p>Urgencia absoluta. Ventana de oro: <strong>&lt; 6 horas</strong> desde el inicio del dolor agudo.</p>
           </div>
           <div class="modal-section">
-            <h4>2. Tiempos Operatorios Paso a Paso</h4>
+            <h4>2. Pasos Operatorios</h4>
             <ol>
-              <li>Incisión transversa en hemiescroto o longitudinal en rafe medio.</li>
-              <li>Apertura de dartos y túnica celular con electrobisturí.</li>
-              <li>Incisión de túnica vaginal parietal y exteriorización testicular.</li>
-              <li>Desrotación medial a lateral ("abrir un libro"). Compresas tibias 10-15 min.</li>
-              <li>Orquidopexia en 3 puntos al tabique/dartos con Prolene 3-0 o 4-0.</li>
-              <li><strong>Regla obligatoria:</strong> Fijación profiláctica contralateral inmediata. Si necrosis irreversible: orquiectomía.</li>
+              <li>Incisión escrotal transversa u longitudinal en rafe medio.</li>
+              <li>Apertura de túnica vaginal y exteriorización testicular.</li>
+              <li>Desrotación (generalmente en sentido medial a lateral "como abrir un libro").</li>
+              <li>Aplicación de compresas tibias y evaluación de viabilidad (10-15 min).</li>
+              <li>Orquidopexia en 3 puntos (polo superior, inferior y mediocuerpo) con Prolene 3-0.</li>
+              <li>Fijación profiláctica contralateral obligatoria.</li>
             </ol>
           </div>
         `
@@ -1038,106 +752,103 @@
         titulo: "Circuncisión & Plastia de Frenillo",
         nivel: "Nivel R1 • Cirugía Menor",
         badgeClass: "badge-surg",
-        queryPubmed: "circumcision adult technique urology",
+        queryPubmed: "adult circumcision technique",
         contenido: `
           <div class="modal-section">
-            <h4>1. Técnica de Manga (Sleeve)</h4>
+            <h4>1. Técnica Quirúrgica</h4>
             <ol>
-              <li>Bloqueo troncular dorsal sin epinefrina en la base peneana.</li>
-              <li>Plastia de frenillo si está retraído (Vicryl Rapid 4-0).</li>
-              <li>Incisión circular externa distal e interna respetando 0.5 a 1 cm del surco.</li>
-              <li>Disección sobre fascia de Buck y hemostasia puntual prolija.</li>
-              <li>Afrontamiento mucocutáneo con puntos simples de Vicryl Rapid 4-0.</li>
+              <li>Bloqueo anestésico dorsal sin adrenalina.</li>
+              <li>Plastia transversal de frenillo con Vicryl Rapid 4-0 si hay cuerda o tensión.</li>
+              <li>Incisión circular cutánea respetando 0.5 cm del surco coronal.</li>
+              <li>Hemostasia cuidadosa de vasos subcutáneos sobre fascia de Buck.</li>
+              <li>Afrontamiento mucocutáneo con puntos sueltos de Vicryl Rapid 4-0.</li>
             </ol>
           </div>
         `
       },
       rtuv: {
         titulo: "Resección Transuretral de Vejiga (RTUV)",
-        nivel: "Nivel R2 • Endourología Oncológica",
+        nivel: "Nivel R2 • Endourología",
         badgeClass: "badge-surg",
-        queryPubmed: "transurethral resection of bladder tumor technique",
+        queryPubmed: "transurethral resection bladder tumor",
         contenido: `
           <div class="modal-section">
-            <h4>1. Pasos de Quirófano</h4>
+            <h4>1. Pasos de Resección</h4>
             <ol>
-              <li>Cistoscopía diagnóstica y mapeo topográfico vesical.</li>
-              <li>Resección en capas: exófito, base y detrusor profundo en frascos separados.</li>
-              <li>Identificación de haces entrelazados blanquecinos musculares.</li>
-              <li>Cortes cortos en cara lateral para evitar reflejo del nervio obturador.</li>
-              <li>Hemostasia cuidadosa y sonda Foley de 3 vías con lavado continuo.</li>
+              <li>Cistoscopia inicial para mapeo topográfico de lesiones.</li>
+              <li>Resección fraccionada: exófito, base de la lesión y músculo detrusor profundo en frascos separados.</li>
+              <li>Precaución extrema en cúpula y cara lateral (evitar perforación y reflejo del nervio obturador).</li>
+              <li>Hemostasia prolija y colocación de sonda Foley de 3 vías con lavado continuo.</li>
             </ol>
           </div>
         `
       },
       rtup: {
         titulo: "Resección Transuretral de Próstata (RTUP)",
-        nivel: "Nivel R2 • Endourología Próstata",
+        nivel: "Nivel R2 • Endourología",
         badgeClass: "badge-surg",
-        queryPubmed: "transurethral resection prostate technique urology",
+        queryPubmed: "transurethral resection prostate",
         contenido: `
           <div class="modal-section">
-            <h4>1. Reparo Crítico</h4>
-            <p><strong>Veru montanum:</strong> Límite distal estricto para proteger el esfínter estriado y evitar incontinencia.</p>
+            <h4>1. Referencias Anatómicas</h4>
+            <p><strong>Veru montanum:</strong> Límite distal sagrado para proteger el esfínter urinario externo.</p>
             <ol>
-              <li>Canal de trabajo anterior a hora 12 desde cuello a veru.</li>
-              <li>Resección de lóbulo medio hacia cavidad vesical.</li>
-              <li>Resección de lóbulos laterales respetando la cápsula quirúrgica.</li>
-              <li>Hemostasia arterial a hora 4-5 y 7-8. Evacuación con pera de Ellick.</li>
+              <li>Canal inicial a hora 12 desde el cuello vesical hasta el veru.</li>
+              <li>Resección sistemática de lóbulo medio y laterales hasta la cápsula quirúrgica.</li>
+              <li>Hemostasia selectiva en posiciones horarias 4-5 y 7-8.</li>
             </ol>
           </div>
         `
       },
       urs: {
         titulo: "Ureteroscopía Semirrígida & Flexible (URS)",
-        nivel: "Nivel R2 • Endourología Litiasis",
+        nivel: "Nivel R2 • Litiasis",
         badgeClass: "badge-surg",
-        queryPubmed: "ureteroscopy flexible holmium laser technique",
+        queryPubmed: "ureteroscopy laser lithotripsy",
         contenido: `
           <div class="modal-section">
-            <h4>1. Secuencia de Abordaje</h4>
+            <h4>1. Secuencia Operatoria</h4>
             <ol>
-              <li>Cateterismo del meato con alambre guía hidrofílico 0.035" bajo fluoroscopía.</li>
-              <li>URS semirrígido para uréter pelviano e ilíaco con hidrodilatación.</li>
-              <li>URS flexible con vaina (UAS) para cálices renales inferiores.</li>
-              <li>Láser: Dusting (0.2-0.4 J / 30-50 Hz) o Fragmentación (1.0-1.5 J / 8-12 Hz).</li>
-              <li>Colocación de catéter Doble J retrógrado de protección.</li>
+              <li>Paso de guía hidrofílica 0.035" bajo control radioscópico.</li>
+              <li>Ingreso con URS semirrígido para litiasis ureteral distal o media.</li>
+              <li>Colocación de camisa de acceso ureteral (UAS) para litiasis renal y URS flexible.</li>
+              <li>Litotricia con láser de Holmio: modalidad <em>Dusting</em> (alta frecuencia, baja energía) o <em>Fragmentation</em>.</li>
+              <li>Colocación final de catéter Doble J.</li>
             </ol>
           </div>
         `
       },
       nefrectomia: {
         titulo: "Nefrectomía Radical Laparoscópica",
-        nivel: "Nivel R3 • Cirugía Laparoscópica",
+        nivel: "Nivel R3 • Laparoscopía",
         badgeClass: "badge-onco",
-        queryPubmed: "laparoscopic radical nephrectomy technique",
+        queryPubmed: "laparoscopic radical nephrectomy",
         contenido: `
           <div class="modal-section">
-            <h4>1. Tiempos Críticos</h4>
+            <h4>1. Abordaje Laparoscópico</h4>
             <ol>
-              <li>Decúbito lateral a 90° con quiebre de camilla sobre cresta ilíaca.</li>
-              <li>Óptica umbilical de 30° y puertos en semiluna (5 mm y 10-12 mm).</li>
-              <li>Descenso colónico por línea de Toldt (Cattell-Braasch / Mattox).</li>
-              <li><strong>Regla de oro:</strong> Control y clipado con Hem-o-lok de <strong>arteria renal primero</strong> antes de seccionar vena renal.</li>
-              <li>Extracción del riñón en bolsa laparoscópica intacta.</li>
+              <li>Posición en decúbito lateral de 90° con quiebre de mesa.</li>
+              <li>Colocación de puertos (óptica de 30° y trabajo de 5/12 mm).</li>
+              <li>Desinserción cólica por línea de Toldt y exposición de fascia de Gerota.</li>
+              <li>Disección hiliar: <strong>Identificación y ligadura de arteria renal</strong> previo al control venoso.</li>
+              <li>Extracción de pieza en bolsa endobag.</li>
             </ol>
           </div>
         `
       },
       prostatectomia: {
-        titulo: "Prostatectomía Radical (Laparoscópica / Robótica)",
-        nivel: "Nivel R4 • Oncología Mayor",
+        titulo: "Prostatectomía Radical",
+        nivel: "Nivel R4 • Oncología",
         badgeClass: "badge-onco",
-        queryPubmed: "radical prostatectomy technique robotic laparoscopic",
+        queryPubmed: "radical prostatectomy technique",
         contenido: `
           <div class="modal-section">
-            <h4>1. Tiempos Operatorios</h4>
+            <h4>1. Tiempos Principales</h4>
             <ol>
-              <li>Trendelenburg forzado a 25-30°. Acceso al espacio de Retzius.</li>
-              <li>Apertura de fascia endopélvica y ligadura del complejo de Santorini.</li>
-              <li>Disección y preservación circular del cuello vesical.</li>
-              <li>Aislamiento de deferentes, vesículas y fascia de Denonvilliers.</li>
-              <li>Preservación de bandeletas neurovasculares eréctiles posterolaterales.</li>
+              <li>Trendelenburg pronunciado y acceso al espacio retropúbico de Retzius.</li>
+              <li>Apertura de fascia endopélvica y control del complejo venoso dorsal (Santorini).</li>
+              <li>Sección de cuello vesical y disección posterolateral de vesículas seminales.</li>
+              <li>Preservación de haces neurovasculares según criterio oncológico.</li>
               <li>Anastomosis vesicouretral continua (Van Velthoven) sobre sonda Foley 18 Fr.</li>
             </ol>
           </div>
@@ -1155,9 +866,9 @@
       badge.className = `badge ${data.badgeClass}`;
 
       const bloqueBuscador = `
-        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:14px; margin-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-          <span style="font-size:0.84rem; color:var(--primary-dark); font-weight:700;">¿Querés ver guías y manuales de esta técnica?</span>
-          <button class="btn-act btn-primary" onclick="buscarCirugiaDesdeModal('${data.queryPubmed}')">🔍 Buscar en el Buscador</button>
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px; margin-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:0.8rem; color:var(--brand-dark); font-weight:600;">¿Querés buscar artículos científicos de esta técnica?</span>
+          <button class="btn-act btn-primary" onclick="buscarCirugiaDesdeModal('${data.queryPubmed}')">🔍 Buscar en PubMed</button>
         </div>
       `;
 
@@ -1179,7 +890,7 @@
       forzarCierreModal();
       cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
       document.getElementById('termInput').value = termino;
-      ejecutarBusquedaGlobal();
+      ejecutarBusqueda();
     }
 
     let aniosFiltro = '5';
@@ -1189,14 +900,14 @@
       document.querySelectorAll('.pill-year').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       aniosFiltro = anios;
-      ejecutarBusquedaGlobal();
+      ejecutarBusqueda();
     }
 
     function setFiltroTipo(btn, tipo) {
       document.querySelectorAll('.pill:not(.pill-year)').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       tipoFiltro = tipo;
-      ejecutarBusquedaGlobal();
+      ejecutarBusqueda();
     }
 
     function cambiarPestana(tabId, btn) {
@@ -1214,62 +925,46 @@
       setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    function copiarParaDrive(titulo, autores, revista, anio, elemId) {
-      const primerAutor = autores ? autores.split(',')[0].trim() : 'Autor';
-      const cita = `${primerAutor} et al. ${titulo}. ${revista}. ${anio}.`;
-      const resumenTexto = document.getElementById(elemId).innerText;
-      
-      const textoCompleto = `📌 APUNTE / GUÍA DE UROLOGÍA (PARA DRIVE)\nCITA (Vancouver): ${cita}\n\nRESUMEN / INFORMACIÓN:\n${resumenTexto}\n`;
-      
-      navigator.clipboard.writeText(textoCompleto).then(() => {
-        mostrarToast("Copiado en formato limpio para Google Drive");
+    function copiarTexto(texto, mensajeExito) {
+      navigator.clipboard.writeText(texto).then(() => {
+        mostrarToast(mensajeExito);
       });
     }
 
-    function generarGuionPPT(titulo, resumenTexto) {
-      const guion = `📊 ESTRUCTURA PARA DIAPOSITIVAS (POWERPOINT)\nTEMA: ${titulo}\n\n• DIAPOSITIVA 1 (TÍTULO): ${titulo}\n• DIAPOSITIVA 2 (GUÍAS Y CONCEPTOS): Recomendaciones oficiales EAU / AUA.\n• DIAPOSITIVA 3 (DESARROLLO): ${resumenTexto.slice(0, 200)}...\n• DIAPOSITIVA 4 (DISCUSIÓN Y CONDUCTA): Criterios teóricos y quirúrgicos.\n• DIAPOSITIVA 5 (CONCLUSIÓN): Perla clínica para la residencia.`;
-      
-      navigator.clipboard.writeText(guion).then(() => {
-        mostrarToast("Guión de diapositivas copiado");
-      });
+    function copiarParaDrive(titulo, autores, revista, anio, elemId) {
+      const primerAutor = autores ? autores.split(',')[0].trim() : 'Autor';
+      const cita = `${primerAutor} et al. (${anio}). ${titulo}. ${revista}.`;
+      const resumenTexto = document.getElementById(elemId).innerText;
+      const textoCompleto = `📌 APUNTE BIBLIOGRÁFICO UROLOGÍA\nCITA: ${cita}\n\nRESUMEN:\n${resumenTexto}`;
+      copiarTexto(textoCompleto, "Copiado para Drive");
+    }
+
+    function generarGuionPPT(titulo, elemId) {
+      const resumenTexto = document.getElementById(elemId).innerText;
+      const guion = `📊 GUIÓN PARA DIAPOSITIVAS\nTEMA: ${titulo}\n\n• Diapositiva 1: Título y Servicio.\n• Diapositiva 2: Antecedentes y Guías EAU/AUA.\n• Diapositiva 3: Evidencia clave: ${resumenTexto.slice(0, 180)}...\n• Diapositiva 4: Discusión y Manejo Quirúrgico.\n• Diapositiva 5: Conclusiones para la guardia.`;
+      copiarTexto(guion, "Guión de diapositivas copiado");
     }
 
     function copiarPlantillaCaseReport() {
-      const plantilla = `ESTRUCTURA DE "CASE REPORT" PUBLICABLE (COMITÉ DE ÉTICA & PUBMED)
-1. TÍTULO: [Técnica/Complicación/Catéter Ureteral] en [Condición del Paciente]: A Case Report.
-2. ABSTRACT:
-   - Background: Justificación según Guías EAU/AUA.
-   - Case Presentation: Hallazgos clínicos, radiológicos e intervención.
-   - Conclusion: Perla clínica y mensaje para la comunidad urológica.
-3. INTRODUCCIÓN:
-   - Epidemiología de la patología.
-   - ¿Qué dicen el Campbell y las guías vigentes sobre este manejo?
-4. PRESENTACIÓN DEL CASO (CARE Guidelines):
-   - Antecedentes clínicos y comorbilidades.
-   - Exámenes de laboratorio y TC/Uro-Resonancia.
-   - Procedimiento quirúrgico / colocación de catéter (calibre Fr, longitud cm).
-   - Evolución postoperatoria y seguimiento a 30-90 días.
-5. DISCUSIÓN:
-   - Comparación con reportes similares de los últimos 5 a 10 años.
-6. DECLARACIONES:
-   - Aprobación por Comité de Ética y Consentimiento Informado.
-   - Bibliografía en formato Vancouver.`;
-      navigator.clipboard.writeText(plantilla).then(() => {
-        mostrarToast("Estructura de Case Report copiada");
-      });
+      const plantilla = `ESTRUCTURA DE CASE REPORT (Guías CARE)
+1. TÍTULO: [Patología/Técnica] en [Contexto]: A Case Report.
+2. ABSTRACT: Background, Case Presentation, Conclusion (<250 palabras).
+3. INTRODUCCIÓN: Estado del arte y revisión bibliográfica.
+4. PRESENTACIÓN DEL CASO: Anamnesis, imágenes, intervención quirúrgica y evolución.
+5. DISCUSIÓN: Comparación con la literatura reciente.
+6. CONSENTIMIENTO: Aprobación ética informada.`;
+      copiarTexto(plantilla, "Estructura de Case Report copiada");
     }
 
     function copiarPlantillaPowerPoint() {
-      const plantilla = `ESQUEMA MAESTRO PARA ATENEO EN POWERPOINT
-Diapositiva 1: Portada (Título del Tema, Residente expositor, Servicio de Urología)
-Diapositiva 2: Marco Teórico y Definición (Conceptos clave según manuales y Campbell)
-Diapositiva 3: Diagnóstico e Imágenes (Hallazgos y criterios tomográficos o ecográficos)
-Diapositiva 4: Conducta Médica o Quirúrgica (Opciones terapéuticas vigentes)
-Diapositiva 5: Evidencia Científica (Recomendaciones de Guías EAU, AUA y SAU)
-Diapositiva 6: Conclusión y Take-Home Message para guardia`;
-      navigator.clipboard.writeText(plantilla).then(() => {
-        mostrarToast("Guión de PowerPoint copiado");
-      });
+      const plantilla = `ESTRUCTURA ATENEO POWERPOINT
+Slide 1: Título y Presentador
+Slide 2: Motivo de Consulta y Antecedentes
+Slide 3: Imágenes Diagnósticas (TC / Ecografía)
+Slide 4: Opciones Terapéuticas según Guías
+Slide 5: Resolución Quirúrgica (Tiempos e Insumos)
+Slide 6: Conclusiones y Perlas Clínicas`;
+      copiarTexto(plantilla, "Estructura de PowerPoint copiada");
     }
 
     function guardarNota() {
@@ -1283,7 +978,7 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
 
       document.getElementById('notaTitulo').value = '';
       document.getElementById('notaCuerpo').value = '';
-      mostrarToast("Guardado en tu cuaderno");
+      mostrarToast("Nota guardada");
       cargarNotas();
     }
 
@@ -1298,410 +993,117 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
       const cont = document.getElementById('listaNotas');
       const notas = JSON.parse(localStorage.getItem('uro_notas') || '[]');
       if (notas.length === 0) {
-        cont.innerHTML = '<p style="font-size:0.85rem; color:var(--slate-muted);">No tenés proyectos guardados aún.</p>';
+        cont.innerHTML = '<p style="font-size:0.8rem; color:var(--text-muted);">No tenés notas guardadas aún.</p>';
         return;
       }
       cont.innerHTML = notas.map(n => `
-        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:10px;">
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; margin-bottom:8px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <strong style="font-size:0.9rem; color:var(--primary-dark);">${n.titulo}</strong>
-            <button onclick="borrarNota(${n.id})" style="border:none; background:none; color:#ef4444; font-size:0.8rem; font-weight:700; cursor:pointer;">Borrar</button>
+            <strong style="font-size:0.9rem; color:var(--brand-dark);">${n.titulo}</strong>
+            <button onclick="borrarNota(${n.id})" style="border:none; background:none; color:#ef4444; font-size:0.75rem; cursor:pointer;">Borrar</button>
           </div>
-          <p style="font-size:0.85rem; color:#334155; margin-top:6px; white-space:pre-wrap;">${n.cuerpo}</p>
-          <div style="font-size:0.72rem; color:var(--slate-muted); margin-top:8px;">Fecha: ${n.fecha}</div>
+          <p style="font-size:0.82rem; color:#334155; margin-top:6px; white-space:pre-wrap;">${n.cuerpo}</p>
+          <div style="font-size:0.7rem; color:var(--text-muted); margin-top:6px;">Guardado: ${n.fecha}</div>
         </div>
       `).join('');
     }
 
     cargarNotas();
 
-    // MOTOR DE BÚSQUEDA GLOBAL INTERNACIONAL EN VIVO (EUROPE PMC / PUBMED)
-    async function ejecutarBusquedaGlobal() {
-      const inputEl = document.getElementById('termInput');
+    async function ejecutarBusqueda() {
+      const input = document.getElementById('termInput').value.trim();
       const cont = document.getElementById('resultadosContainer');
-      const input = inputEl ? inputEl.value.trim() : '';
-      if (!input || !cont) return;
+      if (!input) {
+        mostrarToast("Ingresá un término para buscar");
+        return;
+      }
 
       cont.innerHTML = `
-        <div class="card" style="text-align:center; padding:35px; color:var(--slate-muted);">
-          🔎 Buscando en Europe PMC / PubMed...
+        <div class="card" style="text-align:center; padding:30px; color:var(--text-muted);">
+          Consultando literatura urológica internacional en línea...
         </div>
       `;
 
+      let q = `(${input}) AND (urology OR urologic OR urological)`;
+      
       const anioActual = new Date().getFullYear();
-
-      // Consulta deliberadamente simple y compatible con Europe PMC.
-      // PUB_YEAR admite rangos según la documentación oficial.
-      let q = `(${input}) AND (urology OR urological OR urologic OR urología)`;
-
       if (aniosFiltro === '5') {
-        q += ` AND PUB_YEAR:[${anioActual - 5} TO ${anioActual}]`;
+        const desde = anioActual - 5;
+        q += ` AND (PUB_YEAR:[${desde} TO ${anioActual}])`;
       } else if (aniosFiltro === '10') {
-        q += ` AND PUB_YEAR:[${anioActual - 10} TO ${anioActual}]`;
+        const desde = anioActual - 10;
+        q += ` AND (PUB_YEAR:[${desde} TO ${anioActual}])`;
       }
 
-      if (tipoFiltro) {
-        const tipoSeguro = String(tipoFiltro)
-          .replace(/"/g, '')
-          .replace(/[^\w\s-]/g, ' ')
-          .trim();
+      if (tipoFiltro === 'case reports') q += ' AND ("case report" OR "case series")';
+      if (tipoFiltro === 'meta-analysis') q += ' AND ("meta-analysis" OR "systematic review")';
+      if (tipoFiltro === 'surgical technique') q += ' AND ("surgical technique" OR "laparoscopy" OR "robotic")';
 
-        if (tipoSeguro) {
-          q += ` AND "${tipoSeguro}"`;
-        }
-      }
-
-      // En GitHub Pages, configurá la URL pública de tu backend aquí.
-      // En local, dejar vacío para usar /api/europepmc/search del servidor local.
-      const API_BASE_URL = (window.UROS_API_BASE_URL || '').trim();
-      const endpoint = API_BASE_URL
-        ? `${API_BASE_URL.replace(/\/$/, '')}/api/europepmc/search`
-        : '/api/europepmc/search';
-
-      const params = new URLSearchParams();
-      params.set('query', q);
-      params.set('format', 'json');
-      params.set('pageSize', '10');
-      params.set('resultType', 'core');
-      // Europe PMC documenta P_PDATE_D como campo de ordenamiento.
-      params.set('sort', 'P_PDATE_D desc');
-
-      const url = `${endpoint}?${params.toString()}`;
-
-      const escapeHTML = (value) => String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-      const limpiarTexto = (value) => String(value ?? '')
-        .replace(/<[^>]*>/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
+      const targetUrl = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&format=json&pageSize=8&resultType=core&sort=P_PDATE_D desc`;
+      const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
 
       try {
-        const res = await fetch(url, {
-          method: 'GET',
-          headers: { 'Accept': 'application/json' },
-          cache: 'no-store'
-        });
+        // Control de tiempo de espera (6 segundos máx para evitar congelamientos)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
 
-        if (!res.ok) {
-          let detail = '';
-          try {
-            const errData = await res.json();
-            detail = errData?.detail || errData?.error || '';
-          } catch (_) {}
-          throw new Error(`HTTP ${res.status}${detail ? `: ${detail}` : ''}`);
-        }
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
 
-        const data = await res.json();
-        const modo = API_BASE_URL ? 'backend online' : 'proxy local';
+        if (!res.ok) throw new Error("Error de red");
 
-        const papers = Array.isArray(data?.resultList?.result)
-          ? data.resultList.result
-          : [];
+        const rawData = await res.json();
+        // Soporta tanto si el proxy devuelve el JSON directo como si viene envuelto
+        const data = rawData.contents ? JSON.parse(rawData.contents) : rawData;
+        const papers = data.resultList?.result;
 
-        if (papers.length === 0) {
+        if (!papers || papers.length === 0) {
           cont.innerHTML = `
             <div class="card" style="text-align:center; padding:25px;">
-              <p style="color:var(--slate-muted);">
-                Sin resultados para <strong>${escapeHTML(input)}</strong> con los filtros actuales.
-              </p>
-              <p style="font-size:0.8rem; color:var(--slate-muted); margin-top:8px;">
-                Probá con <em>litiasis</em>, <em>renal stone</em>, <em>priapism</em>,
-                <em>prostate cancer</em> o <em>hematuria</em>.
-              </p>
-            </div>
-          `;
+              <p style="font-weight:700; color:var(--text); margin-bottom:6px;">Sin resultados exactos.</p>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Probá con otros términos en inglés.</p>
+            </div>`;
           return;
         }
 
-        let html = `
-          <div style="margin-bottom:12px; color:var(--slate-muted); font-size:0.82rem;">
-            <strong>${papers.length}</strong> resultado(s) encontrados en Europe PMC / PubMed.
-            <span style="font-size:0.72rem;">(${modo})</span>
-          </div>
-        `;
-
+        let html = '';
         papers.forEach((p, i) => {
-          const title = limpiarTexto(p.title) || 'Artículo sin título';
-          const abs = limpiarTexto(p.abstractText) ||
-            'Resumen no disponible en el índice público.';
-          const journal = limpiarTexto(p.journalTitle) || 'Revista biomédica';
-          const year = limpiarTexto(p.pubYear);
-          const authors = limpiarTexto(p.authorString) || 'Autores no disponibles';
-          const doi = limpiarTexto(p.doi);
-          const pmid = limpiarTexto(p.pmid);
-          const pubType = limpiarTexto(p.pubType) || 'Artículo';
-
-          const articleUrl = pmid
-            ? `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(pmid)}/`
-            : (doi
-                ? `https://doi.org/${encodeURIComponent(doi)}`
-                : `https://europepmc.org/search?query=${encodeURIComponent(title)}`);
-
-          const journalUrl =
-            `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
-
-          const queryImagen =
-            encodeURIComponent(`${title} urology anatomy ultrasound CT`);
-
-          // Usamos JSON serializado para evitar que comillas/apóstrofes
-          // presentes en títulos o abstracts rompan los onclick.
-          const safeTitle = JSON.stringify(title);
-          const safeAuthors = JSON.stringify(authors);
-          const safeJournal = JSON.stringify(journal);
-          const safeYear = JSON.stringify(year);
+          const abs = p.abstractText ? p.abstractText.replace(/<[^>]*>/g, '') : "Resumen no disponible directamente en el repositorio.";
+          const journal = p.journalTitle || "Revista Urológica Internacional";
+          const year = p.pubYear || "";
+          const authors = p.authorString || "Autores internacionales";
+          const journalUrl = `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
+          const queryImagen = encodeURIComponent(`${p.title} urology ct scan ultrasound`);
 
           html += `
             <div class="card">
               <div>
-                <span class="badge badge-surg">${escapeHTML(pubType)}</span>
-                <span class="badge badge-gold">Año ${escapeHTML(year)}</span>
+                <span class="badge badge-surg">${p.pubType || 'Publicación'}</span>
+                <span class="badge badge-gold">Año ${year}</span>
               </div>
-
-              <h3>${escapeHTML(title)}</h3>
-
-              <p style="font-size:0.75rem; color:var(--slate-muted); margin-bottom:8px;">
-                <strong>Fuente:</strong>
-                <a href="${journalUrl}" target="_blank" rel="noopener noreferrer"
-                   style="color:var(--primary); font-weight:700; text-decoration:none;">
-                  ${escapeHTML(journal)} ↗
-                </a>
-                |
-                <strong>Autores:</strong> ${escapeHTML(authors)}
+              <h3>${p.title}</h3>
+              <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;">
+                <strong>Revista:</strong> <a href="${journalUrl}" target="_blank" style="color:var(--brand); font-weight:700; text-decoration:none;">${journal} ↗</a> | <strong>Autores:</strong> ${authors}
               </p>
-
-              <div class="abstract-box" id="abs-${i}">${escapeHTML(abs)}</div>
-
+              <div class="abstract-box" id="abs-${i}">${abs}</div>
               <div class="btn-row">
-                <button class="btn-act btn-primary"
-                  onclick="traducirTextoPorPartes('abs-${i}')">
-                  ⚡ Traducir al Español
-                </button>
-
-                <button class="btn-act btn-primary"
-                  onclick="resumirTexto('abs-${i}')">
-                  📌 Resumir Puntos Clave
-                </button>
-
-                <button class="btn-act btn-drive"
-                  onclick='copiarParaDrive(${safeTitle}, ${safeAuthors}, ${safeJournal}, ${safeYear}, "abs-${i}")'>
-                  📋 Copiar para Drive
-                </button>
-
-                <button class="btn-act btn-ppt"
-                  onclick='generarGuionPPT(${safeTitle}, ${JSON.stringify(abs)})'>
-                  📊 Guión PPT
-                </button>
-
-                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}"
-                   target="_blank" rel="noopener noreferrer" class="btn-act btn-img">
-                  📸 Ver Imágenes & Esquemas
-                </a>
-
-                <a href="${articleUrl}" target="_blank" rel="noopener noreferrer"
-                   class="btn-act" style="color:var(--primary);">
-                  Ver Fuente ↗
-                </a>
+                <button class="btn-act btn-drive" onclick="copiarParaDrive('${p.title.replace(/'/g, "\\'")}', '${authors.replace(/'/g, "\\'")}', '${journal}', '${year}', 'abs-${i}')">📋 Copiar para Drive</button>
+                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', 'abs-${i}')">📊 Guión PPT</button>
+                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & TC</a>
+                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--brand);">Ver Paper ↗</a>
               </div>
             </div>
           `;
         });
-
         cont.innerHTML = html;
 
       } catch (e) {
-        console.error('UroSuite / Europe PMC:', e);
-
-        const mensaje = escapeHTML(
-          e?.message || 'No se pudo conectar con Europe PMC.'
-        );
-
         cont.innerHTML = `
           <div class="card" style="text-align:center; padding:25px;">
-            <p style="color:#ef4444; font-weight:700;">
-              No se pudo realizar la búsqueda.
-            </p>
-            <p style="font-size:0.82rem; color:var(--slate-muted); margin-top:8px;">
-              ${mensaje}
-            </p>
-            <p style="font-size:0.75rem; color:var(--slate-muted); margin-top:8px;">
-              Verificá que Live Server esté activo y que Chrome tenga acceso a Internet.
-            </p>
-            <button class="btn-act btn-primary" style="margin-top:12px;"
-              onclick="ejecutarBusquedaGlobal()">
-              🔄 Reintentar
-            </button>
-          </div>
-        `;
-      }
-    }
-
-    // MOTOR DEL ASISTENTE (FICHA RÁPIDA 10 PUNTOS + CASOS CLÍNICOS)
-    function procesarConsultaAsistente() {
-      const input = document.getElementById('aiInput');
-      const box = document.getElementById('aiChatBox');
-      const txt = input.value.trim();
-      if (!txt) return;
-
-      box.innerHTML += `<div class="ai-msg user">${txt}</div>`;
-      input.value = '';
-      box.scrollTop = box.scrollHeight;
-
-      setTimeout(() => {
-        let lower = txt.toLowerCase();
-        let respuestaHtml = "";
-
-        if (lower.includes('fournier') || lower.includes('gangrena')) {
-          respuestaHtml = `
-            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: Gangrena de Fournier</h3>
-            <div class="section-title">1. Definición</div>
-            <p>Fasciitis necrotizante polimicrobiana de rápida evolución que afecta los genitales externos y región perineal.</p>
-            <div class="section-title">2. Diagnóstico</div>
-            <p>Clínico (dolor desproporcionado, crepitación, eritema oscuro, necrosis, secreción fétida). Analítica con leucocitosis severa e hiponatremia.</p>
-            <div class="section-title">3. Clasificación</div>
-            <p>Infección necrotizante de tejidos blandos perineales tipo I (polimicrobiana: anaerobios y aerobios).</p>
-            <div class="section-title">4. Signos de alarma</div>
-            <p>⚡ Shock séptico, crepitación subcutánea ascendente hacia pared abdominal, SIRS refractario y rápida progresión del área necrótica.</p>
-            <div class="section-title">5. Estudios</div>
-            <p>Laboratorio completo, estado ácido-base, lactato, ecografía o tomografía de pelvis/abdomen si hay duda diagnóstica.</p>
-            <div class="section-title">6. Tratamiento</div>
-            <p>Reanimación hemodinámica agresiva, estabilización hidroelectrolítica y soporte intensivo inmediato.</p>
-            <div class="section-title">7. Antibióticos</div>
-            <p>Esquema empírico triple IV: Carbapenem o Piperacilina-Tazobactam + Vancomicina + Clindamicina (inhibe toxinas).</p>
-            <div class="section-title">8. Cirugía</div>
-            <p>Desbridamiento quirúrgico amplio y radical de todo el tejido necrótico hasta encontrar tejido sangrante sano. Curaciones diarias en quirófano.</p>
-            <div class="section-title">9. Complicaciones</div>
-            <p>Shock séptico, falla multiorgánica, pérdida amplia de tejidos perineales requiriendo cirugía reconstructiva posterior.</p>
-            <div class="section-title">10. Bibliografía</div>
-            <p>📖 EAU Guidelines on Urological Infections; Campbell-Walsh Urology.</p>
-          `;
-        } else if (lower.includes('priapismo') || lower.includes('priapism')) {
-          respuestaHtml = `
-            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: Priapismo Isquémico</h3>
-            <div class="section-title">1. Definición</div>
-            <p>Erección persistente &gt; 4 horas no relacionada con el estímulo sexual, debida a falla en el drenaje venoso (venooclusivo/isquémico).</p>
-            <div class="section-title">2. Diagnóstico</div>
-            <p>Clínico: Cuerpos cavernosos rígidos y dolorosos, glande flácido. Gasometría cavernosa (hipoxia, acidosis).</p>
-            <div class="section-title">3. Clasificación</div>
-            <p>Isquémico (bajo flujo / doloroso / emergencia) vs No isquémico (alto flujo / arterial / indoloro).</p>
-            <div class="section-title">4. Signos de alarma</div>
-            <p>⚡ Isquemia prolongada (&gt; 24-48 h) con riesgo inminente de fibrosis tisular y disfunción eréctil permanente.</p>
-            <div class="section-title">5. Estudios</div>
-            <p>Gasometría de cuerpos cavernosos, ecografía Doppler peneana, hemograma y perfil de coagulación.</p>
-            <div class="section-title">6. Tratamiento</div>
-            <p>Alivio del dolor, analgesia/anestesia local y descompresión cavernosa precoz.</p>
-            <div class="section-title">7. Antibióticos</div>
-            <p>No requiere de rutina salvo procedimiento instrumental invasivo.</p>
-            <div class="section-title">8. Cirugía</div>
-            <p>Punciones de cuerpos cavernosos con lavado e inyección de Fenilefrina diluida. Si fracasa: Shunts quirúrgicos (Winter, Al-Ghorab).</p>
-            <div class="section-title">9. Complicaciones</div>
-            <p>Fibrosis cavernosa, disfunción eréctil irreversible y acortamiento peneano.</p>
-            <div class="section-title">10. Bibliografía</div>
-            <p>📖 EAU Guidelines on Sexual and Reproductive Health; Campbell-Walsh Urology.</p>
-          `;
-        } else if (lower.includes('fiebre') || lower.includes('litiasis') || lower.includes('dolor lumbar') || lower.includes('caso')) {
-          respuestaHtml = `
-            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Resolución de Caso Clínico</h3>
-            <div class="section-title">1. Problema Principal</div>
-            <p>Urgencia urológica obstructiva e infecciosa asociada a litiasis ureteral obstructiva mayor a 5 mm con sospecha de urosepsis.</p>
-            <div class="section-title">2. Datos Faltantes / Anamnesis</div>
-            <p>• Signos vitales completos (PA, FC, Temp).<br>• Hemograma, función renal (creatinina, urea) y estado ácido-base con lactato.</p>
-            <div class="section-title">3. Diagnóstico Diferencial</div>
-            <p>• Pielonefritis aguda sin obstrucción.<br>• Cólico renal simple con SIRS leve.</p>
-            <div class="section-title">4. Estudios Complementarios</div>
-            <p>• Ecografía renal (hidronefrosis).<br>• Uro-TC sin contraste para confirmar tamaño exacto (8 mm) y nivel de obstrucción.</p>
-            <div class="section-title">5. Criterios de Gravedad</div>
-            <p>⚠️ <strong>Emergencia Quirúrgica:</strong> Riesgo inminente de urosepsis obstructiva.</p>
-            <div class="section-title">6. Opciones de Manejo</div>
-            <p>• Hidratación y antibioticoterapia IV de amplio espectro.<br>• Descompresión urgente de la vía urinaria (Catéter Doble J o Nefrostomía).</p>
-            <div class="section-title">7. Bibliografía</div>
-            <p>📖 EAU Guidelines on Urolithiasis & Urological Infections; Campbell-Walsh Urology.</p>
-          `;
-        } else {
-          respuestaHtml = `
-            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: ${txt}</h3>
-            <div class="section-title">1. Definición</div>
-            <p>Concepto fisiopatológico y clínico central sobre ${txt} en la práctica urológica.</p>
-            <div class="section-title">2. Diagnóstico</div>
-            <p>Evaluación clínica sintomática, anamnesis y exploración física específica.</p>
-            <div class="section-title">3. Clasificación</div>
-            <p>Estadios clínicos, etiológicos o grados de severidad según guías vigentes.</p>
-            <div class="section-title">4. Signos de alarma</div>
-            <p>⚡ Criterios de gravedad, SIRS, compromiso hemodinámico u obstrucción.</p>
-            <div class="section-title">5. Estudios</div>
-            <p>Laboratorio general, marcadores inflamatorios y estudios de imagen (Ecografía / Uro-TC).</p>
-            <div class="section-title">6. Tratamiento</div>
-            <p>Medidas de soporte iniciales, estabilización y conducta conservadora o activa.</p>
-            <div class="section-title">7. Antibióticos</div>
-            <p>Profilaxis o tratamiento empírico según foco infeccioso y sensibilidad.</p>
-            <div class="section-title">8. Cirugía</div>
-            <p>Indicaciones de intervención quirúrgica, endourológica o descompresión urgente.</p>
-            <div class="section-title">9. Complicaciones</div>
-            <p>Riesgos evolutivos a corto y largo plazo (infección, recidiva, daño orgánico).</p>
-            <div class="section-title">10. Bibliografía</div>
-            <p>📖 Guías Clínicas EAU & AUA; Campbell-Walsh Urology.</p>
-          `;
-        }
-
-        box.innerHTML += `<div class="ai-msg assistant">${respuestaHtml}</div>`;
-        box.scrollTop = box.scrollHeight;
-      }, 600);
-    }
-
-    async function traducirTextoPorPartes(id) {
-      const el = document.getElementById(id);
-      const textoOriginal = el.innerText;
-      if (!textoOriginal) return;
-
-      mostrarToast("Traduciendo texto completo...");
-
-      const chunks = [];
-      let start = 0;
-      while (start < textoOriginal.length) {
-        chunks.push(textoOriginal.slice(start, start + 450));
-        start += 450;
-      }
-
-      let textoTraducidoCompleto = "";
-      try {
-        for (let chunk of chunks) {
-          const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk)}&langpair=en|es`;
-          const res = await fetch(url);
-          const data = await res.json();
-          if (data.responseData?.translatedText) {
-            textoTraducidoCompleto += data.responseData.translatedText + " ";
-          } else {
-            textoTraducidoCompleto += chunk + " ";
-          }
-        }
-
-        el.innerHTML = `<strong>Traducción Íntegra al Español:</strong><br>${textoTraducidoCompleto}`;
-        mostrarToast("Traducción íntegra finalizada");
-      } catch(e) {
-        mostrarToast("Error en la traducción");
-      }
-    }
-
-    async function resumirTexto(id) {
-      const el = document.getElementById(id);
-      const txt = el.innerText;
-      if (!txt) return;
-
-      mostrarToast("Generando resumen clínico...");
-      try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(txt.slice(0, 350))}&langpair=en|es`;
-        const res = await fetch(url);
-        const data = await res.json();
-        if (data.responseData?.translatedText) {
-          el.innerHTML = `<strong>📌 Resumen de Puntos Clave (Perlas Clínicas):</strong><br>• <em>Hallazgo principal:</em> ${data.responseData.translatedText.slice(0, 180)}...<br>• <em>Implicancia:</em> Relevante para manejo en sala y protocolos de urología.`;
-          mostrarToast("Resumen generado con éxito");
-        }
-      } catch(e) {
-        mostrarToast("Error al generar resumen");
+            <p style="font-weight:700; color:#b91c1c; margin-bottom:6px;">El servidor proxy o el repositorio tardó demasiado en responder.</p>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Intentá de nuevo o realizá la consulta directamente en PubMed.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(input)}" target="_blank" class="btn-act btn-primary" style="display:inline-flex;">🔍 Buscar en PubMed ↗</a>
+          </div>`;
       }
     }
 
@@ -1710,9 +1112,9 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
       const r = document.getElementById('resStent');
       if (!v) { r.style.display = 'none'; return; }
       r.style.display = 'block';
-      if (v === 'baja') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>24 cm</strong> (4.7 a 6 Fr). Previene irritación vesical.";
-      else if (v === 'media') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>26 cm</strong> (6 Fr estándar).";
-      else r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>28 cm</strong> (6 Fr). Evita migración proximal.";
+      if (v === 'baja') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>24 cm</strong> (4.7 a 6 Fr). Ideal para baja estatura.";
+      else if (v === 'media') r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>26 cm</strong> (6 Fr estándar). Medida anatómica estándar.";
+      else r.innerHTML = "<strong>Sugerencia:</strong> Catéter Doble J de <strong>28 cm</strong> (6 Fr). Evita migración proximal en pacientes altos.";
     }
   </script>
 </body>
