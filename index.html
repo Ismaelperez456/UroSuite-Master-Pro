@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>UroSuite Master Pro | Full Clinical AI & Ficha Rápida</title>
+  <title>UroSuite Master Pro | PubMed & Europe PMC Direct Search</title>
 
   <meta name="theme-color" content="#0f172a">
   <meta name="mobile-web-app-capable" content="yes">
@@ -328,7 +328,7 @@
     td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; color: #334155; }
     tr:last-child td { border-bottom: none; }
 
-    /* ESTILOS DEL ASISTENTE HÍBRIDO (FICHA RÁPIDA + CASOS) */
+    /* ESTILOS ASISTENTE Y FICHA RÁPIDA */
     .ai-chat-box {
       background: #f8fafc;
       border: 1px solid var(--border);
@@ -481,7 +481,7 @@
       <div class="header-controls">
         <div class="live-status">
           <span class="live-dot"></span>
-          <span>Asistente Total Activo</span>
+          <span>PubMed & Europe PMC Activo</span>
         </div>
         <button class="btn-fullscreen" onclick="alternarPantallaCompleta()" title="Pantalla Completa">
           <span id="fsIcon">⛶</span>
@@ -494,12 +494,12 @@
 
   <div class="container">
 
-    <!-- TAB 1: BUSCADOR TOTAL INTEGRADO -->
+    <!-- TAB 1: BUSCADOR GLOBAL INTERNACIONAL -->
     <div id="tab-buscador" class="tab-content active">
       <div class="search-panel">
         <div class="search-row">
-          <input type="text" id="termInput" placeholder="Buscá palabras clave (ej: litiasis, priapism, retention)..." onkeydown="if(event.key==='Enter') ejecutarBusquedaTotal()">
-          <button class="btn-search" onclick="ejecutarBusquedaTotal()">Buscar</button>
+          <input type="text" id="termInput" placeholder="Buscá en PubMed / Europe PMC (ej: litiasis, priapism, retention)..." onkeydown="if(event.key==='Enter') ejecutarBusquedaGlobal()">
+          <button class="btn-search" onclick="ejecutarBusquedaGlobal()">Buscar</button>
         </div>
 
         <div class="filter-label">Antigüedad (Criterio para Trabajos y Congresos):</div>
@@ -521,10 +521,10 @@
 
       <div id="resultadosContainer">
         <div class="card" style="text-align:center; padding: 44px 20px;">
-          <p style="font-size: 2.2rem; margin-bottom: 10px;">⚡</p>
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Buscador Clínico Inteligente</h3>
+          <p style="font-size: 2.2rem; margin-bottom: 10px;">🌍</p>
+          <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Buscador Global en Vivo (PubMed / Europe PMC)</h3>
           <p style="font-size: 0.85rem; color: var(--slate-muted); max-width: 440px; margin: 0 auto;">
-            Accedé en tiempo real a repositorios médicos mundiales con traducción íntegra y herramientas para residentes.
+            Consultá literatura médica internacional en tiempo real con traducción íntegra por bloques.
           </p>
         </div>
       </div>
@@ -771,7 +771,7 @@
           <li><strong>Diapositiva 6 (Conclusión & Perla Clínica):</strong> Take-Home Message para guardia.</li>
         </ul>
         <div class="btn-row">
-          <button class="btn-act btn-ppt" onclick="copiarPlantillaPowerPoint()">📑 Copiar Guión para Diapositivas</button>
+          <button class="btn-act btn-ppt" onclick="copiarPlantillaPowerPoint()">📑 Guión para Diapositivas</button>
         </div>
       </div>
 
@@ -843,7 +843,7 @@
 
       <div class="card-surg-item" onclick="abrirCirugia('nefrectomia')">
         <div class="surg-info">
-          <span class="badge badge-onco">Nivel R3 • Laparoscopía</span>
+          <span class="badge badge-onco">Nivel R3 • Laparoscópica</span>
           <h3>Nefrectomía Radical Laparoscópica</h3>
           <p>Trócares, línea de Toldt y ligadura precoz de arteria renal.</p>
         </div>
@@ -916,24 +916,24 @@
       </div>
     </div>
 
-    <!-- TAB 6: ASISTENTE CLÍNICO HÍBRIDO (FICHA RÁPIDA + CASOS) -->
+    <!-- TAB 6: ASISTENTE HÍBRIDO (FICHA RÁPIDA 10 PUNTOS + CASOS CLÍNICOS) -->
     <div id="tab-asistente" class="tab-content">
       <div class="card">
-        <span class="badge badge-proj">Asistente Clínico Inteligente</span>
-        <h3>Ficha Rápida & Resolución Estructurada de Casos</h3>
+        <span class="badge badge-proj">Asistente Clínico Master Pro</span>
+        <h3>Ficha Rápida & Resolución de Casos de Guardia</h3>
         <p style="font-size:0.85rem; color:var(--slate-muted); margin-bottom:14px;">
-          Escribí una patología (ej: <em>"Fournier"</em>, <em>"Priapismo"</em>) para ver su <strong>Ficha Rápida (10 puntos)</strong>, o describí un caso (ej: <em>"Dolor lumbar y fiebre con cálculo de 8 mm"</em>) para la <strong>Resolución de Casos</strong>.
+          Escribí una patología (ej: <em>"Fournier"</em>, <em>"Priapismo"</em>, <em>"Torsión"</em>) para ver su <strong>Ficha Rápida de 10 puntos</strong>, o un caso clínico (ej: <em>"Dolor lumbar, fiebre y cálculo de 8 mm"</em>) para su resolución estructurada.
         </p>
 
         <div class="ai-chat-box" id="aiChatBox">
           <div class="ai-msg assistant">
-            <strong>Asistente Clínico Master Pro:</strong> Ingresá una patología o un caso clínico de guardia para procesarlo al instante.
+            <strong>Asistente Clínico Integrado:</strong> Ingresá cualquier patología o caso clínico para generar su análisis completo al instante.
           </div>
         </div>
 
         <div class="ai-input-row">
-          <input type="text" id="aiInput" class="note-input" placeholder="Ej: Fournier, Torsión testicular, o un caso clínico..." style="margin-bottom:0;" onkeydown="if(event.key==='Enter') procesarConsultaAsistente()">
-          <button class="btn-search" onclick="procesarConsultaAsistente()">Consultar</button>
+          <input type="text" id="aiInput" class="note-input" placeholder="Ej: Fournier, Torsión testicular, o caso clínico..." style="margin-bottom:0;" onkeydown="if(event.key==='Enter') procesarConsultaAsistente()">
+          <button class="btn-search" onclick="procesarConsultaAsistente()">Generar</button>
         </div>
       </div>
     </div>
@@ -976,6 +976,7 @@
     </button>
   </nav>
 
+  <script src="config.js"></script>
   <script>
     function alternarPantallaCompleta() {
       if (!document.fullscreenElement) {
@@ -1006,7 +1007,7 @@
     function buscarTemaExamen(termino) {
       cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
       document.getElementById('termInput').value = termino;
-      ejecutarBusquedaTotal();
+      ejecutarBusquedaGlobal();
     }
 
     const atlasCirugias = {
@@ -1178,7 +1179,7 @@
       forzarCierreModal();
       cambiarPestana('tab-buscador', document.querySelectorAll('.dock-btn')[0]);
       document.getElementById('termInput').value = termino;
-      ejecutarBusquedaTotal();
+      ejecutarBusquedaGlobal();
     }
 
     let aniosFiltro = '5';
@@ -1188,14 +1189,14 @@
       document.querySelectorAll('.pill-year').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       aniosFiltro = anios;
-      ejecutarBusquedaTotal();
+      ejecutarBusquedaGlobal();
     }
 
     function setFiltroTipo(btn, tipo) {
       document.querySelectorAll('.pill:not(.pill-year)').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       tipoFiltro = tipo;
-      ejecutarBusquedaTotal();
+      ejecutarBusquedaGlobal();
     }
 
     function cambiarPestana(tabId, btn) {
@@ -1314,7 +1315,232 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
 
     cargarNotas();
 
-    // MOTOR HÍBRIDO: DETECTA SI ES PATOLOGÍA (FICHA RÁPIDA DE 10 PUNTOS) O CASO CLÍNICO DE GUARDIA
+    // MOTOR DE BÚSQUEDA GLOBAL INTERNACIONAL EN VIVO (EUROPE PMC / PUBMED)
+    async function ejecutarBusquedaGlobal() {
+      const inputEl = document.getElementById('termInput');
+      const cont = document.getElementById('resultadosContainer');
+      const input = inputEl ? inputEl.value.trim() : '';
+      if (!input || !cont) return;
+
+      cont.innerHTML = `
+        <div class="card" style="text-align:center; padding:35px; color:var(--slate-muted);">
+          🔎 Buscando en Europe PMC / PubMed...
+        </div>
+      `;
+
+      const anioActual = new Date().getFullYear();
+
+      // Consulta deliberadamente simple y compatible con Europe PMC.
+      // PUB_YEAR admite rangos según la documentación oficial.
+      let q = `(${input}) AND (urology OR urological OR urologic OR urología)`;
+
+      if (aniosFiltro === '5') {
+        q += ` AND PUB_YEAR:[${anioActual - 5} TO ${anioActual}]`;
+      } else if (aniosFiltro === '10') {
+        q += ` AND PUB_YEAR:[${anioActual - 10} TO ${anioActual}]`;
+      }
+
+      if (tipoFiltro) {
+        const tipoSeguro = String(tipoFiltro)
+          .replace(/"/g, '')
+          .replace(/[^\w\s-]/g, ' ')
+          .trim();
+
+        if (tipoSeguro) {
+          q += ` AND "${tipoSeguro}"`;
+        }
+      }
+
+      // En GitHub Pages, configurá la URL pública de tu backend aquí.
+      // En local, dejar vacío para usar /api/europepmc/search del servidor local.
+      const API_BASE_URL = (window.UROS_API_BASE_URL || '').trim();
+      const endpoint = API_BASE_URL
+        ? `${API_BASE_URL.replace(/\/$/, '')}/api/europepmc/search`
+        : '/api/europepmc/search';
+
+      const params = new URLSearchParams();
+      params.set('query', q);
+      params.set('format', 'json');
+      params.set('pageSize', '10');
+      params.set('resultType', 'core');
+      // Europe PMC documenta P_PDATE_D como campo de ordenamiento.
+      params.set('sort', 'P_PDATE_D desc');
+
+      const url = `${endpoint}?${params.toString()}`;
+
+      const escapeHTML = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+      const limpiarTexto = (value) => String(value ?? '')
+        .replace(/<[^>]*>/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      try {
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store'
+        });
+
+        if (!res.ok) {
+          let detail = '';
+          try {
+            const errData = await res.json();
+            detail = errData?.detail || errData?.error || '';
+          } catch (_) {}
+          throw new Error(`HTTP ${res.status}${detail ? `: ${detail}` : ''}`);
+        }
+
+        const data = await res.json();
+        const modo = API_BASE_URL ? 'backend online' : 'proxy local';
+
+        const papers = Array.isArray(data?.resultList?.result)
+          ? data.resultList.result
+          : [];
+
+        if (papers.length === 0) {
+          cont.innerHTML = `
+            <div class="card" style="text-align:center; padding:25px;">
+              <p style="color:var(--slate-muted);">
+                Sin resultados para <strong>${escapeHTML(input)}</strong> con los filtros actuales.
+              </p>
+              <p style="font-size:0.8rem; color:var(--slate-muted); margin-top:8px;">
+                Probá con <em>litiasis</em>, <em>renal stone</em>, <em>priapism</em>,
+                <em>prostate cancer</em> o <em>hematuria</em>.
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        let html = `
+          <div style="margin-bottom:12px; color:var(--slate-muted); font-size:0.82rem;">
+            <strong>${papers.length}</strong> resultado(s) encontrados en Europe PMC / PubMed.
+            <span style="font-size:0.72rem;">(${modo})</span>
+          </div>
+        `;
+
+        papers.forEach((p, i) => {
+          const title = limpiarTexto(p.title) || 'Artículo sin título';
+          const abs = limpiarTexto(p.abstractText) ||
+            'Resumen no disponible en el índice público.';
+          const journal = limpiarTexto(p.journalTitle) || 'Revista biomédica';
+          const year = limpiarTexto(p.pubYear);
+          const authors = limpiarTexto(p.authorString) || 'Autores no disponibles';
+          const doi = limpiarTexto(p.doi);
+          const pmid = limpiarTexto(p.pmid);
+          const pubType = limpiarTexto(p.pubType) || 'Artículo';
+
+          const articleUrl = pmid
+            ? `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(pmid)}/`
+            : (doi
+                ? `https://doi.org/${encodeURIComponent(doi)}`
+                : `https://europepmc.org/search?query=${encodeURIComponent(title)}`);
+
+          const journalUrl =
+            `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
+
+          const queryImagen =
+            encodeURIComponent(`${title} urology anatomy ultrasound CT`);
+
+          // Usamos JSON serializado para evitar que comillas/apóstrofes
+          // presentes en títulos o abstracts rompan los onclick.
+          const safeTitle = JSON.stringify(title);
+          const safeAuthors = JSON.stringify(authors);
+          const safeJournal = JSON.stringify(journal);
+          const safeYear = JSON.stringify(year);
+
+          html += `
+            <div class="card">
+              <div>
+                <span class="badge badge-surg">${escapeHTML(pubType)}</span>
+                <span class="badge badge-gold">Año ${escapeHTML(year)}</span>
+              </div>
+
+              <h3>${escapeHTML(title)}</h3>
+
+              <p style="font-size:0.75rem; color:var(--slate-muted); margin-bottom:8px;">
+                <strong>Fuente:</strong>
+                <a href="${journalUrl}" target="_blank" rel="noopener noreferrer"
+                   style="color:var(--primary); font-weight:700; text-decoration:none;">
+                  ${escapeHTML(journal)} ↗
+                </a>
+                |
+                <strong>Autores:</strong> ${escapeHTML(authors)}
+              </p>
+
+              <div class="abstract-box" id="abs-${i}">${escapeHTML(abs)}</div>
+
+              <div class="btn-row">
+                <button class="btn-act btn-primary"
+                  onclick="traducirTextoPorPartes('abs-${i}')">
+                  ⚡ Traducir al Español
+                </button>
+
+                <button class="btn-act btn-primary"
+                  onclick="resumirTexto('abs-${i}')">
+                  📌 Resumir Puntos Clave
+                </button>
+
+                <button class="btn-act btn-drive"
+                  onclick='copiarParaDrive(${safeTitle}, ${safeAuthors}, ${safeJournal}, ${safeYear}, "abs-${i}")'>
+                  📋 Copiar para Drive
+                </button>
+
+                <button class="btn-act btn-ppt"
+                  onclick='generarGuionPPT(${safeTitle}, ${JSON.stringify(abs)})'>
+                  📊 Guión PPT
+                </button>
+
+                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}"
+                   target="_blank" rel="noopener noreferrer" class="btn-act btn-img">
+                  📸 Ver Imágenes & Esquemas
+                </a>
+
+                <a href="${articleUrl}" target="_blank" rel="noopener noreferrer"
+                   class="btn-act" style="color:var(--primary);">
+                  Ver Fuente ↗
+                </a>
+              </div>
+            </div>
+          `;
+        });
+
+        cont.innerHTML = html;
+
+      } catch (e) {
+        console.error('UroSuite / Europe PMC:', e);
+
+        const mensaje = escapeHTML(
+          e?.message || 'No se pudo conectar con Europe PMC.'
+        );
+
+        cont.innerHTML = `
+          <div class="card" style="text-align:center; padding:25px;">
+            <p style="color:#ef4444; font-weight:700;">
+              No se pudo realizar la búsqueda.
+            </p>
+            <p style="font-size:0.82rem; color:var(--slate-muted); margin-top:8px;">
+              ${mensaje}
+            </p>
+            <p style="font-size:0.75rem; color:var(--slate-muted); margin-top:8px;">
+              Verificá que Live Server esté activo y que Chrome tenga acceso a Internet.
+            </p>
+            <button class="btn-act btn-primary" style="margin-top:12px;"
+              onclick="ejecutarBusquedaGlobal()">
+              🔄 Reintentar
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    // MOTOR DEL ASISTENTE (FICHA RÁPIDA 10 PUNTOS + CASOS CLÍNICOS)
     function procesarConsultaAsistente() {
       const input = document.getElementById('aiInput');
       const box = document.getElementById('aiChatBox');
@@ -1378,7 +1604,6 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
             <p>📖 EAU Guidelines on Sexual and Reproductive Health; Campbell-Walsh Urology.</p>
           `;
         } else if (lower.includes('fiebre') || lower.includes('litiasis') || lower.includes('dolor lumbar') || lower.includes('caso')) {
-          // Resolución Estructurada de Casos Clínicos
           respuestaHtml = `
             <h3 style="color:var(--primary-dark); margin-bottom:6px;">Resolución de Caso Clínico</h3>
             <div class="section-title">1. Problema Principal</div>
@@ -1397,8 +1622,7 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
             <p>📖 EAU Guidelines on Urolithiasis & Urological Infections; Campbell-Walsh Urology.</p>
           `;
         } else {
-          // Ficha Rápida Estándar Automática
-          fichaHtml = `
+          respuestaHtml = `
             <h3 style="color:var(--primary-dark); margin-bottom:6px;">Ficha Rápida: ${txt}</h3>
             <div class="section-title">1. Definición</div>
             <p>Concepto fisiopatológico y clínico central sobre ${txt} en la práctica urológica.</p>
@@ -1421,96 +1645,11 @@ Diapositiva 6: Conclusión y Take-Home Message para guardia`;
             <div class="section-title">10. Bibliografía</div>
             <p>📖 Guías Clínicas EAU & AUA; Campbell-Walsh Urology.</p>
           `;
-          respuestaHtml = fichaHtml;
         }
 
         box.innerHTML += `<div class="ai-msg assistant">${respuestaHtml}</div>`;
         box.scrollTop = box.scrollHeight;
       }, 600);
-    }
-
-    async function ejecutarBusquedaTotal() {
-      const input = document.getElementById('termInput').value.trim();
-      const cont = document.getElementById('resultadosContainer');
-      if (!input) return;
-
-      cont.innerHTML = `
-        <div class="card" style="text-align:center; padding:35px; color:var(--slate-muted);">
-          Buscando información global y de guías urológicas en tiempo real...
-        </div>
-      `;
-
-      let q = `(${input}) AND (urology OR urological OR urología OR urologic)`;
-      
-      const anioActual = new Date().getFullYear();
-      if (aniosFiltro === '5') {
-        const desde = anioActual - 5;
-        q += ` AND (PUB_YEAR:[${desde} TO ${anioActual}])`;
-      } else if (aniosFiltro === '10') {
-        const desde = anioActual - 10;
-        q += ` AND (PUB_YEAR:[${desde} TO ${anioActual}])`;
-      }
-
-      if (tipoFiltro) {
-        q += ` AND ("${tipoFiltro}" OR review OR guideline)`;
-      }
-
-      const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&format=json&pageSize=10&resultType=core&sort=P_PDATE_D desc`;
-
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        const papers = data.resultList.result;
-
-        if (!papers || papers.length === 0) {
-          cont.innerHTML = `
-            <div class="card" style="text-align:center; padding:30px;">
-              <p style="color:var(--slate-muted);">Sin resultados exactos para "${input}". Probá acortando el término (ej: "priapism", "litiasis").</p>
-            </div>
-          `;
-          return;
-        }
-
-        let html = '';
-        papers.forEach((p, i) => {
-          const abs = p.abstractText ? p.abstractText.replace(/<[^>]*>/g, '') : "Información teórica y resumen conceptual no disponible en el índice público.";
-          const journal = p.journalTitle || "Revista / Guía Urológica Mundial";
-          const year = p.pubYear || "";
-          const authors = p.authorString || "Comité Editorial / Autores";
-          const journalUrl = `https://www.ncbi.nlm.nih.gov/nlmcatalog/?term=${encodeURIComponent(journal)}`;
-          const queryImagen = encodeURIComponent(`${p.title} urology anatomy ultrasound ct`);
-
-          html += `
-            <div class="card">
-              <div>
-                <span class="badge badge-surg">${p.pubType || 'Guía / Manual'}</span>
-                <span class="badge badge-gold">Año ${year}</span>
-              </div>
-              <h3>${p.title}</h3>
-              <p style="font-size:0.78rem; color:var(--slate-muted); margin-bottom:10px;">
-                <strong>Fuente:</strong> <a href="${journalUrl}" target="_blank" style="color:var(--primary); font-weight:700; text-decoration:none;">${journal} ↗</a> | <strong>Autores:</strong> ${authors}
-              </p>
-              <div class="abstract-box" id="abs-${i}">${abs}</div>
-              <div class="btn-row">
-                <button class="btn-act btn-primary" onclick="traducirTextoPorPartes('abs-${i}')">⚡ Traducir al Español</button>
-                <button class="btn-act btn-primary" onclick="resumirTexto('abs-${i}')">📌 Resumir Puntos Clave</button>
-                <button class="btn-act btn-drive" onclick="copiarParaDrive('${p.title.replace(/'/g, "\\'")}', '${authors.replace(/'/g, "\\'")}', '${journal}', '${year}', 'abs-${i}')">📋 Copiar para Drive</button>
-                <button class="btn-act btn-ppt" onclick="generarGuionPPT('${p.title.replace(/'/g, "\\'")}', '${abs.replace(/'/g, "\\'")}')">📊 Guión PPT</button>
-                <a href="https://www.google.com/search?tbm=isch&q=${queryImagen}" target="_blank" class="btn-act btn-img">📸 Ver Imágenes & Esquemas</a>
-                <a href="https://doi.org/${p.doi || ''}" target="_blank" class="btn-act" style="color:var(--primary);">Ver Fuente ↗</a>
-              </div>
-            </div>
-          `;
-        });
-        cont.innerHTML = html;
-
-      } catch (e) {
-        cont.innerHTML = `
-          <div class="card" style="text-align:center; padding:25px;">
-            <p style="color:#ef4444; font-weight:600;">Error de conexión con repositorios internacionales.</p>
-          </div>
-        `;
-      }
     }
 
     async function traducirTextoPorPartes(id) {
